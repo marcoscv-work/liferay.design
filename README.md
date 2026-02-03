@@ -1,7 +1,5 @@
 # Design.Liferay
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b2922843-0ae6-4361-bdb2-6e26329da68a/deploy-status)](https://app.netlify.com/sites/happy-jackson-1b6bb8/deploys)
-
 ## About
 
 The online presence of Liferay's Design Teams!
@@ -89,12 +87,6 @@ _N.B. Our site requires API keys to be fully built — while we're working on ma
 #### Master
 
 Work and submit pull requests from the `master` branch.
-
-#### Dev
-
-_Note: The `Dev` branch is no longer being actively used — the use-case for it is no longer necessary thanks to [Netlify's Deploy Previews](https://app.netlify.com/sites/happy-jackson-1b6bb8/deploys?filter=deploy+previews)._
-
-Currently live on [dev.design.liferay.com](https://dev.design.liferay.com). This is our pre-production environment, best not to send pull requests to it unless there's a special scenario.
 
 #### Production
 
