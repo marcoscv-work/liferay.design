@@ -39,6 +39,6 @@ Every product should be intuitive, easy to use and give users an enjoyable exper
 
 • [10 Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/)
 
-• [Recognition rather than recall](https://liferay.design/articles/best-practices/design-for-recognition-not-recall/)
+• [Recognition rather than recall](https://design.liferay.com/articles/best-practices/design-for-recognition-not-recall/)
 
 • [Heuristic Evaluation: How to conduct a Heuristic Evaluation](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/)

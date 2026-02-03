@@ -7,8 +7,8 @@ import { SEO } from 'components/molecules'
 const Changelog = () => (
 	<MainLayout section="Changelog">
 		<SEO
-			description="A feed with all of the latest updates to Liferay.Design"
-			pageTitle="Liferay.Design | Changelog"
+			description="A feed with all of the latest updates to Design.Liferay"
+			pageTitle="Design.Liferay | Changelog"
 		/>
 		<Container background="white">
 			<Flex align="center" direction="column">

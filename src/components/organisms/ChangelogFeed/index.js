@@ -63,11 +63,7 @@ export default function ChangelogFeed({ items, ...props }) {
 											className={styles.avatar}
 											role="presentation"
 											title={i.id}
-											src={
-												imagePath +
-												kebabCase(i.id) +
-												'.jpg'
-											}
+											src={imagePath + kebabCase(i.id) + '.jpg'}
 											alt={`${i.id}` + '‘s headshot'}
 										/>
 									</div>
@@ -86,7 +82,7 @@ export default function ChangelogFeed({ items, ...props }) {
 					</Flex>
 					<Link
 						to={
-							'https://github.com/liferay-design/liferay.design' +
+							'https://github.com/liferay-design/design.liferay.com' +
 							`${node.gitUrl}`
 						}
 					>

@@ -14,7 +14,7 @@ export const Handbook = () => {
 		<div className={`${blueprints.theme} ${documentation.theme} ${styles.handbook}`}>
 			<SEO
 				description="The open source handbook for Liferay's Design Department"
-				pageTitle="Liferay.Design | Handbook"
+				pageTitle="Design.Liferay | Handbook"
 			/>
 			<div className={styles.wrapper}>
 				<Navbar simpleNav white />
@@ -88,7 +88,7 @@ export const Handbook = () => {
 							icon="waffle"
 							title="Style"
 							text="Digital Marketing Styleguide"
-							to="https://style.liferay.design"
+							to="https://style.design.liferay.com"
 							cta="Get in Style"
 						/>
 						<CardHidden
@@ -96,8 +96,8 @@ export const Handbook = () => {
 							delay=".6s"
 							icon="fa_terminal"
 							title="Dashboard"
-							text="A Liferay.Design slideshow"
-							to="https://dashboard.liferay.design"
+							text="A Design.Liferay slideshow"
+							to="https://dashboard.design.liferay.com"
 							cta="Sneak a Peek"
 						/>
 					</Grid>

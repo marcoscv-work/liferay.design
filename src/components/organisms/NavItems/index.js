@@ -4,7 +4,7 @@ import { jsx, NavLink, Flex, Box } from 'theme-ui'
 import { AuthContainer } from 'components/molecules'
 
 const NavItems = () => {
-	const pages = ['Articles', 'Events', 'Team', 'Handbook']
+	const pages = ['Lexicon', 'Articles', 'Events', 'Team', 'Handbook']
 
 	return (
 		<Flex align="center">

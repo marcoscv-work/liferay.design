@@ -1,6 +1,6 @@
 ---
 name: '📘 Blueprints request'
-about: Make a request for liferay.design/blueprints
+about: Make a request for design.liferay.com/blueprints
 labels: blueprints
 ---
 

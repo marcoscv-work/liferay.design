@@ -17,7 +17,7 @@ Talk isn't cheap. It's expensive. It costs you a lot if you don't take any follo
 Below is an example of an idea well-executed.
 
 ![Design Best Practices](/images/articles/15-month-recap/design-best-practices.png)
-_Check Out the Design Best Practices [Articles](https://liferay.design/tags/best-practices)_
+_Check Out the Design Best Practices [Articles](https://design.liferay.com/tags/best-practices)_
 
 ## BUILD PROCESSES
 
@@ -31,7 +31,7 @@ A good solution takes a good decision-making process. I admit my design process 
 
 A good design team is built on good processes. From asset management to career paths, our team has taught me the importance of building processes. These enable our global team to work effectively as a unified department at scale.
 
-Take a look at our [handbook](https://liferay.design/handbook).
+Take a look at our [handbook](https://design.liferay.com/handbook).
 
 ![Handbook](/images/articles/15-month-recap/handbook.png)
 _We, Not Me_

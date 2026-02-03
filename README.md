@@ -1,4 +1,4 @@
-# Liferay.Design
+# Design.Liferay
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b2922843-0ae6-4361-bdb2-6e26329da68a/deploy-status)](https://app.netlify.com/sites/happy-jackson-1b6bb8/deploys)
 
@@ -13,7 +13,7 @@ Designed in [Figma](https://figma.com), built with [Gatsby](https://gatsbyjs.org
 
 ## Table of Contents
 
--   [Liferay.Design](#liferaydesign)
+-   [Design.Liferay](#liferaydesign)
     -   [About](#about)
     -   [👾 Getting started](#-getting-started)
         -   [If you don't have a dev environment](#if-you-dont-have-a-dev-environment)
@@ -94,11 +94,11 @@ Work and submit pull requests from the `master` branch.
 
 _Note: The `Dev` branch is no longer being actively used — the use-case for it is no longer necessary thanks to [Netlify's Deploy Previews](https://app.netlify.com/sites/happy-jackson-1b6bb8/deploys?filter=deploy+previews)._
 
-Currently live on [dev.liferay.design](https://dev.liferay.design). This is our pre-production environment, best not to send pull requests to it unless there's a special scenario.
+Currently live on [dev.design.liferay.com](https://dev.design.liferay.com). This is our pre-production environment, best not to send pull requests to it unless there's a special scenario.
 
 #### Production
 
-Currently live on [liferay.design](https://liferay.design), don't work on Production as your pull request typically won't get accepted.
+Currently live on [design.liferay.com](https://design.liferay.com), don't work on Production as your pull request typically won't get accepted.
 
 #### vN
 
@@ -116,7 +116,7 @@ This contains the scripts that make the site magically appear when new work gets
 
 #### src
 
-The src folder is where all the code is that gets compiled into a `public` folder which gets rendered onto the interwebs at [our domain](https://liferay.design). We roughly follow [atomic design](http://atomicdesign.bradfrost.com) principles.
+The src folder is where all the code is that gets compiled into a `public` folder which gets rendered onto the interwebs at [our domain](https://design.liferay.com). We roughly follow [atomic design](http://atomicdesign.bradfrost.com) principles.
 
 ##### components
 
@@ -148,7 +148,7 @@ title: 'Markdown File Title'
 
 ##### pages
 
-Surprise surprise, this is where the code for the main pages of [liferay.design](https://liferay.design) lives.
+Surprise surprise, this is where the code for the main pages of [design.liferay.com](https://design.liferay.com) lives.
 
 ##### theme
 
@@ -214,7 +214,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## Starting Phresh
 
-_See our [GitHub Setup Guide](https://liferay.design/handbook/tools/github)_
+_See our [GitHub Setup Guide](https://design.liferay.com/handbook/tools/github)_
 
 ### Notes
 

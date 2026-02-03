@@ -39,11 +39,11 @@ On GitHub, you will fork _(fork = create a copy of the code in your account; in 
 ![A diagram showing a series of branches from a main trunk.](/images/articles/should-designers-code/part-2/branches.png)
 _By creating branches off of the master, it’s possible for multiple people to contribute to different areas of a project and then merge their work together._
 
-You do this by navigating to [the repo in GitHub](http://github.com/liferay-design/liferay.design) and clicking the “Fork” button, currently at the top right-hand corner of a repo. This will be the “origin” — your fork on your GitHub account.
+You do this by navigating to [the repo in GitHub](http://github.com/liferay-design/design.liferay.com) and clicking the “Fork” button, currently at the top right-hand corner of a repo. This will be the “origin” — your fork on your GitHub account.
 
-As an example, navigating to [https://github.com/yourGitHubUsername/liferay.design](https://github.com/yourGitHubUsername/liferay.design) should show your fork of the Liferay.Design repo.
+As an example, navigating to [https://github.com/yourGitHubUsername/design.liferay.com](https://github.com/yourGitHubUsername/design.liferay.com) should show your fork of the Design.Liferay repo.
 
-![A screenshot showing GitHub user victorvalle’s fork of the Liferay.Design repo.](/images/articles/should-designers-code/part-2/user-victorvalle-s-fork.png)
+![A screenshot showing GitHub user victorvalle’s fork of the Design.Liferay repo.](/images/articles/should-designers-code/part-2/user-victorvalle-s-fork.png)
 _This is victorvalle’s GitHub fork._
 
 ### Step 2: Clone (Download The Code To Your Computer)
@@ -58,13 +58,13 @@ Copy
 
 Now that you’re in the `/github` folder, you will clone (download a copy of the code onto your computer) the repo.
 
-    clone https://github.com/yourGitHubUsername/liferay.design
+    clone https://github.com/yourGitHubUsername/design.liferay.com
 
 Copy
 
 Once you enter this command, you’ll see a bunch of activity in the terminal — something like this:
 
-    Cloning into 'liferay.design'...
+    Cloning into 'design.liferay.com'...
     remote: Enumerating objects: 380, done.
     remote: Total 380 (delta 0), reused 0 (delta 0), pack-reused 380
     Receiving objects: 100% (380/380), 789.24 KiB | 2.78 MiB/s, done.
@@ -75,7 +75,7 @@ Copy
 
 ### Step 3: Install (Get It Running On Your Machine)
 
-Navigate into the `/project` folder. In this case, we’ll enter `cd liferay.design`. Most projects will include a _README.md_ file in the `/root` folder, this is typically the starting place for installing and running the project. For our purposes, to install, enter `npm install`. Once it’s installed, enter `npm run dev`.
+Navigate into the `/project` folder. In this case, we’ll enter `cd design.liferay.com`. Most projects will include a _README.md_ file in the `/root` folder, this is typically the starting place for installing and running the project. For our purposes, to install, enter `npm install`. Once it’s installed, enter `npm run dev`.
 
 Congratulations! You now have the site available on your local computer — typically projects will tell you where it’s running. In this case, open up a browser and go to `localhost:7777`.
 
@@ -126,7 +126,7 @@ So far, you have #2 and #3 — but #1 is important because it’s the primary so
 
 To track the upstream remote, in your terminal enter the following:
 
-    git remote add upstream https://github.com/liferay-design/liferay.design
+    git remote add upstream https://github.com/liferay-design/design.liferay.com
 
 Copy
 
@@ -135,10 +135,10 @@ Now, check to see what remotes you have available — enter `git remote -v` into
 ![A screenshot of a terminal window displaying printouts of the `git remote -v` command.](/images/articles/should-designers-code/part-2/origin-and-upstream.png)
 _`origin` and `upstream` are the most common labels for remotes — origin is your fork, upstream is the source._
 
-    origin   https://github.com/yourGitHubUsername/liferay.design (fetch)
-    origin    https://github.com/yourGitHubUsername/liferay.design (push)
-    upstream  https://github.com/liferay-design/liferay.design (fetch)
-    upstream  https://github.com/liferay-design/liferay.design (push)
+    origin   https://github.com/yourGitHubUsername/design.liferay.com (fetch)
+    origin    https://github.com/yourGitHubUsername/design.liferay.com (push)
+    upstream  https://github.com/liferay-design/design.liferay.com (fetch)
+    upstream  https://github.com/liferay-design/design.liferay.com (push)
 
 Copy
 

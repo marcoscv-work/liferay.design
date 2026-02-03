@@ -2,7 +2,7 @@
 # - id: date in 'yyyy-mm-dd' format
 #   author: who is posting this update
 #   title: Summary of changes (140 char or less)
-#   gitUrl: link to Github Tag, PR, or commit (don't include https://github.com/liferay-design/liferay.design)title  gitUrl: link to Github Tag, PR, or commit (don't include https://github.com/liferay-design/liferay.design)
+#   gitUrl: link to Github Tag, PR, or commit (don't include https://github.com/liferay-design/design.liferay.com)title  gitUrl: link to Github Tag, PR, or commit (don't include https://github.com/liferay-design/design.liferay.com)
 #   icon: Optional icon to represent something
 #   longSummary: Optional longer description of the updates (500 char or less)
 #   contributors: Other people who helped
@@ -11,14 +11,14 @@
   gitUrl: '/pull/584'
   author: Paul Hanaoka
   title: Upgrade to Node 12
-  longSummary: Liferay.Design is now using the latest stable versions of Node and NPM!
+  longSummary: Design.Liferay is now using the latest stable versions of Node and NPM!
   buildPreview: 'https://deploy-preview-584--happy-jackson-1b6bb8.netlify.com/'
   icon: fa_terminal
   contributors: ['James Lyons']
 - id: '2019-10-19'
   gitUrl: '/pull/571'
   author: Paul Hanaoka
-  title: Liferay.Design/Handbook
+  title: Design.Liferay/Handbook
   titleUrl: '/handbook'
   longSummary: Publish the handbook for Liferay's Global Design Department
   buildPreview: 'https://deploy-preview-571--happy-jackson-1b6bb8.netlify.com/'
@@ -44,7 +44,7 @@
 - id: '2019-07-23'
   gitUrl: '/pull/484'
   author: Paul Hanaoka
-  title: CMS for Liferay.Design
+  title: CMS for Design.Liferay
   longSummary: Set up Forestry.io as a CMS for the site.
   contributors:
       [
@@ -59,9 +59,9 @@
 - id: '2019-04-17'
   gitUrl: '/pull/296'
   author: Victor Valle
-  title: Liferay.Design/Lexicon
+  title: Design.Liferay/Lexicon
   titleUrl: '/lexicon'
-  longSummary: Migrate lexicondesign.io from Electric.js (:drake_no:) to Liferay.Design (:drake_yes:)!
+  longSummary: Migrate lexicondesign.io from Electric.js (:drake_no:) to Design.Liferay (:drake_yes:)!
   contributors: ['David Aragonés', 'Duuriimaa Bargaid', 'Paul Hanaoka']
 - id: '2019-04-09'
   gitUrl: '/pull/281'
@@ -74,14 +74,14 @@
   author: James Lyons
   title: Design Principles
   titleUrl: '/principles'
-  longSummary: Our Principles page — now live at liferay.design/principles.
+  longSummary: Our Principles page — now live at design.liferay.com/principles.
   contributors: ['Ryan Connolly', 'Victor Valle', 'Juan Hidalgo', 'Paul Hanaoka']
 - id: '2018-11-27'
   gitUrl: '/pull/170'
   author: Abel Hancock
   title: 2018 Annual Report
   titleUrl: '/2018'
-  longSummary: Our first Annual Report — now live at liferay.design/2018.
+  longSummary: Our first Annual Report — now live at design.liferay.com/2018.
   contributors: ['Ryan Connolly', 'James Lyons', 'Paul Hanaoka']
 - id: '2018-10-05'
   gitUrl: '/pull/107'
@@ -92,8 +92,8 @@
 - id: '2018-08-27'
   gitUrl: '/pull/54'
   author: Ryan Garant
-  title: Migrate Blueprints to Liferay.Design
-  longSummary: The official Liferay Brand Guidelines have been moved to liferay.design due to the deprecation of Electric.
+  title: Migrate Blueprints to Design.Liferay
+  longSummary: The official Liferay Brand Guidelines have been moved to design.liferay.com due to the deprecation of Electric.
   contributors: ['Paul Hanaoka']
 - id: '2018-04-24'
   gitUrl: '/pull/45'

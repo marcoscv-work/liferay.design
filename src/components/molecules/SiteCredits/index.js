@@ -9,7 +9,7 @@ const SiteCredits = () => {
 				Part of <Link to="https://liferay.com">Liferay, Inc</Link>
 			</Text>
 			<Text size="small">
-				<Link to="https://github.com/liferay-design/liferay.design/blob/master/LICENSE">
+				<Link to="https://github.com/liferay-design/design.liferay.com/blob/master/LICENSE">
 					Code
 				</Link>
 				/<Link to="/resources/license">Content</Link> Licenses

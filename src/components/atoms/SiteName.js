@@ -25,7 +25,7 @@ const SiteName = ({ dark, section, underlineColor }) => {
 				},
 			}}
 		>
-			<Link to="/">Liferay.Design</Link>
+			<Link to="/">Design.Liferay</Link>
 			{section && <Link to={'/' + `${lowerCaseSection}`}> / {section}</Link>}
 			<span
 				sx={{

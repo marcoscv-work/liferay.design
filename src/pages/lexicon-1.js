@@ -35,7 +35,7 @@ const Lexicon = () => (
 					>
 						Explore Lexicon
 					</Text>
-					<Box sx={{mt: [0, null, '-8rem'] }}>
+					<Box sx={{ mt: [0, null, '-8rem'] }}>
 						<CardLexicon
 							icon="whatBlack"
 							title="Get Started"
@@ -44,7 +44,7 @@ const Lexicon = () => (
 							cta="Learn More"
 						/>
 					</Box>
-					<Box sx={{mt: [0, null, '-8rem'] }}>
+					<Box sx={{ mt: [0, null, '-8rem'] }}>
 						<CardLexicon
 							delay="0.4s"
 							icon="principlesBlack"
@@ -54,9 +54,7 @@ const Lexicon = () => (
 							cta="Learn More"
 						/>
 					</Box>
-					<Box
-						className={documentation.socialContainer}
-					>
+					<Box className={documentation.socialContainer}>
 						<Link
 							className={documentation.social}
 							to="https://github.com/liferay-design"
@@ -85,7 +83,7 @@ const Lexicon = () => (
 			Subtitle={() => (
 				<Text size="large">
 					Head on over to the{' '}
-					<Link to="https://github.com/liferay-design/liferay.design/issues?q=is%3Aopen+is%3Aissue+label%3Alexicon">
+					<Link to="https://github.com/liferay-design/design.liferay.com/issues?q=is%3Aopen+is%3Aissue+label%3Alexicon">
 						GitHub repo
 					</Link>
 					!

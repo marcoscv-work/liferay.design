@@ -25,7 +25,7 @@ publish: true
 
 ### Resources
 
-Please refer to these [photography guidelines](https://liferay.design/blueprints/guidelines/photography/ 'photography guidelines'), written by our very own designers. :)
+Please refer to these [photography guidelines](https://design.liferay.com/blueprints/guidelines/photography/ 'photography guidelines'), written by our very own designers. :)
 
 Two helpful articles (also linked in above article):
 

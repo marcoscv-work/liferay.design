@@ -38,7 +38,7 @@ const scheduleArray = [
 			},
 			{
 				time: '11:30',
-				title: 'liferay.design',
+				title: 'design.liferay.com',
 				subtitle: '55 min talk, 5 min Q&A | Training Room 120',
 				speaker: [
 					{

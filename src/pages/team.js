@@ -11,8 +11,8 @@ export default ({ data }) => {
 	return (
 		<MainLayout section="Team">
 			<SEO
-				description="Meet the Liferay.Design team — we're all over the world!"
-				pageTitle="Liferay.Design | Team"
+				description="Meet the Design.Liferay team — we're all over the world!"
+				pageTitle="Design.Liferay | Team"
 			/>
 			<Container>
 				<Flex direction="row" justify="space-between">

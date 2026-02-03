@@ -20,9 +20,9 @@ It was the first time that we were in the same room talking about our needs, iss
 
 ## Highlights
 
-### Liferay.Design Site
+### Design.Liferay Site
 
-Liferay.Design Site is going to be an example of our Liferay Design Culture. It’s going to be a great way to show the quality of our team’s work, a way to attract talented designers, and also a way to express our thoughts and goals.
+Design.Liferay Site is going to be an example of our Liferay Design Culture. It’s going to be a great way to show the quality of our team’s work, a way to attract talented designers, and also a way to express our thoughts and goals.
 
 ### Lexicon
 

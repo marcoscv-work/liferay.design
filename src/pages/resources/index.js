@@ -70,7 +70,7 @@ const ResourcesPage = () => (
 						icon="waffle"
 						title="Style"
 						text="Digital Marketing Styleguide"
-						to="https://style.liferay.design"
+						to="https://style.design.liferay.com"
 						cta="Get in Style"
 					/>
 				</Box>
@@ -79,7 +79,7 @@ const ResourcesPage = () => (
 						icon="fa_terminal"
 						title="Dashboard"
 						text="Coming Soon!"
-						to="https://dashboard.liferay.design"
+						to="https://dashboard.design.liferay.com"
 						cta="Sneak a Peek"
 					/> */}
 			</Grid>

@@ -46,8 +46,8 @@ export default class Lexicon extends Component {
 
 		const post = this.props.data.mdx
 		const seoDescription =
-			`${post.frontmatter.title}` + ' on Lexicon by Liferay.Design'
-		const seoImage = 'https://liferay.design/images/resources/lexicon-cover.png'
+			`${post.frontmatter.title}` + ' on Lexicon by Design.Liferay'
+		const seoImage = 'https://design.liferay.com/images/resources/lexicon-cover.png'
 		console.log(mdx.id, 'id')
 		return (
 			<div className={`${lexicon.theme} ${documentation.theme}`}>
@@ -69,7 +69,7 @@ export default class Lexicon extends Component {
 					<meta name="Description" content={seoDescription} />
 					<meta
 						property="og:title"
-						content={post.frontmatter.title + ' — Lexicon by Liferay.Design'}
+						content={post.frontmatter.title + ' — Lexicon by Design.Liferay'}
 					/>
 
 					<meta name="twitter:card" content="summary_large_image" />

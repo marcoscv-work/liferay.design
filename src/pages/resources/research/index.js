@@ -12,7 +12,7 @@ export default ({ data }) => {
 		<MainLayout section="Resources">
 			<SEO
 				description="Liferay Design Research"
-				pageTitle="Liferay.Design | Research Resources"
+				pageTitle="Design.Liferay | Research Resources"
 			/>
 			<Container
 				padding="5rem 0 6rem"

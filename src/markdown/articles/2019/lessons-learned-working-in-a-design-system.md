@@ -7,7 +7,7 @@ tags: ['Design Systems']
 publish: true
 ---
 
-For the last 2.5 years I've been working in [Lexicon](https://liferay.design/lexicon). It is Liferay's design system, not only for our applications but for everyone to use and extend. I have learned and will continue learning a lot in this project. I hope by sharing my experience can help you too.
+For the last 2.5 years I've been working in [Lexicon](https://design.liferay.com/lexicon). It is Liferay's design system, not only for our applications but for everyone to use and extend. I have learned and will continue learning a lot in this project. I hope by sharing my experience can help you too.
 
 A bit more context; Lexicon was created and is primarily maintained by a team based in our Madrid office. It is used in multiple products by designers in Madrid, but also all over the world; in Los Angeles, Recife, Milan, Budapest and more.
 
@@ -74,4 +74,4 @@ While using a Design System you will find at situations where you would prefer c
 
 If you want to learn more about design systems some brave people are running [Design at Scale Madrid](https://www.meetup.com/es-ES/Design-at-Scale-Madrid/) meetup where we talk about this topic and others.
 
-[Liferay Design](https://liferay.design/events/) team also organize events related to design that can help you grow at different locations.
+[Liferay Design](https://design.liferay.com/events/) team also organize events related to design that can help you grow at different locations.

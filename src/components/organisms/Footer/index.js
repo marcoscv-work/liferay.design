@@ -25,7 +25,7 @@ export const Footer = ({ light, background, markdown }) => {
 							<a href="/handbook/about/contribute">Report an issue</a>!
 						</Text>
 					) : (
-						<Heading level={3}>Liferay.Design</Heading>
+						<Heading level={3}>Design.Liferay</Heading>
 					)}
 					<SocialIcons
 						sx={{

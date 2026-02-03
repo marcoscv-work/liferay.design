@@ -19,4 +19,4 @@ Sometimes errors are unavoidable filling a form even though they are not expecte
 
 • Wroblewski, L. (2008). [Web form design](https://www.amazon.com/dp/B004VFUP2I/ref=cm_sw_r_tw_dp_U_x_vkieDbRX8FG18). Rosenfeld Media.
 
-• [Lexicon Form Validation](https://liferay.design/lexicon/core-components/forms/forms-validation/)
+• [Lexicon Form Validation](https://design.liferay.com/lexicon/core-components/forms/forms-validation/)

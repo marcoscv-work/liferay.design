@@ -26,7 +26,7 @@ if (process.env.MAILCHIMP_KEY) {
 
 module.exports = {
 	siteMetadata: {
-		title: 'Liferay.Design',
+		title: 'Design.Liferay',
 		author: 'Paul Hanaoka',
 		description:
 			'Blogs, careers, guidelines, and other resources from the Design Teams at Liferay!',
@@ -50,7 +50,7 @@ module.exports = {
 			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: `Liferay Design`,
-				short_name: `Liferay.Design`,
+				short_name: `Design.Liferay`,
 				background_color: `#FFF`,
 				theme_color: `#0b5fff`,
 				icon: `src/images/favicon.svg`,

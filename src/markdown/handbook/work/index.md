@@ -47,7 +47,7 @@ All communication at Liferay should be governed by these four principles:
 
     _Before posting a question or providing an answer, consider if your message would be more beneficial to a wider (or narrower) audience, and adjust appropriately._
 
-    From creating meetings to starting conversations, strive to be as [inclusive](https://liferay.design/principles#inclusive) as possible. Keep written communication in English as much as possible. Private conversations are easier held in your native language, and that’s ok, but all public channel discussion should be held in English for optimal searchability.
+    From creating meetings to starting conversations, strive to be as [inclusive](https://design.liferay.com/principles#inclusive) as possible. Keep written communication in English as much as possible. Private conversations are easier held in your native language, and that’s ok, but all public channel discussion should be held in English for optimal searchability.
 
 1. **Proactive**
 

@@ -30,7 +30,7 @@ export default class Events extends Component {
 					keywords={'event, events in ' + `${post.frontmatter.office.id}`}
 					pageTitle={
 						`${post.frontmatter.title}` +
-						' | Liferay.Design Event in ' +
+						' | Design.Liferay Event in ' +
 						`${post.frontmatter.office.id}`
 					}
 					contentType="event"
@@ -96,7 +96,7 @@ export default class Events extends Component {
 						{post.frontmatter.author ? (
 							<Author
 								id={post.frontmatter.author.id}
-								sx={{m:['0 0 2rem -.4rem',"0 0 2rem -3.5rem"]}}
+								sx={{ m: ['0 0 2rem -.4rem', '0 0 2rem -3.5rem'] }}
 							/>
 						) : null}
 						<GlobalMdx>

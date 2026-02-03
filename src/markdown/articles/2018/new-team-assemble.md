@@ -53,7 +53,7 @@ Creating a growth plan for your team is one of the most important ways to serve 
 Having industry-relevant positions and goals will help you stay competitive in hiring, but it will also help your teammates stay relevant in the market. If you define your roles and goals solely based on your team's past achievements, you won't grow as fast (or quite possibly at all) because you're only comparing yourself to the past and maybe to others who are a little bit ahead of you, instead of looking at the outside and setting a high bar that is difficult to hit.
 
 ![Team discussions](/images/articles/casual-ux-na-team-discussion.jpg)
-_This could not be posted on Medium without a proper B&W picture | photo by [David Kim](https://liferay.design/team/kim-david)_
+_This could not be posted on Medium without a proper B&W picture | photo by [David Kim](https://design.liferay.com/team/kim-david)_
 
 ## Looking Ahead
 

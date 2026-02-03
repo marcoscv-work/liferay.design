@@ -87,7 +87,7 @@ We’re looking for generalists with a solid foundation in technical skills – 
 -   A positive and collaborative work [culture](https://www.youtube.com/watch?v=2EPZxIC5ogU)
 -   Check out what employees say about us on [Glassdoor](https://www.glassdoor.com/Reviews/Liferay-Reviews-E278741.htm)
 -   Working at a [leading](https://www.liferay.com/de/blog/en-us/products-and-technology/2021-gartner-magic-quadrant-names-liferay-as-leader-for-digital-experience-platforms) open-source [company](https://www.youtube.com/c/liferay)
--   We're transparent in how we hire, feel free to[ read through our hiring process](https://liferay.design/articles/2021/how-we-hire/)
+-   We're transparent in how we hire, feel free to[ read through our hiring process](https://design.liferay.com/articles/2021/how-we-hire/)
 
 ## Liferay is an Equal Opportunity Employer
 

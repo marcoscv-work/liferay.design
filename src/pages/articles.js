@@ -12,7 +12,7 @@ export default ({ data }) => {
 		<MainLayout section="Articles">
 			<SEO
 				description="Articles, posts, best practices, how-to's and more from Liferay's Design Team"
-				pageTitle="Liferay.Design | Articles"
+				pageTitle="Design.Liferay | Articles"
 			/>
 			<Container>
 				<Flex direction="row" justify="space-between">

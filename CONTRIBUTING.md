@@ -1,1 +1,1 @@
-Please see [the handbook](https://liferay.design/handbook/about/contribute) to get started with contributions.
+Please see [the handbook](https://design.liferay.com/handbook/about/contribute) to get started with contributions.
