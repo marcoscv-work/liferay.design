@@ -107,7 +107,7 @@ export default class Handbook extends Component {
 														<Link
 															target="_new"
 															to={
-																'https://github.com/liferay-design/liferay.design/commits/master/src/' +
+																'https://github.com/liferay-design/design.liferay.com/commits/master/src/' +
 																`${mdx.parent.relativePath}`
 															}
 														>
@@ -119,7 +119,7 @@ export default class Handbook extends Component {
 													<Link
 														target="_new"
 														to={
-															'https://github.com/liferay-design/liferay.design/tree/master/src/' +
+															'https://github.com/liferay-design/design.liferay.com/tree/master/src/' +
 															`${mdx.parent.relativePath}`
 														}
 														style={{ textDecoration: 'none' }}

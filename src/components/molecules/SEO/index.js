@@ -22,8 +22,8 @@ const SEO = ({
 				property="og:image"
 				content={
 					previewImage
-						? 'https://liferay.design' + previewImage
-						: 'https://liferay.design/images/articles/design-week-team.jpeg'
+						? 'https://design.liferay.com' + previewImage
+						: 'https://design.liferay.com/images/articles/design-week-team.jpeg'
 				}
 			/>
 			<meta name="twitter:card" content="summary_large_image" />

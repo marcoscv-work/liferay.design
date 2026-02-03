@@ -23,7 +23,7 @@ export default class Careers extends Component {
 		}`
 		const seoDescription =
 			`${post.frontmatter.title}` + ', ' + `${post.frontmatter.office.city}`
-		const seoImage = 'https://liferay.design' + post.frontmatter.featuredImage
+		const seoImage = 'https://design.liferay.com' + post.frontmatter.featuredImage
 
 		return (
 			<div>
@@ -45,7 +45,7 @@ export default class Careers extends Component {
 					/>
 					<meta
 						property="og:description"
-						content={'A career opportunity at Liferay.Design'}
+						content={'A career opportunity at Design.Liferay'}
 					/>
 					<meta name="Description" content={seoDescription} />
 					<meta property="og:title" content={seoDescription} />
@@ -54,7 +54,7 @@ export default class Careers extends Component {
 					<meta name="twitter:title" content={seoDescription} />
 					<meta
 						name="twitter:description"
-						content={'A career opportunity at Liferay.Design'}
+						content={'A career opportunity at Design.Liferay'}
 					/>
 					<meta name="twitter:image" content={seoImage} />
 					<meta name="twitter:creator" content="@liferaydesign" />

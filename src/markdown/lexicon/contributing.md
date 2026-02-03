@@ -30,9 +30,9 @@ Use the conventional markdown syntax — `![Alt text](/relative-path-to-image/f
 Note that you need to import the image at the top of the file:
 
 ```jsx
-    import { Image } from 'components/atoms'
+import { Image } from 'components/atoms'
 ```
 
 The Image component is very powerful and has potential for almost endless extensibility.
 
-<!-- TODO — Document the Image component https://github.com/liferay-design/liferay.design/issues/557 -->
+<!-- TODO — Document the Image component https://github.com/liferay-design/design.liferay.com/issues/557 -->

@@ -1,5 +1,5 @@
 ---
-contact: liferay.design@liferay.com
+contact: design.liferay.com@liferay.com
 date: 2023-08-10T07:00:00Z
 title: Freelance Product Designer
 office: 'Diamond Bar'
@@ -62,7 +62,7 @@ Recent enterprise solutions this role has delivered for were customer and insura
 -   Resume or LinkedIn Profile
 -   Portfolio link
 
-We're transparent in how we hire, feel free to read through [our hiring process](https://liferay.design/articles/2021/how-we-hire/) — while this role is for a freelance position, the steps to bring you onboard will generally be the same.
+We're transparent in how we hire, feel free to read through [our hiring process](https://design.liferay.com/articles/2021/how-we-hire/) — while this role is for a freelance position, the steps to bring you onboard will generally be the same.
 
 ## _Liferay is an Equal Opportunity Employer_
 

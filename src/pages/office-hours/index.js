@@ -12,7 +12,7 @@ export default ({}) => {
 		<MainLayout section="Office Hours">
 			<SEO
 				description="Join Liferay Designers for virtual office hours! Get your Figma or Lexicon questions answered and problems solved."
-				pageTitle="Liferay.Design | Office Hours"
+				pageTitle="Design.Liferay | Office Hours"
 			/>
 			<Container padding={{ py: [3, 5] }}>
 				<Grid sx={{ variant: 'grids.twoCol' }}>
@@ -44,13 +44,13 @@ export default ({}) => {
 									startDate: '02/01/2021 15:00:00 UTC',
 									endDate: '02/01/2021 16:00:00 UTC',
 									calendarEvent:
-										'https://liferay.design/office-hours/add-to-calendar/lexicon-1',
+										'https://design.liferay.com/office-hours/add-to-calendar/lexicon-1',
 								},
 								{
 									startDate: '02/03/2021 11:30:00 UTC',
 									endDate: '02/03/2021 12:30:00 UTC',
 									calendarEvent:
-										'https://liferay.design/office-hours/add-to-calendar/lexicon-2',
+										'https://design.liferay.com/office-hours/add-to-calendar/lexicon-2',
 								},
 							]}
 						/>
@@ -67,13 +67,13 @@ export default ({}) => {
 								startDate: '02/01/2021 23:00:00 UTC',
 								endDate: '02/01/2021 24:00:00 UTC',
 								calendarEvent:
-									'https://liferay.design/office-hours/add-to-calendar/figma-1',
+									'https://design.liferay.com/office-hours/add-to-calendar/figma-1',
 							},
 							{
 								startDate: '02/04/2021 15:30:00 UTC',
 								endDate: '02/04/2021 16:30:00 UTC',
 								calendarEvent:
-									'https://liferay.design/office-hours/add-to-calendar/figma-2',
+									'https://design.liferay.com/office-hours/add-to-calendar/figma-2',
 							},
 						]}
 					/> */}

@@ -20,21 +20,21 @@ _Liferay’s Orchestrate area is looking for a designer to create engaging exper
 
 1. **Empathetic interaction** — You’ll be designing for highly technical IT administrators, non-technical business users, and everyone in-between. You know how to understand your users and design for the edges, not the average.
 2. **Engineering Foundation** — Designing a low-code product means having a solid grasp of the engineering behind it so that you can more effectively design solutions for business users.
-3. **Collaboration** — Working inside of our core platform (Liferay DXP) means considering the greater context and working with other teams is essential.  You’re an active listener and can communicate your ideas effectively, and your designs shine as a result.
+3. **Collaboration** — Working inside of our core platform (Liferay DXP) means considering the greater context and working with other teams is essential. You’re an active listener and can communicate your ideas effectively, and your designs shine as a result.
 
 ### Required Qualifications
 
-- 3+ years experience delivering end to end designs for products and not just sites
-- Problem-solving skills to translate complex business processes into streamlined user experiences
-- Owned or worked within design systems that you regularly contributed to and helped evolve
-- Experience leading a visual design direction for a new or redesigned product that accounts for accessibility requirements
-- Advanced or Fluent in English to communicate with the global design team and stakeholders
+-   3+ years experience delivering end to end designs for products and not just sites
+-   Problem-solving skills to translate complex business processes into streamlined user experiences
+-   Owned or worked within design systems that you regularly contributed to and helped evolve
+-   Experience leading a visual design direction for a new or redesigned product that accounts for accessibility requirements
+-   Advanced or Fluent in English to communicate with the global design team and stakeholders
 
 ### Preferred Qualifications
 
-- Low-code and workflow experience
-- Design research knowledge
-- Business acumen. Understanding of business principles
+-   Low-code and workflow experience
+-   Design research knowledge
+-   Business acumen. Understanding of business principles
 
 ### Language Requirement:
 
@@ -54,6 +54,7 @@ _Liferay’s Orchestrate area is looking for a designer to create engaging exper
 ### What Can We Offer You?
 
 A place to make a lasting impact — we strongly believe in using business as a tool for restoration. Think Patagonia’s commitment to the environment, just extended to the whole world. Some initiatives that we’ve recently worked in are fighting human trafficking, helping foster youth, and serving refugees.
+
 -   Salary package commensurate with qualifications and experience.
 -   40 hours per year to volunteer at a nonprofit of your choice.
 -   Room to assume responsibility and grow professionally.
@@ -66,8 +67,7 @@ A place to make a lasting impact — we strongly believe in using business as a 
 -   Cover letter telling us why you’d be a great culture-add at Liferay
 -   Resume or LinkedIn Profile
 -   Portfolio link
-We're transparent in how we hire, feel free to read through [our hiring process](https://liferay.design/articles/2021/how-we-hire/).
-
+    We're transparent in how we hire, feel free to read through [our hiring process](https://design.liferay.com/articles/2021/how-we-hire/).
 
 ## Liferay is an Equal Opportunity Employer
 

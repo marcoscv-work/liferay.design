@@ -12,11 +12,14 @@ const SocialIcons = ({ socials, ...props }) => {
 					<Link
 						sx={{ variant: 'buttons.icon' }}
 						key={item.name}
-						aria-label={'Liferay.Design on ' + item.name}
+						aria-label={'Design.Liferay on ' + item.name}
 						to={item.url}
 					>
 						<Icon
-							sx={{ height: ['1.2rem', '1.5rem', null], width:['1.2rem',  '1.5rem', null] }}
+							sx={{
+								height: ['1.2rem', '1.5rem', null],
+								width: ['1.2rem', '1.5rem', null],
+							}}
 							name={item.name}
 						/>
 					</Link>

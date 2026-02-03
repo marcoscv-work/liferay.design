@@ -36,7 +36,7 @@ export default () => {
 	return (
 		<MainLayout>
 			<SEO
-				pageTitle="404 &mdash; Page Not Found &mdash; Liferay.Design"
+				pageTitle="404 &mdash; Page Not Found &mdash; Design.Liferay"
 				previewImage={`${avatarPath(randomAuthor.id)}`}
 			/>
 			<Container>

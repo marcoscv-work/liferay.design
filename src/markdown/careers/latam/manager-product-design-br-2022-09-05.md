@@ -10,7 +10,7 @@ remote: true
 
 ## Remote Friendly, Based in Brazil
 
-_At Liferay, Product Designers collaborate closely with Product Managers, Engineers, UX Researchers, Technical Writers, QA,  and other Product Designers, to create a simple and easy to use experience that delivers business value._
+_At Liferay, Product Designers collaborate closely with Product Managers, Engineers, UX Researchers, Technical Writers, QA, and other Product Designers, to create a simple and easy to use experience that delivers business value._
 
 _Design Managers at Liferay play a critical, dual role — they lead both people and projects, mentoring the next generation of designers and filling any gaps we may have._
 
@@ -19,26 +19,28 @@ _Design Managers at Liferay play a critical, dual role — they lead both people
 ### The top 3 things we’re looking for in a candidate:
 
 1. **People** — take care of the team: Effectively manage designers
-   1. Hire — work with the Director of Product Design to build business cases for new headcount as necessary, work cross-functionally to recruit and onboard new talent.
-   2. Grow — conduct regular 1:1’s and performance reviews with direct reports, develop growth plans for teammates.
-   3. Prioritize — work with design leadership to ensure designers are aligned with company goals.
+
+    1. Hire — work with the Director of Product Design to build business cases for new headcount as necessary, work cross-functionally to recruit and onboard new talent.
+    2. Grow — conduct regular 1:1’s and performance reviews with direct reports, develop growth plans for teammates.
+    3. Prioritize — work with design leadership to ensure designers are aligned with company goals.
 
 2. **Practice** — lead and deliver: Lead designers to success in cross-functional teams, contributing directly when necessary.
-   1. Lead — align with cross-functional leaders to understand a project, and effectively break down big problems into smaller steps, coaching designers as they successfully execute.
-   2. Deliver — quickly deliver success at the application level, growing in delivering at the platform level.
-   3. Improve — work with design and cross-functional leaders to continuously improve our practice.
+
+    1. Lead — align with cross-functional leaders to understand a project, and effectively break down big problems into smaller steps, coaching designers as they successfully execute.
+    2. Deliver — quickly deliver success at the application level, growing in delivering at the platform level.
+    3. Improve — work with design and cross-functional leaders to continuously improve our practice.
 
 3. **Process** — do the right thing, the right way: Contribute to improvement of best practices and SOPs.
-   1. Analyze — identify gaps, missing SOPs or areas of potential improvement, put together a clear business and execution plan.
-   2. Contribute — work with the necessary people to effectively solve the problem and manage the changes required.
-   3. Communicate — vertically (managing up and down), as well as horizontally (between other design or cross-functional partners) to ensure knowledge is effectively shared.
+    1. Analyze — identify gaps, missing SOPs or areas of potential improvement, put together a clear business and execution plan.
+    2. Contribute — work with the necessary people to effectively solve the problem and manage the changes required.
+    3. Communicate — vertically (managing up and down), as well as horizontally (between other design or cross-functional partners) to ensure knowledge is effectively shared.
 
 ### Other Qualifications
 
-- Competence managing internationally
-- Demonstrated expertise in managing designers of various levels
-- Experience in open source
-- Expertise in B2B enterprise products and design systems
+-   Competence managing internationally
+-   Demonstrated expertise in managing designers of various levels
+-   Experience in open source
+-   Expertise in B2B enterprise products and design systems
 
 ### Language Requirement:
 
@@ -58,6 +60,7 @@ _Design Managers at Liferay play a critical, dual role — they lead both people
 ### What Can We Offer You?
 
 A place to make a lasting impact — we strongly believe in using business as a tool for restoration. Think Patagonia’s commitment to the environment, just extended to the whole world. Some initiatives that we’ve recently worked in are fighting human trafficking, helping foster youth, and serving refugees.
+
 -   Salary package commensurate with qualifications and experience.
 -   40 hours per year to volunteer at a nonprofit of your choice.
 -   Room to assume responsibility and grow professionally.
@@ -70,8 +73,7 @@ A place to make a lasting impact — we strongly believe in using business as a 
 -   Cover letter telling us why you’d be a great culture-add at Liferay
 -   Resume or LinkedIn Profile
 -   Portfolio link
-We're transparent in how we hire, feel free to read through [our hiring process](https://liferay.design/articles/2021/how-we-hire/).
-
+    We're transparent in how we hire, feel free to read through [our hiring process](https://design.liferay.com/articles/2021/how-we-hire/).
 
 ## Liferay is an Equal Opportunity Employer
 

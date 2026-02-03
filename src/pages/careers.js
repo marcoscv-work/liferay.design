@@ -13,7 +13,7 @@ export default ({ data }) => {
 		<MainLayout section="Careers">
 			<SEO
 				description="Liferay is looking for designers who are passionate about open source technology — apply today!"
-				pageTitle="Liferay.Design | Careers"
+				pageTitle="Design.Liferay | Careers"
 			/>
 			<Container>
 				<Heading level={1} sx={{ pb: '4rem', color: 'white' }}>
@@ -25,7 +25,11 @@ export default ({ data }) => {
 							delay={`${index}` * 0.1 + 's'}
 							avatarImage
 							pill
-							tag={node.frontmatter.remote === true ? 'Remote Available 😊' : null}
+							tag={
+								node.frontmatter.remote === true
+									? 'Remote Available 😊'
+									: null
+							}
 							key={node.id}
 							imageURL={node.frontmatter.featuredImage}
 							link={node.fields.slug}

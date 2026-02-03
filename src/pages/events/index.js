@@ -6,12 +6,11 @@ import UpcomingEvents from './components/UpcomingEvents'
 import { SEO } from 'components/molecules'
 
 export default () => {
-
 	return (
 		<MainLayout section="Events">
 			<SEO
 				description="Events we’re hosting or participating in"
-				pageTitle="Liferay.Design | Events"
+				pageTitle="Design.Liferay | Events"
 			/>
 			<UpcomingEvents />
 			<Container>

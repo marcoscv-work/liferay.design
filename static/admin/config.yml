@@ -1,9 +1,9 @@
 # Setup
-site_url: https://liferay.design
-logo_url: https://liferay.design/images/icons/liferayDesicon.svg
+site_url: https://design.liferay.com
+logo_url: https://design.liferay.com/images/icons/liferayDesicon.svg
 backend:
     name: github
-    repo: liferay-design/liferay.design
+    repo: liferay-design/design.liferay.com
     branch: master # Branch to update (optional; defaults to master)
     open_authoring: true
 

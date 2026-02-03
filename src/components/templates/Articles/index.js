@@ -21,7 +21,7 @@ const featuredImage = [
 				startValue: 1,
 				endValue: 1.5,
 				property: 'scale',
-			}
+			},
 		],
 	},
 ]
@@ -41,7 +41,7 @@ const hero = [
 				startValue: 1,
 				endValue: 0,
 				property: 'opacity',
-			}
+			},
 		],
 	},
 ]
@@ -52,7 +52,7 @@ export default class Articles extends Component {
 		const links = post.frontmatter.author.links ? post.frontmatter.author.links : null // this is to catch people who dont have links
 
 		return (
-			<div style={{ overflowX: 'hidden'}}>
+			<div style={{ overflowX: 'hidden' }}>
 				<ScrollProgress />
 				<SEO
 					description={post.excerpt}
@@ -62,7 +62,7 @@ export default class Articles extends Component {
 						`${post.frontmatter.title}` +
 						' - an article by ' +
 						`${post.frontmatter.author.id}` +
-						' on Liferay.Design'
+						' on Design.Liferay'
 					}
 					twitterHandle={links ? links.twitter : null}
 					canonicalLink={
@@ -72,10 +72,13 @@ export default class Articles extends Component {
 					}
 					contentType="article"
 				/>
-					<Navbar section="Articles" className={styles.sticky}/>
-				<Plx parallaxData={hero} sx={{paddingBottom: '6rem', willChange: 'transform'}}>
+				<Navbar section="Articles" className={styles.sticky} />
+				<Plx
+					parallaxData={hero}
+					sx={{ paddingBottom: '6rem', willChange: 'transform' }}
+				>
 					<Container>
-						<Grid sx={{gridAutoFlow: 'column'}} className={styles.banner}>
+						<Grid sx={{ gridAutoFlow: 'column' }} className={styles.banner}>
 							<Box>
 								{post.frontmatter.tags ? (
 									<Tags tags={post.frontmatter.tags} />
@@ -109,7 +112,8 @@ export default class Articles extends Component {
 														sx={{
 															color: 'primaryl3',
 															textDecoration: 'underline',
-															textDecorationColor: 'primary',
+															textDecorationColor:
+																'primary',
 														}}
 														to={withPrefix(
 															'/team/' +
@@ -141,13 +145,23 @@ export default class Articles extends Component {
 					</Container>
 				</Plx>
 				<div className={styles.markdownContainer}>
-					<div sx={{ margin: '-16rem auto 0', overflow: 'hidden', width: ['auto', '768px'] }} className={styles.featuredImage}>
-					<Plx parallaxData={featuredImage} sx={{willChange: 'transform', transformOrigin: 'center'}}>
-						<Image
-							alt={'featured image for ' + `${post.frontmatter.title}`}
-							src={post.frontmatter.featuredImage}
-						/>
-					</Plx>
+					<div
+						sx={{
+							margin: '-16rem auto 0',
+							overflow: 'hidden',
+							width: ['auto', '768px'],
+						}}
+						className={styles.featuredImage}
+					>
+						<Plx
+							parallaxData={featuredImage}
+							sx={{ willChange: 'transform', transformOrigin: 'center' }}
+						>
+							<Image
+								alt={'featured image for ' + `${post.frontmatter.title}`}
+								src={post.frontmatter.featuredImage}
+							/>
+						</Plx>
 					</div>
 					<div className={styles.wrapper}>
 						<GlobalMdx>

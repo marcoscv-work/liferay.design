@@ -92,11 +92,11 @@ const Blueprints = () => (
 					<Box>
 						<CardLexicon
 							icon="liferayDesign"
-							title="Liferay.Design"
+							title="Design.Liferay"
 							text="Shameless plug for the people behind all of this
 										stuff&mdash;see what else we're doing."
 							to="/team"
-							cta="Experience Liferay.Design"
+							cta="Experience Design.Liferay"
 						/>
 					</Box>
 					<Box className={documentation.socialContainer}>

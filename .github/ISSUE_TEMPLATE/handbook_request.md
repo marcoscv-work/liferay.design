@@ -1,6 +1,6 @@
 ---
 name: '🔵 Handbook request'
-about: Make a request for liferay.design/handbook
+about: Make a request for design.liferay.com/handbook
 assignees: plhnk
 labels: handbook
 ---

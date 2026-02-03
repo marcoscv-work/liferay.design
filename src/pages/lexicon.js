@@ -115,7 +115,7 @@ const Lexicon = () => (
 			Subtitle={() => (
 				<Text size="large">
 					Check out some issues in{' '}
-					<Link to="https://github.com/liferay-design/liferay.design/labels/lexicon">
+					<Link to="https://github.com/liferay-design/design.liferay.com/labels/lexicon">
 						GitHub
 					</Link>
 					!

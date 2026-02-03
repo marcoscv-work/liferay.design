@@ -38,7 +38,7 @@ Additionally, you will:
 ## What do I need to apply?
 
 1. Link to your website that includes case studies and work relevant to design operations
-2. Cover letter: Brief note with feedback on [liferay.design/handbook](https://liferay.design/handbook/)
+2. Cover letter: Brief note with feedback on [design.liferay.com/handbook](https://design.liferay.com/handbook/)
 
 ## Cover letter? Do you really read them?
 

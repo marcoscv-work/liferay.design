@@ -147,7 +147,7 @@ covid:
               icon: 'home_full'
               url: 'https://unsplash.com/collections/12274763/liferay.design-%40-secondhome.io'
               linkText: Download the collection on Unsplash
-              description: After what seemed like an eternity of remote working, the team in LA was fortunate enough to work together at an outdoor creative space in Hollywood. Good coffee plus a lush environment was the perfect mid-quarantine inspiration we needed. Masks and social distancing were par for the course while we plotted liferay.design’s global takeover.
+              description: After what seemed like an eternity of remote working, the team in LA was fortunate enough to work together at an outdoor creative space in Hollywood. Good coffee plus a lush environment was the perfect mid-quarantine inspiration we needed. Masks and social distancing were par for the course while we plotted design.liferay.com’s global takeover.
         - slide:
               title: Codenames
               image: '/images/2020/code-names.png'
@@ -192,7 +192,7 @@ impact:
               icon: github
               title: 160 Pull Requests
               subtitle: from 10 contributors
-              link: 'https://github.com/liferay-design/liferay.design'
+              link: 'https://github.com/liferay-design/design.liferay.com'
         - card:
               icon: rss
               title: 19 Articles
@@ -274,12 +274,12 @@ thankYou:
     pretitle: 2020 Hindsight
     title: "A year of uncertainty, met\_with\_resilience."
     message:
-        part1: 
+        part1:
             title: null
             body: |
-                  While 2020 has been a year of challenges and adaptations, we are reminded that difficult times are often opportunities for growth. The strength of this team is not in its collective design skillset, but rather in the enduring human bonds we have cultivated and nurtured over the years.
+                While 2020 has been a year of challenges and adaptations, we are reminded that difficult times are often opportunities for growth. The strength of this team is not in its collective design skillset, but rather in the enduring human bonds we have cultivated and nurtured over the years.
 
-                  We’ve been able to rely on one another through our personal and professional journeys — now that we find ourselves in a global pandemic, we once again lean on each other. Our department’s ability to hold each other up throughout this year has made us stronger as people, as designers, and as a team.
+                We’ve been able to rely on one another through our personal and professional journeys — now that we find ourselves in a global pandemic, we once again lean on each other. Our department’s ability to hold each other up throughout this year has made us stronger as people, as designers, and as a team.
         part2:
             title: What’s next?
             body: |

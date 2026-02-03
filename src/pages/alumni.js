@@ -11,11 +11,11 @@ export default ({ data }) => {
 	return (
 		<MainLayout section="Alumni">
 			<SEO
-				description="Meet the Liferay.Design alumni — we're all over the world!"
-				pageTitle="Liferay.Design | Alumni"
+				description="Meet the Design.Liferay alumni — we're all over the world!"
+				pageTitle="Design.Liferay | Alumni"
 			/>
 			<Container>
-                <Flex direction="row" justify="space-between">
+				<Flex direction="row" justify="space-between">
 					<Heading level={1} sx={{ pb: '4rem', color: 'white' }}>
 						Always a Liferay designer
 					</Heading>

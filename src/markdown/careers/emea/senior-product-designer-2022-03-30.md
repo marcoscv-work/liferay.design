@@ -73,7 +73,7 @@ A place to make a lasting impact — we strongly believe in using business as a 
 -   Resume or LinkedIn Profile
 -   Portfolio link
 
-We're transparent in how we hire, feel free to read through [our hiring process](https://liferay.design/articles/2021/how-we-hire/).
+We're transparent in how we hire, feel free to read through [our hiring process](https://design.liferay.com/articles/2021/how-we-hire/).
 
 ## _Liferay is an Equal Opportunity Employer_
 

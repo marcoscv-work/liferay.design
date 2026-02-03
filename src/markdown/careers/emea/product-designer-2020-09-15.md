@@ -10,18 +10,17 @@ remote: true
 
 _We’re looking for a product designer to work in our core products creating engaging experiences in business critical functions. As a product designer you will work inside a multidisciplinary product team with its own business goals. You will use Lexicon to build interfaces and contribute to it with the business needs of your team to make it stronger. You will also collaborate with other product teams all around the world, therefore good communication skills are essential to this position._
 
-
 ## About This Position
 
 This position will design within the experience management product suite and will have the opportunity to participate in the complete software development cycle. This product area includes content management capabilities such as localization, SEO management, blog management and document library features.
 
-Meet some designers on the team: [Carolina](https://liferay.design/team/rodriguez-carolina), [Susana](https://liferay.design/team/vazquez-susana) and [María](https://liferay.design/team/arce-maria).
+Meet some designers on the team: [Carolina](https://design.liferay.com/team/rodriguez-carolina), [Susana](https://design.liferay.com/team/vazquez-susana) and [María](https://design.liferay.com/team/arce-maria).
 
 Your first 90 days will be:
 
-* Get to know the people, processes, and systems
-* Get a strong knowledge of Lexicon and our products
-* Add value with your perspective and experience in projects in alignment with our design system
+-   Get to know the people, processes, and systems
+-   Get a strong knowledge of Lexicon and our products
+-   Add value with your perspective and experience in projects in alignment with our design system
 
 ### The top 3 things we’re looking for in a candidate:
 
@@ -33,9 +32,8 @@ Your first 90 days will be:
 
 ### Language Requirement:
 
-* English: Conversational
-* Spanish: Fluent
-
+-   English: Conversational
+-   Spanish: Fluent
 
 ## What do I need to apply?
 
@@ -47,4 +45,3 @@ Your first 90 days will be:
 Yes! It doesn't need to be formal — really all we're looking for is a brief response to the prompt.
 
 _Note that applications sans cover letter are typically rejected post-haste._
-

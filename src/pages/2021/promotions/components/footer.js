@@ -39,7 +39,7 @@ export default class FancyFooter extends Component {
 						color: 'lightText',
 					}}
 				>
-					liferay.design/2021
+					design.liferay.com/2021
 				</Link>
 				<Flex
 					sx={{
