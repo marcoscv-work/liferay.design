@@ -111,6 +111,12 @@
   icon: fa_pen_nib
   startDate: 2021-03-08
   office: Recife
+- id: Fernanda Barreto
+  title: Associate Communication Designer
+  active: true
+  icon: fa_user_astronaut
+  startDate: 2024-11-01
+  office: Recife
 - id: Emiliano Cicero
   title: Senior Product Designer
   active: false
