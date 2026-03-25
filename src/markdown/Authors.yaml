@@ -117,6 +117,12 @@
   icon: fa_user_astronaut
   startDate: 2024-11-01
   office: Recife
+- id: Unnamed Player
+  title: Product Designer
+  active: true
+  icon: fa_gamepad
+  startDate: 2025-01-15
+  office: Remote
 - id: Emiliano Cicero
   title: Senior Product Designer
   active: false
