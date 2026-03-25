@@ -5,6 +5,7 @@ import prism from '@theme-ui/prism/presets/theme-ui'
 export default {
 	...components,
 	...layouts,
+	breakpoints: ['40em', '48em', '64em'],
 	colors: {
 		// Basic Theme Colors
 		text: '#fff',
