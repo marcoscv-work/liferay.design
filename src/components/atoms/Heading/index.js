@@ -2,7 +2,7 @@
 
 import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const Heading = ({ additionalStyles, align, bottomBorder, className, children, level, padding, ...props }) => {
 	const Header = `h${level}`

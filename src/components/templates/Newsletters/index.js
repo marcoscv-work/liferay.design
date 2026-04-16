@@ -68,7 +68,6 @@ export default class Newsletters extends Component {
 export const pageQuery = graphql`
 	query($send_time: Date) {
 		newsletter: allNewsletters(
-			sort: { order: ASC, fields: send_time }
 			filter: {
 				settings: { title: { regex: "/Newsletter/" } }
 				send_time: { eq: $send_time }
@@ -82,7 +81,6 @@ export const pageQuery = graphql`
 			}
 		}
 		prevNext: allNewsletters(
-			sort: { order: ASC, fields: send_time }
 			filter: {
 				send_time: { ne: "" }
 				settings: { title: { regex: "/Newsletter/" } }

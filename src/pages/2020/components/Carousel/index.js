@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { useState, useEffect, useRef } from 'react'
 import { jsx, Flex, Box } from 'theme-ui'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const Carousel = ({ children }) => {
 	if (children) {

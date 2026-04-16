@@ -9,11 +9,13 @@ import { Link } from 'components/atoms'
 import { graphql } from 'gatsby'
 import moment from 'moment'
 import { Component } from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default class Events extends Component {
 	render() {
 		const post = this.props.data.mdx
+		const componentStyles = styles || {}
+		const office = post.frontmatter.office || {}
 
 		// Prereqs for conditional date rendering
 		const d1 = new Date() // Get today's date
@@ -27,24 +29,24 @@ export default class Events extends Component {
 				<SEO
 					description={post.excerpt}
 					previewImage={post.frontmatter.featuredImage}
-					keywords={'event, events in ' + `${post.frontmatter.office.id}`}
+					keywords={'event, events in ' + `${office.id || 'Liferay'}`}
 					pageTitle={
 						`${post.frontmatter.title}` +
 						' | Design.Liferay Event in ' +
-						`${post.frontmatter.office.id}`
+						`${office.id || 'Liferay'}`
 					}
 					contentType="event"
 				/>
 				<Navbar section="Events" />
 
-				<Flex justify="center" align="center" className={styles.banner}>
-					<Flex direction="column" className={styles.bannerContent}>
+				<Flex justify="center" align="center" className={componentStyles.banner}>
+					<Flex direction="column" className={componentStyles.bannerContent}>
 						<h1>
 							<NiceDate
 								large
 								dark
 								size="3rem"
-								className={styles.date}
+								className={componentStyles.date}
 								color="mainl3"
 								month={moment(post.frontmatter.date).format('MMM')}
 								day={moment(post.frontmatter.date).format('DD')}
@@ -54,45 +56,45 @@ export default class Events extends Component {
 						<h2>
 							{`${moment(post.frontmatter.date).format('h:mma')}` ===
 							'12:00am' ? null : (
-								<span className={styles.startTime}>
+								<span className={componentStyles.startTime}>
 									{moment(post.frontmatter.date).format('h:mma')}
 								</span>
 							)}
 							{post.frontmatter.endDateTime && (
-								<span className={styles.endTime}>
+								<span className={componentStyles.endTime}>
 									&nbsp; – &nbsp;
 									{moment(post.frontmatter.endDateTime).format('h:mma')}
 								</span>
 							)}
-							<span className={styles.locationName}>
-								<Link to={post.frontmatter.office.mapURL}>
-									{post.frontmatter.office.id},{' '}
-									{post.frontmatter.office.state}
+							<span className={componentStyles.locationName}>
+								<Link to={office.mapURL}>
+									{office.id || 'Location TBD'}
+									{office.state ? `, ${office.state}` : ''}
 								</Link>
 							</span>
 						</h2>
 						{post.frontmatter.heroImage && (
 							<img
-								className={styles.heroImage}
+								className={componentStyles.heroImage}
 								src={post.frontmatter.heroImage}
 							/>
 						)}
-						<p className={styles.summary}>{post.frontmatter.summary}</p>
+						<p className={componentStyles.summary}>{post.frontmatter.summary}</p>
 						{post.frontmatter.bodyImage && (
 							<img
-								className={styles.bodyImage}
+								className={componentStyles.bodyImage}
 								src={post.frontmatter.bodyImage}
 							/>
 						)}
 					</Flex>
 				</Flex>
 				{today < eventDate ? (
-					<Link to={post.frontmatter.ctaURL} className={styles.ctaButton}>
+					<Link to={post.frontmatter.ctaURL} className={componentStyles.ctaButton}>
 						RSVP
 					</Link>
 				) : null}
-				<div className={styles.markdownContainer}>
-					<div className={styles.wrapper}>
+				<div className={componentStyles.markdownContainer}>
+					<div className={componentStyles.wrapper}>
 						{post.frontmatter.author ? (
 							<Author
 								id={post.frontmatter.author.id}

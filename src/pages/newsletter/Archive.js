@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Flex, Link, Text, Heading } from 'components/atoms'
 import moment from 'moment'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { Date } from 'components/molecules'
 import { colors } from 'theme/'
 
@@ -14,7 +14,6 @@ export default ({}) => {
 					send_time: { ne: "" }
 					settings: { title: { regex: "/Newsletter/" } }
 				}
-				sort: { order: DESC, fields: send_time }
 			) {
 				edges {
 					node {

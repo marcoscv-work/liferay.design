@@ -4,7 +4,7 @@ import { Heading, Text, Flex, Link, Icon, Image } from 'components/atoms'
 import PropTypes from 'prop-types'
 const { kebabCase } = require(`lodash`)
 import moment from 'moment'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { Date } from 'components/molecules'
 import { colors } from 'theme/'
 
@@ -57,8 +57,8 @@ export default function ChangelogFeed({ items, ...props }) {
 					<Flex direction="row-reverse" className={styles.avatarWrapper}>
 						{node.contributors ? (
 							<>
-								{node.contributors.map(i => (
-									<div>
+								{node.contributors.filter(Boolean).map(i => (
+									<div key={i.id}>
 										<Image
 											className={styles.avatar}
 											role="presentation"
@@ -72,13 +72,15 @@ export default function ChangelogFeed({ items, ...props }) {
 						) : (
 							''
 						)}
-						<Image
-							className={styles.avatar}
-							role="presentation"
-							src={imagePath + kebabCase(node.author.id) + '.jpg'}
-							title={node.author.id}
-							alt={`${node.author.id}` + '‘s headshot'}
-						/>
+						{node.author ? (
+							<Image
+								className={styles.avatar}
+								role="presentation"
+								src={imagePath + kebabCase(node.author.id) + '.jpg'}
+								title={node.author.id}
+								alt={`${node.author.id}` + '‘s headshot'}
+							/>
+						) : null}
 					</Flex>
 					<Link
 						to={

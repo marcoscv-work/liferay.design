@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui'
 import { Container, SiteName, Icon, Link } from 'components/atoms'
 import { NavItems } from 'components/organisms'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { AuthContainer } from 'components/molecules'
 
 const Navbar = ({ white, section, underlineColor, simpleNav }) => {

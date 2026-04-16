@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Flex, Text } from 'components/atoms'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const Date = ({ month, day, size, dark, className, large, style, color, ...props }) => {
 	return (

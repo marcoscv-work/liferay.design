@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const FormNewsletter = ({ placeholderText, submitText, ...props }) => {

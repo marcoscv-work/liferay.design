@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Icon, Link } from 'components/atoms'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Plx from 'react-plx'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { colors, spacing } from 'theme/'
 
 const top = [

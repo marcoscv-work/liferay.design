@@ -17,8 +17,8 @@ import { graphql } from 'gatsby'
 import { cloneDeep, get, set } from 'lodash'
 import React, { Component } from 'react'
 import MediaQuery from 'react-responsive'
-import lexicon from 'theme/lexicon.module.scss'
-import documentation from 'theme/documentation.module.scss'
+import lexicon from '../../../theme/lexicon.module.scss'
+import documentation from '../../../theme/documentation.module.scss'
 import { Helmet } from 'react-helmet'
 import { isAuthenticated, isClassified } from 'utils'
 export default class Lexicon extends Component {
@@ -48,9 +48,11 @@ export default class Lexicon extends Component {
 		const seoDescription =
 			`${post.frontmatter.title}` + ' on Lexicon by Design.Liferay'
 		const seoImage = 'https://design.liferay.com/images/resources/lexicon-cover.png'
-		console.log(mdx.id, 'id')
+		const themeClasses = [lexicon?.theme, documentation?.theme]
+			.filter(Boolean)
+			.join(' ')
 		return (
-			<div className={`${lexicon.theme} ${documentation.theme}`}>
+			<div className={themeClasses}>
 				<Helmet>
 					<title>{seoDescription}</title>
 					<meta property="og:type" content="article" />
@@ -87,11 +89,13 @@ export default class Lexicon extends Component {
 						return (
 							<Grid
 								sx={{ variant: 'grids.sideNav' }}
-								className={`${documentation.mainContentWrapper} ${lexicon.mainContentWrapper}`}
+								className={[documentation?.mainContentWrapper, lexicon?.mainContentWrapper]
+									.filter(Boolean)
+									.join(' ')}
 							>
 								{matches && (
 									<Flex
-										className={documentation.mobileNavbar}
+										className={documentation?.mobileNavbar}
 										justify="space-between"
 										padding="2rem 1rem"
 									>
@@ -119,7 +123,7 @@ export default class Lexicon extends Component {
 
 										{mdx.frontmatter.figmaLink ? (
 											<Link
-												className={lexicon.labelInfoFull}
+												className={lexicon?.labelInfoFull}
 												to={mdx.frontmatter.figmaLink}
 											>
 												View in Figma
@@ -128,7 +132,7 @@ export default class Lexicon extends Component {
 
 										{mdx.frontmatter.titleLabelLink ? (
 											<Link
-												className={lexicon.labelInfo}
+												className={lexicon?.labelInfo}
 												to={mdx.frontmatter.titleLabelLink}
 											>
 												View in Clay
@@ -138,7 +142,7 @@ export default class Lexicon extends Component {
 										{mdx.frontmatter.docLink ? (
 											// <PrivateComponent>
 											<Link
-												className={lexicon.labelInfo}
+												className={lexicon?.labelInfo}
 												to={
 													isAuthenticated()
 														? mdx.frontmatter.docLink
@@ -161,19 +165,19 @@ export default class Lexicon extends Component {
 										null}
 
 										{mdx.frontmatter.productName ? (
-											<Link className={lexicon.labelNeutral}>
+											<Link className={lexicon?.labelNeutral}>
 												{mdx.frontmatter.productName}
 											</Link>
 										) : null}
 
 										{mdx.frontmatter.devStatus ? (
-											<Link className={lexicon.labelDraft}>
+											<Link className={lexicon?.labelDraft}>
 												{mdx.frontmatter.devStatus}
 											</Link>
 										) : null}
 
 										{mdx.frontmatter.description ? (
-											<p className={lexicon.description}>
+											<p className={lexicon?.description}>
 												{mdx.frontmatter.description}
 											</p>
 										) : null}
@@ -188,7 +192,7 @@ export default class Lexicon extends Component {
 
 								<Flex
 									align="center"
-									className={documentation.mobileMenuBar}
+									className={documentation?.mobileMenuBar}
 									justify="space-between"
 								>
 									<Icon name="lexicon" color="white" height="2em" />

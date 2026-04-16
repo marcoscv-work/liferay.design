@@ -4,7 +4,7 @@ import { AnimateIn, Icon, Link } from 'components/atoms'
 import { withPrefix } from 'gatsby'
 import PropTypes from 'prop-types'
 import { jsx, Avatar, Box, Card, Flex, Heading, Image, Text } from 'theme-ui'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const CardDefault = ({
 	delay,

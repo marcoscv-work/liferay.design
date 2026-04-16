@@ -4,7 +4,7 @@ import { jsx, Grid, Button } from 'theme-ui'
 import { Flex, Heading, Link, Container } from 'components/atoms'
 import Navbar from 'components/organisms/Navbar'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const Banner = ({
 	underlineColor,

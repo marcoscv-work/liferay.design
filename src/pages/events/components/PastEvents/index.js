@@ -40,7 +40,10 @@ export default () => {
 
 	const Events = data.allMdx.edges
 		.filter(edgeItem => moment(edgeItem.node.frontmatter.date).toDate() < Date.now())
-		.map(({ node }, index) => (
+		.map(({ node }, index) => {
+			const office = node.frontmatter.office || {}
+
+			return (
 			<CardDefault
 				delay={`${index}` * 0.1 + 's'}
 				avatarImage
@@ -50,9 +53,10 @@ export default () => {
 				imageURL={node.frontmatter.featuredImage}
 				link={node.fields.slug}
 				title={node.frontmatter.title}
-				subtitle={node.frontmatter.office.city}
-				avatarImageURL={node.frontmatter.office.countryIcon}
+				subtitle={office.city}
+				avatarImageURL={office.countryIcon}
 			/>
-		))
+			)
+		})
 	return <Grid sx={{ variant: 'grids.threeCards' }}>{Events}</Grid>
 }

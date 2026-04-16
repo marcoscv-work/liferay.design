@@ -26,7 +26,9 @@ export default ({}) => {
 
 	const graphqlData = data.allAnnualReportsYaml.nodes[0].promotionsPage
 
-	const Headshots = graphqlData.designers.map(({ name }, index) => (
+	const Headshots = graphqlData.designers
+		.filter(({ name }) => name)
+		.map(({ name }, index) => (
 		<AnimateIn
 			key={index}
 			delay={0.1 + `${index}` * 0.1 + 's'}

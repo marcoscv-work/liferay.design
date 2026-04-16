@@ -23,7 +23,7 @@ import {
 	ThankYou,
 	Juan,
 } from 'pages/2020/components/_index'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import data from 'markdown/annual-reports/TwentyTwenty.yaml'
 import { Global } from '@emotion/core'
 
@@ -86,13 +86,13 @@ const TwentyTwenty = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<Global
-				styles={theme => ({
+				styles={{
 					body: {
 						fontFamily: theme.fonts.body,
 						color: theme.colors.lightBlue,
 						lineHeight: theme.lineHeights.body,
 					},
-				})}
+				}}
 			/>
 			<div className={styles.pagestyles} sx={{ backgroundColor: 'black' }}>
 				<SEO

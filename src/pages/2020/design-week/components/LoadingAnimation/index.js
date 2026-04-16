@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui'
 import { Flex, Icon } from 'components/atoms'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default class LoadingAnimation extends React.Component {
 	static propTypes = {

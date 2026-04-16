@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import MediaQuery from 'react-responsive'
 import Day from './Day'
 import scheduleArray from './scheduleData'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import Talk from './Talk'
 
 export class Agenda extends Component {

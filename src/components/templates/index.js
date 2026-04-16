@@ -5,7 +5,6 @@ import Lexicon from './Lexicon'
 import MainLayout from './MainLayout'
 import PrivatePage from './PrivatePage'
 import Resources from './Resources'
-import Newsletters from './Newsletters'
 import BlueprintsWelcome from './Blueprints/Welcome'
 import HandbookWelcome from './Handbook/Welcome'
 
@@ -18,7 +17,6 @@ export {
 	MainLayout,
 	PrivatePage,
 	Resources,
-	Newsletters,
 	BlueprintsWelcome,
 	HandbookWelcome,
 }

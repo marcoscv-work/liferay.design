@@ -8,7 +8,7 @@ import { Footer, Navbar, RecentBlogPosts, PreviousNext } from 'components/organi
 import { graphql, withPrefix } from 'gatsby'
 import moment from 'moment'
 import React, { Component } from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { makeAuthorSlug } from 'utils'
 import Plx from 'react-plx'
 
@@ -49,7 +49,9 @@ const hero = [
 export default class Articles extends Component {
 	render() {
 		const post = this.props.data.mdx
-		const links = post.frontmatter.author.links ? post.frontmatter.author.links : null // this is to catch people who dont have links
+		const componentStyles = styles || {}
+		const author = post.frontmatter.author || { id: 'Liferay Design' }
+		const links = author.links ? author.links : null // this is to catch people who dont have links
 
 		return (
 			<div style={{ overflowX: 'hidden' }}>
@@ -61,7 +63,7 @@ export default class Articles extends Component {
 					pageTitle={
 						`${post.frontmatter.title}` +
 						' - an article by ' +
-						`${post.frontmatter.author.id}` +
+						`${author.id}` +
 						' on Design.Liferay'
 					}
 					twitterHandle={links ? links.twitter : null}
@@ -72,13 +74,13 @@ export default class Articles extends Component {
 					}
 					contentType="article"
 				/>
-				<Navbar section="Articles" className={styles.sticky} />
+				<Navbar section="Articles" className={componentStyles.sticky} />
 				<Plx
 					parallaxData={hero}
 					sx={{ paddingBottom: '6rem', willChange: 'transform' }}
 				>
 					<Container>
-						<Grid sx={{ gridAutoFlow: 'column' }} className={styles.banner}>
+						<Grid sx={{ gridAutoFlow: 'column' }} className={componentStyles.banner}>
 							<Box>
 								{post.frontmatter.tags ? (
 									<Tags tags={post.frontmatter.tags} />
@@ -97,11 +99,11 @@ export default class Articles extends Component {
 											to={withPrefix(
 												'/team/' +
 													`${makeAuthorSlug(
-														post.frontmatter.author.id,
+														author.id,
 													)}`,
 											)}
 										>
-											{post.frontmatter.author.id}
+											{author.id}
 										</Link>
 										{post.frontmatter.contributors ? (
 											<>
@@ -137,21 +139,21 @@ export default class Articles extends Component {
 									alignSelf: 'center',
 									justifySelf: 'center',
 								}}
-								className={styles.role}
+								className={componentStyles.role}
 							>
 								<h2>{post.timeToRead} Min Read</h2>
 							</Box>
 						</Grid>
 					</Container>
 				</Plx>
-				<div className={styles.markdownContainer}>
+				<div className={componentStyles.markdownContainer}>
 					<div
 						sx={{
 							margin: '-16rem auto 0',
 							overflow: 'hidden',
 							width: ['auto', '768px'],
 						}}
-						className={styles.featuredImage}
+						className={componentStyles.featuredImage}
 					>
 						<Plx
 							parallaxData={featuredImage}
@@ -163,7 +165,7 @@ export default class Articles extends Component {
 							/>
 						</Plx>
 					</div>
-					<div className={styles.wrapper}>
+					<div className={componentStyles.wrapper}>
 						<GlobalMdx>
 							<MDXRenderer>{post.body}</MDXRenderer>
 						</GlobalMdx>
@@ -171,8 +173,8 @@ export default class Articles extends Component {
 					</div>
 				</div>
 				<RecentBlogPosts
-					heading={'More posts by ' + `${post.frontmatter.author.id}`}
-					teammate={`${makeAuthorSlug(post.frontmatter.author.id)}`}
+					heading={'More posts by ' + `${author.id}`}
+					teammate={`${makeAuthorSlug(author.id)}`}
 					currentPost={post.id}
 				/>
 				<Footer light />

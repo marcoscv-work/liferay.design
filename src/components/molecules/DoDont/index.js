@@ -1,7 +1,7 @@
 import { Flex, Text, Image } from 'components/atoms'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default function DoDont({ good, avoid, bad }) {
 	return (

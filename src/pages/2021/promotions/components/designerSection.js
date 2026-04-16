@@ -31,7 +31,9 @@ export default ({}) => {
 
 	const screenshots = [1, 2]
 
-	const Designers = graphqlData.designers.map(
+	const Designers = graphqlData.designers
+		.filter(({ name }) => name)
+		.map(
 		({ name, title, summary, highlights }, index) => (
 			<Flex
 				id={makeAuthorSlug(name.id)}

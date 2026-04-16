@@ -13,13 +13,13 @@ const Promotions = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<Global
-				styles={theme => ({
+				styles={{
 					body: {
 						fontFamily: theme.fonts.body,
-						color: theme.colors.lightBlue,
+						color: theme.colors.lightText,
 						lineHeight: theme.lineHeights.body,
 					},
-				})}
+				}}
 			/>
 			<div sx={{ fontFamily: 'modes.brand.body', color: 'mainL3' }}>
 				<SEO

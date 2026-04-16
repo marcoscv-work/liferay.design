@@ -3,7 +3,7 @@
 import { jsx, Input, Flex } from 'theme-ui'
 import { Icon, Hotkey } from 'components/atoms'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { useEffect } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 

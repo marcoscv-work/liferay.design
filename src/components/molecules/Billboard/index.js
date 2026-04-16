@@ -3,7 +3,7 @@
 import { jsx, Grid } from 'theme-ui'
 import { Heading, Icon } from 'components/atoms'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const Billboard = ({ image, heading, Subtitle, background }) => {
 	return (

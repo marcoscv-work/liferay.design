@@ -32,7 +32,9 @@ export default ({ data }) => {
 					</div>
 				</Flex>
 				<Grid sx={{ variant: 'grids.threeCards' }}>
-					{data.allMdx.edges.map(({ node }, index) => (
+					{data.allMdx.edges
+						.filter(({ node }) => node.frontmatter.author)
+						.map(({ node }, index) => (
 						<CardDefault
 							delay={`${index}` * 0.1 + 's'}
 							key={node.id}

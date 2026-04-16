@@ -27,7 +27,7 @@ import {
 	Carousel,
 	CarouselSlide,
 } from 'pages/2019/components/_index'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import data from 'markdown/annual-reports/TwentyNineteen.yaml'
 
 const TwentyNineteen = () => {

@@ -7,13 +7,15 @@ import { Footer, Navbar } from 'components/organisms'
 import { graphql } from 'gatsby'
 import React, { Component } from 'react'
 import { jsx, Button } from 'theme-ui'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { Helmet } from 'react-helmet'
 
 export default class Careers extends Component {
 	render() {
 		const latamCountries = ['Mexico', 'Brazil', 'Peru']
 		const post = this.props.data.mdx
+		const componentStyles = styles || {}
+		const office = post.frontmatter.office || {}
 		const applyLink = `${
 			post.frontmatter.jobId === null
 				? 'mailto:' + `${post.frontmatter.contact}`
@@ -21,8 +23,9 @@ export default class Careers extends Component {
 				  `${post.frontmatter.jobId}` +
 				  '&s=liferay-dot-design'
 		}`
-		const seoDescription =
-			`${post.frontmatter.title}` + ', ' + `${post.frontmatter.office.city}`
+		const seoDescription = office.city
+			? `${post.frontmatter.title}, ${office.city}`
+			: `${post.frontmatter.title}`
 		const seoImage = 'https://design.liferay.com' + post.frontmatter.featuredImage
 
 		return (
@@ -62,32 +65,30 @@ export default class Careers extends Component {
 				</Helmet>
 				<Navbar section="Careers" />
 
-				<Flex justify="center" align="center" className={styles.banner}>
-					<div className={styles.largeContainer}>
+				<Flex justify="center" align="center" className={componentStyles.banner}>
+					<div className={componentStyles.largeContainer}>
 						<h1>
 							{post.frontmatter.title}
 							<span>
 								{post.frontmatter.remote === true
 									? `Remote in ${
-											latamCountries.includes(
-												post.frontmatter.office.country,
-											)
+											latamCountries.includes(office.country)
 												? 'LATAM'
-												: post.frontmatter.office.country
+												: office.country || 'your region'
 									  } – based in `
 									: 'Based in '}
-								{post.frontmatter.office.city},{' '}
-								{post.frontmatter.office.state}{' '}
+								{office.city || 'Remote'}
+								{office.state ? `, ${office.state}` : ''}{' '}
 							</span>
 						</h1>
 					</div>
 				</Flex>
-				<div className={styles.mdxWrapper}>
-					<Flex direction="column" className={styles.largeContainer}>
+				<div className={componentStyles.mdxWrapper}>
+					<Flex direction="column" className={componentStyles.largeContainer}>
 						<GlobalMdx>
 							<MDXRenderer>{post.body}</MDXRenderer>
 						</GlobalMdx>
-						<div className={styles.applyContainer}>
+						<div className={componentStyles.applyContainer}>
 							<Button
 								as="a"
 								target="new"

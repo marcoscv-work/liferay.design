@@ -21,8 +21,19 @@ function upsertAtPath(path, value, obj) {
 
 export default class Team extends Component {
 	render() {
-		const post = this.props.data.mdx
-		const teammate = post.frontmatter.author
+		const {
+			data: { allAuthorsYaml, mdx: post },
+			pageContext,
+		} = this.props
+		const teammateSlug = pageContext.slug.replace(/^\/team\/|\/$/g, '')
+		const teammate =
+			post.frontmatter.author ||
+			allAuthorsYaml.nodes.find(author => makeAuthorSlug(author.id) === teammateSlug)
+
+		if (!teammate) {
+			return null
+		}
+
 		const links = teammate.links ? teammate.links : null // this is to catch people who dont have links
 		const alumni = teammate.alumni ? true : false
 		const socials = links
@@ -282,6 +293,27 @@ export default class Team extends Component {
 
 export const pageQuery = graphql`
 	query($slug: String!) {
+		allAuthorsYaml {
+			nodes {
+				id
+				startDate
+				endDate
+				title
+				icon
+				alumni
+				links {
+					dribbble
+					figma
+					github
+					instagram
+					medium
+					twitter
+					unsplash
+					webflow
+					website
+				}
+			}
+		}
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				author {

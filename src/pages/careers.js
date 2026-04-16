@@ -7,8 +7,6 @@ import { MainLayout } from 'components/templates'
 import { graphql } from 'gatsby'
 
 export default ({ data }) => {
-	console.log(data.allMdx.edges, 'data')
-
 	return (
 		<MainLayout section="Careers">
 			<SEO
@@ -20,7 +18,10 @@ export default ({ data }) => {
 					Join the Team!
 				</Heading>
 				<Grid sx={{ variant: 'grids.threeCards' }}>
-					{data.allMdx.edges.map(({ node }, index) => (
+					{data.allMdx.edges.map(({ node }, index) => {
+						const office = node.frontmatter.office || {}
+
+						return (
 						<CardDefault
 							delay={`${index}` * 0.1 + 's'}
 							avatarImage
@@ -43,16 +44,17 @@ export default ({ data }) => {
 							// }
 							subtitle={
 								node.frontmatter.remote === true
-									? node.frontmatter.office.country
-									: node.frontmatter.office.city
+									? office.country
+									: office.city
 							}
 							avatarImageURL={
 								node.frontmatter.remote === true
-									? node.frontmatter.office.countryIcon
-									: node.frontmatter.office.countryIcon
+									? office.countryIcon
+									: office.countryIcon
 							}
 						/>
-					))}
+						)
+					})}
 				</Grid>
 			</Container>
 		</MainLayout>

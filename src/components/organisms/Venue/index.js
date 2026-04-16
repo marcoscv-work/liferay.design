@@ -1,7 +1,7 @@
 import { Flex, Heading, Text } from 'components/atoms'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const Venue = () => (
 	<section className={styles.container} id="venue">

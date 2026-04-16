@@ -32,18 +32,9 @@ module.exports = {
 			'Blogs, careers, guidelines, and other resources from the Design Teams at Liferay!',
 	},
 	plugins: [
-		{
-			resolve: `gatsby-plugin-algolia-docsearch`,
-			options: {
-				apiKey: 'e743f8519124b276f2f3325e8e126246',
-				indexName: 'liferay_design',
-				inputSelector: '#lexicon_search',
-				debug: false,
-			},
-		},
 		'gatsby-plugin-brotli',
 		'gatsby-plugin-catch-links',
-		`gatsby-plugin-netlify-cms`,
+		`gatsby-plugin-decap-cms`,
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-resolve-src',
 		{
@@ -56,7 +47,6 @@ module.exports = {
 				icon: `src/images/favicon.svg`,
 			},
 		},
-		'gatsby-plugin-offline',
 		'gatsby-plugin-sass',
 		'gatsby-plugin-sharp',
 		`gatsby-plugin-theme-ui`,
@@ -87,41 +77,6 @@ module.exports = {
 			resolve: 'gatsby-plugin-mdx',
 			options: {
 				extensions: ['.mdx', '.md'],
-				gatsbyRemarkPlugins: [
-					{
-						resolve: 'gatsby-remark-images',
-						options: {
-							maxWidth: 768,
-							withWebp: true,
-							quality: 96,
-							backgroundColor: 'transparent',
-							disableBgImageOnAlpha: true,
-							wrapperStyle: 'margin-bottom: 2em; margin-top: 1em;',
-						},
-					},
-					{
-						resolve: `gatsby-remark-image-attributes`,
-						options: {
-							dataAttributes: true,
-						},
-					},
-					{
-						resolve: 'gatsby-remark-static-images',
-					},
-					{
-						resolve: 'gatsby-remark-autolink-headers',
-						options: {
-							offsetY: `200`,
-							className: `nice-anchor`,
-						},
-					},
-					{
-						resolve: 'gatsby-remark-external-links',
-					},
-					{
-						resolve: `gatsby-plugin-catch-links`,
-					},
-				],
 			},
 		},
 		{

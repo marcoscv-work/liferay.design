@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui'
 import { Button, Container, Flex, Heading, Link, Text } from 'components/atoms'
 import KeyArt from 'pages/2020/components/KeyArt'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const BillboardAlt = ({
 	annualReport,

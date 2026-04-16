@@ -4,7 +4,7 @@ import { jsx, Box, Flex, Grid, Text, Heading, ThemeProvider } from 'theme-ui'
 import { Link } from 'components/atoms'
 import PropTypes from 'prop-types'
 import Plx from 'react-plx'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const Event = ({ name, description, startDate, endDate, url, image }) => {
 	const designerHired = [

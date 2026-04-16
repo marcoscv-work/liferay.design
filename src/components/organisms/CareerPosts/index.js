@@ -42,7 +42,10 @@ export default ({ limit, ...props }) => {
 	`)
 	return (
 		<Grid {...props}>
-			{data.allMdx.edges.slice(0, limit).map(({ node }, index) => (
+			{data.allMdx.edges.slice(0, limit).map(({ node }, index) => {
+				const office = node.frontmatter.office || {}
+
+				return (
 						<CardDefault
 							delay={`${index}` * 0.1 + 's'}
 							avatarImage
@@ -54,16 +57,17 @@ export default ({ limit, ...props }) => {
 							title={node.frontmatter.title}
 							subtitle={
 								node.frontmatter.remote === true
-									? node.frontmatter.office.country
-									: node.frontmatter.office.city
+									? office.country
+									: office.city
 							}
 							avatarImageURL={
 								node.frontmatter.remote === true
-									? node.frontmatter.office.countryIcon
-									: node.frontmatter.office.countryIcon
+									? office.countryIcon
+									: office.countryIcon
 							}
 						/>
-					))}
+					)
+				})}
 		</Grid>
 	)
 }

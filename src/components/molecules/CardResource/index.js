@@ -4,7 +4,7 @@ import { jsx, Flex } from 'theme-ui'
 import { Heading, AnimateIn, Icon } from 'components/atoms'
 import { Component } from 'react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { colors, fontSizes } from 'theme/'
 import { fontWeights } from 'theme/'
 

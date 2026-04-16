@@ -4,14 +4,15 @@ import { jsx, Grid } from 'theme-ui'
 import { Link, SiteName } from 'components/atoms'
 import { Accordion, SiteCredits, SearchInput } from 'components/molecules'
 import { map, orderBy } from 'lodash'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const SidebarContent = ({ path, tree }) => {
+	const sidebarStyles = styles || {}
 	const unorderedTree = map(tree, node => {
 		const className = `
-		${styles.leafLink}
-		${node.slug === path ? styles.active : ''} ${
-			node.firstLevel ? styles.firstLevelNode : ''
+		${sidebarStyles.leafLink || ''}
+		${node.slug === path ? sidebarStyles.active || '' : ''} ${
+			node.firstLevel ? sidebarStyles.firstLevelNode || '' : ''
 		}`
 
 		if (node.hasOwnProperty('children')) {
@@ -48,12 +49,13 @@ export default function SidebarWrapper({
 	section,
 	lexicon,
 }) {
+	const sidebarStyles = styles || {}
 	const className = `
-		${styles.sidebar} 
-		${isMobile && showSidebar ? styles.onScreen : ''} 
-		${isMobile && !showSidebar ? styles.offScreen : ''} 
-		${lexicon ? styles.lexicon : styles.sidebar}
-		${section === 'Handbook' ? styles.handbook : ''}
+		${sidebarStyles.sidebar || ''} 
+		${isMobile && showSidebar ? sidebarStyles.onScreen || '' : ''} 
+		${isMobile && !showSidebar ? sidebarStyles.offScreen || '' : ''} 
+		${lexicon ? sidebarStyles.lexicon || '' : sidebarStyles.sidebar || ''}
+		${section === 'Handbook' ? sidebarStyles.handbook || '' : ''}
 	`
 
 	return (
@@ -66,12 +68,12 @@ export default function SidebarWrapper({
 			className={className}
 		>
 			{!isMobile && (
-				<div className={styles.section}>
+				<div className={sidebarStyles.section}>
 					<SiteName section={section} dark />
 				</div>
 			)}
 
-			<div className={styles.sidebarContentWrapper}>
+			<div className={sidebarStyles.sidebarContentWrapper}>
 				{lexicon && (
 					<SearchInput id='lexicon_search' />
 				)}
@@ -79,7 +81,7 @@ export default function SidebarWrapper({
 			</div>
 
 			{!isMobile && (
-				<div className={styles.credits}>
+				<div className={sidebarStyles.credits}>
 					<SiteCredits />
 				</div>
 			)}

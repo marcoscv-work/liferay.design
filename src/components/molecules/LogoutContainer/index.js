@@ -1,7 +1,7 @@
 import { Button, Flex, Text, Image } from 'components/atoms'
 import React, { Component } from 'react'
 import { Avatar } from 'theme-ui'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default class LogoutContainer extends Component {
 	constructor(props) {

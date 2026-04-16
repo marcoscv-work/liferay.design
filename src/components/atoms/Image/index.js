@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { colors, fontSizes } from 'theme'
 import { Hotkey } from 'components/atoms'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { useHotkeys } from 'react-hotkeys-hook'
 
 const Image = ({

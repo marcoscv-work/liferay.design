@@ -40,6 +40,7 @@ export default ({ teammate, currentPost, ...props }) => {
 	const Posts = data.allMdx.edges
 		.filter(
 			edges =>
+				edges.node.frontmatter.author &&
 				makeAuthorSlug(edges.node.frontmatter.author.id) === teammate &&
 				edges.node.id !== currentPost,
 		)

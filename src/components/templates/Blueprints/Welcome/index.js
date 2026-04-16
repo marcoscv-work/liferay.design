@@ -4,13 +4,13 @@ import { jsx, Grid, Box } from 'theme-ui'
 import { Icon, Link, Text } from 'components/atoms'
 import { Billboard, CardLexicon } from 'components/molecules'
 import { Banner, Footer } from 'components/organisms'
-import blueprints from 'theme/blueprints.module.scss'
-import documentation from 'theme/documentation.module.scss'
+import blueprints from '../../../../theme/blueprints.module.scss'
+import documentation from '../../../../theme/documentation.module.scss'
 import { Helmet } from 'react-helmet'
 
 const Blueprints = () => (
 	<Box
-		className={`${blueprints.theme} ${documentation.theme}`}
+		className={[blueprints?.theme, documentation?.theme].filter(Boolean).join(' ')}
 		sx={{ backgroundColor: 'background' }}
 	>
 		<Helmet>
@@ -27,9 +27,9 @@ const Blueprints = () => (
 			simpleNav
 		/>
 		<Box sx={{ backgroundColor: 'white' }}>
-			<Box className={documentation.container}>
+			<Box className={documentation?.container}>
 				<Grid
-					className={documentation.teasers}
+					className={documentation?.teasers}
 					sx={{
 						variant: 'grids.landingPage',
 					}}
@@ -39,7 +39,7 @@ const Blueprints = () => (
 						weight="700"
 						size="12px"
 						type="p"
-						className={blueprints.vertical}
+						className={blueprints?.vertical}
 					>
 						Explore Blueprints
 					</Text>
@@ -99,21 +99,21 @@ const Blueprints = () => (
 							cta="Experience Design.Liferay"
 						/>
 					</Box>
-					<Box className={documentation.socialContainer}>
+					<Box className={documentation?.socialContainer}>
 						<Link
-							className={documentation.social}
+							className={documentation?.social}
 							to="https://github.com/liferay-design"
 						>
 							<Icon sx={{ fill: 'white' }} name="github" />
 						</Link>
 						<Link
-							className={documentation.social}
+							className={documentation?.social}
 							to="https://dribbble.com/liferay"
 						>
 							<Icon sx={{ fill: 'white' }} name="dribbble" />
 						</Link>
 						<Link
-							className={documentation.social}
+							className={documentation?.social}
 							to="https://twitter.com/liferaydesign"
 						>
 							<Icon sx={{ fill: 'white' }} name="twitter" />

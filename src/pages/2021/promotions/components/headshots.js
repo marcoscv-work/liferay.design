@@ -26,7 +26,9 @@ export default ({}) => {
 
 	const radius = '28'
 
-	const Headshots = graphqlData.designers.map(({ name }, index) => (
+	const Headshots = graphqlData.designers
+		.filter(({ name }) => name)
+		.map(({ name }, index) => (
 		<Box
 			sx={{
 				display: 'inline-block',

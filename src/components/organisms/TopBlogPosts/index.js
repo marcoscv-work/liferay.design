@@ -48,7 +48,11 @@ export default () => {
 					link={node.fields.slug}
 					title={node.frontmatter.title}
 					subtitle={`${node.timeToRead}` + ' Min Read'}
-					avatarImageURL={avatarPath(node.frontmatter.author.id)}
+					avatarImageURL={
+						node.frontmatter.author
+							? avatarPath(node.frontmatter.author.id)
+							: undefined
+					}
 				/>
 			))}
 		</Grid>

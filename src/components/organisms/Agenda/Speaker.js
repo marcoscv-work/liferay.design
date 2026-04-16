@@ -2,7 +2,7 @@ import { Flex, Heading } from 'components/atoms'
 import { withPrefix } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export const Speaker = props => {
 	const { photo, name, title } = props.data

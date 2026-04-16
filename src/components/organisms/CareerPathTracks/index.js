@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Accordion } from 'components/molecules'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export const CareerPathTracks = ({
 	vertical,

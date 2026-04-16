@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const ContainerMarkdown = ({ isMobile, isMobileSidebarVisible, children }) => {
 	return (

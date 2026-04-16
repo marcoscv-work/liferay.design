@@ -4,23 +4,28 @@ import { jsx, Grid } from 'theme-ui'
 import { Container, Text, Heading, Link, Icon } from 'components/atoms'
 import { CardLexicon, CardHidden, SEO, FormNewsletter } from 'components/molecules'
 import { Navbar } from 'components/organisms'
-import blueprints from 'theme/blueprints.module.scss'
-import documentation from 'theme/documentation.module.scss'
-import styles from './styles.module.scss'
+import blueprints from '../../../../theme/blueprints.module.scss'
+import documentation from '../../../../theme/documentation.module.scss'
+import * as styles from './styles.module.scss'
 import { colors } from 'theme'
 
 export const Handbook = () => {
+	const themeClasses = [blueprints?.theme, documentation?.theme, styles?.handbook]
+		.filter(Boolean)
+		.join(' ')
+	const componentStyles = styles || {}
+
 	return (
-		<div className={`${blueprints.theme} ${documentation.theme} ${styles.handbook}`}>
+		<div className={themeClasses}>
 			<SEO
 				description="The open source handbook for Liferay's Design Department"
 				pageTitle="Design.Liferay | Handbook"
 			/>
-			<div className={styles.wrapper}>
+			<div className={componentStyles.wrapper}>
 				<Navbar simpleNav white />
 				<Container padding="2rem 0">
-					<div className={styles.gagb}>
-						<Text color="grey" weight="inherit" className={styles.date}>
+					<div className={componentStyles.gagb}>
+						<Text color="grey" weight="inherit" className={componentStyles.date}>
 							Since 2004
 						</Text>
 						<Heading sx={{ color: 'white' }}>

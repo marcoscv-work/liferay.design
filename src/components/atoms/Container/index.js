@@ -2,7 +2,7 @@
 
 import { jsx, Flex } from 'theme-ui'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { Heading, NiceLink } from 'components/atoms'
 
 const Container = ({

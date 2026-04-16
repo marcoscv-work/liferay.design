@@ -1,6 +1,6 @@
 import React from 'react'
 import Plx from 'react-plx'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 class PrincipleCard extends React.Component {
 	constructor(props) {

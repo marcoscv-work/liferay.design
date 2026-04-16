@@ -4,11 +4,11 @@ import { jsx, Grid, Box } from 'theme-ui'
 import { Container, Icon, Link, Text } from 'components/atoms'
 import { Billboard, CardLexicon } from 'components/molecules'
 import { Banner, Footer } from 'components/organisms'
-import lexicon from 'theme/lexicon.module.scss'
-import documentation from 'theme/documentation.module.scss'
+import lexicon from '../theme/lexicon.module.scss'
+import documentation from '../theme/documentation.module.scss'
 
 const Lexicon = () => (
-	<div className={`${lexicon.theme} ${documentation.theme}`}>
+	<div className={[lexicon?.theme, documentation?.theme].filter(Boolean).join(' ')}>
 		<Banner
 			headline="Lexicon 1"
 			subtitle="A consistent design system to help you build beautiful web apps easily"
@@ -18,10 +18,10 @@ const Lexicon = () => (
 			background="url(/images/lexicon/home/pattern-bg-black.svg) center fixed, #000"
 			underlineColor="#c96678"
 		/>
-		<div className={documentation.background}>
-			<div className={documentation.container}>
+		<div className={documentation?.background}>
+			<div className={documentation?.container}>
 				<Grid
-					className={documentation.teasers}
+					className={documentation?.teasers}
 					sx={{
 						variant: 'grids.landingPage',
 					}}
@@ -31,7 +31,7 @@ const Lexicon = () => (
 						weight="600"
 						size="12px"
 						type="p"
-						className={lexicon.vertical}
+						className={lexicon?.vertical}
 					>
 						Explore Lexicon
 					</Text>
@@ -54,21 +54,21 @@ const Lexicon = () => (
 							cta="Learn More"
 						/>
 					</Box>
-					<Box className={documentation.socialContainer}>
+					<Box className={documentation?.socialContainer}>
 						<Link
-							className={documentation.social}
+							className={documentation?.social}
 							to="https://github.com/liferay-design"
 						>
 							<Icon sx={{ fill: 'white' }} name="github" />
 						</Link>
 						<Link
-							className={documentation.social}
+							className={documentation?.social}
 							to="https://dribbble.com/liferay"
 						>
 							<Icon sx={{ fill: 'white' }} name="dribbble" />
 						</Link>
 						<Link
-							className={documentation.social}
+							className={documentation?.social}
 							to="https://twitter.com/Liferay_Lexicon"
 						>
 							<Icon sx={{ fill: 'white' }} name="twitter" />
@@ -92,7 +92,7 @@ const Lexicon = () => (
 			background="url(/images/lexicon/home/patternbg-white.svg) center / 100% fixed, #f7f7f9"
 		/>
 		<Container>
-			<Grid className={documentation.clayCard}>
+			<Grid className={documentation?.clayCard}>
 				<Box columnStart="3" columnEnd="7">
 					<CardLexicon
 						dark

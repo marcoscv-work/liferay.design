@@ -4,7 +4,7 @@ import { jsx, Grid } from 'theme-ui'
 import { Image, Link, Text } from 'components/atoms'
 import { BillboardAlt } from 'components/molecules'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import MediaQuery from 'react-responsive'
 import { colors } from 'theme'
 

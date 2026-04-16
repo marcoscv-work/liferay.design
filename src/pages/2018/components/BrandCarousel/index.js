@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default class VariableWidth extends Component {
 	render() {

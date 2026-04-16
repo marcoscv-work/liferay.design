@@ -10,10 +10,10 @@ import { cloneDeep, get, set } from 'lodash'
 import React, { Component } from 'react'
 import MediaQuery from 'react-responsive'
 
-import documentation from 'theme/documentation.module.scss'
-import blueprints from 'theme/blueprints.module.scss'
+import documentation from '../../../theme/documentation.module.scss'
+import blueprints from '../../../theme/blueprints.module.scss'
 import moment from 'moment'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default class Handbook extends Component {
 	constructor(props) {
@@ -37,11 +37,12 @@ export default class Handbook extends Component {
 			data: { allMdx, mdx },
 			location: { pathname },
 		} = this.props
+		const themeClasses = [blueprints?.theme, documentation?.theme, styles?.neumorphism]
+			.filter(Boolean)
+			.join(' ')
 
 		return (
-			<div
-				className={`${blueprints.theme} ${documentation.theme} ${styles.neumorphism}`}
-			>
+			<div className={themeClasses}>
 				<SEO
 					description={mdx.excerpt}
 					keywords="Liferay Design Handbook, handbook, designer handbook"
@@ -54,11 +55,11 @@ export default class Handbook extends Component {
 						return (
 							<Grid
 								sx={{ variant: 'grids.sideNav' }}
-								className={documentation.mainContentWrapper}
+								className={documentation?.mainContentWrapper}
 							>
 								{matches && (
 									<Flex
-										className={documentation.mobileNavbar}
+										className={documentation?.mobileNavbar}
 										justify="space-between"
 										padding="2rem 1rem"
 									>
@@ -76,7 +77,9 @@ export default class Handbook extends Component {
 								/>
 
 								<div
-									className={`${styles.contentWrapper} ${documentation.contentWrapper}`}
+									className={[styles?.contentWrapper, documentation?.contentWrapper]
+										.filter(Boolean)
+										.join(' ')}
 								>
 									{mdx.frontmatter.template === 'landingPage' ? (
 										<GlobalMdx>
@@ -126,7 +129,7 @@ export default class Handbook extends Component {
 													>
 														<Flex
 															align="center"
-															className={styles.github}
+															className={styles?.github}
 														>
 															<Icon
 																sx={{
@@ -149,7 +152,7 @@ export default class Handbook extends Component {
 
 								<Flex
 									align="center"
-									className={documentation.mobileMenuBar}
+									className={documentation?.mobileMenuBar}
 									justify="space-between"
 								>
 									<Icon

@@ -2,7 +2,7 @@ import { withPrefix } from 'gatsby'
 import { Flex, Heading, Link, Image } from 'components/atoms'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from '../../styles.module.scss'
+import * as styles from '../../styles.module.scss'
 
 const SimpleCard = ({ image, title, subtitle, description, link, url, avatarImage }) => {
 	return (

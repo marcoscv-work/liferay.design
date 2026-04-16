@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Flex } from 'components/atoms'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default class KeyArt extends Component {
 	render() {

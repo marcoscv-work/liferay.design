@@ -2,7 +2,7 @@ import { Flex, Text } from 'components/atoms'
 import { ColorField } from 'components/molecules'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { colors } from 'theme'
 
 export default function ColorSwatch({

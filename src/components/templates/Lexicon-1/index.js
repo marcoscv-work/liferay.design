@@ -9,8 +9,8 @@ import { graphql } from 'gatsby'
 import { cloneDeep, get, set } from 'lodash'
 import React, { Component } from 'react'
 import MediaQuery from 'react-responsive'
-import lexicon from 'theme/lexicon.module.scss'
-import documentation from 'theme/documentation.module.scss'
+import lexicon from '../../../theme/lexicon.module.scss'
+import documentation from '../../../theme/documentation.module.scss'
 
 export default class Lexicon extends Component {
 	constructor(props) {
@@ -34,19 +34,22 @@ export default class Lexicon extends Component {
 			data: { allMdx, mdx },
 			location: { pathname },
 		} = this.props
+		const themeClasses = [lexicon?.theme, documentation?.theme]
+			.filter(Boolean)
+			.join(' ')
 
 		return (
-			<div className={`${lexicon.theme} ${documentation.theme}`}>
+			<div className={themeClasses}>
 				<MediaQuery maxWidth={767}>
 					{matches => {
 						return (
 							<Grid
 								sx={{ variant: 'grids.sideNav' }}
-								className={documentation.mainContentWrapper}
+								className={documentation?.mainContentWrapper}
 							>
 								{matches && (
 									<Flex
-										className={documentation.mobileNavbar}
+										className={documentation?.mobileNavbar}
 										justify="space-between"
 										padding="2rem 1rem"
 									>
@@ -75,7 +78,7 @@ export default class Lexicon extends Component {
 										{mdx.frontmatter.titleLabelLink ? (
 											<span>
 												<Link
-													className={lexicon.labelLink}
+													className={lexicon?.labelLink}
 													to={mdx.frontmatter.titleLabelLink}
 												>
 													VIEW IN CLAY
@@ -84,7 +87,7 @@ export default class Lexicon extends Component {
 										) : null}
 
 										{mdx.frontmatter.description ? (
-											<p className={lexicon.description}>
+											<p className={lexicon?.description}>
 												{mdx.frontmatter.description}
 											</p>
 										) : null}
@@ -98,7 +101,7 @@ export default class Lexicon extends Component {
 
 								<Flex
 									align="center"
-									className={documentation.mobileMenuBar}
+									className={documentation?.mobileMenuBar}
 									justify="space-between"
 								>
 									<Icon name="lexicon" color="white" height="2rem" />

@@ -10,7 +10,7 @@ import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { Helmet } from 'react-helmet'
 import Plx from 'react-plx'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 //custom plx data
 const anchorLinks = [

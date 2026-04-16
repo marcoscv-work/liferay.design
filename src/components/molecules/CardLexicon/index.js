@@ -3,7 +3,7 @@
 import { jsx } from 'theme-ui'
 import { Flex, Heading, Icon, Link, Text, Image, AnimateIn } from 'components/atoms'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { useMediaQuery } from 'react-responsive'
 
 const CardLexicon = ({

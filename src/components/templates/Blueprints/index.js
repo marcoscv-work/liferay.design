@@ -10,8 +10,8 @@ import { graphql } from 'gatsby'
 import { cloneDeep, get, set } from 'lodash'
 import React, { Component } from 'react'
 import MediaQuery from 'react-responsive'
-import blueprints from 'theme/blueprints.module.scss'
-import documentation from 'theme/documentation.module.scss'
+import blueprints from '../../../theme/blueprints.module.scss'
+import documentation from '../../../theme/documentation.module.scss'
 import moment from 'moment'
 import { isAuthenticated } from 'utils'
 
@@ -37,19 +37,22 @@ export default class Blueprints extends Component {
 			data: { allMdx, mdx },
 			location: { pathname },
 		} = this.props
+		const themeClasses = [blueprints?.theme, documentation?.theme]
+			.filter(Boolean)
+			.join(' ')
 
 		return (
-			<div className={`${blueprints.theme} ${documentation.theme}`}>
+			<div className={themeClasses}>
 				<MediaQuery maxWidth={767}>
 					{matches => {
 						return (
 							<Grid
 								sx={{ variant: 'grids.sideNav' }}
-								className={documentation.mainContentWrapper}
+								className={documentation?.mainContentWrapper}
 							>
 								{matches && (
 									<Flex
-										className={documentation.mobileNavbar}
+										className={documentation?.mobileNavbar}
 										justify="space-between"
 										padding="2rem 1rem"
 									>
@@ -121,7 +124,7 @@ export default class Blueprints extends Component {
 
 								<Flex
 									align="center"
-									className={documentation.mobileMenuBar}
+									className={documentation?.mobileMenuBar}
 									justify="space-between"
 								>
 									<Icon name="waffle" color="white" height="2rem" />

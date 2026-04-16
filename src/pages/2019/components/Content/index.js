@@ -1,6 +1,6 @@
 import { Heading, Text, Flex } from 'components/atoms'
 import React from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const Content = ({ pretitle, title, copy, align, justify }) => {
 	return (

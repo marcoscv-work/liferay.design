@@ -2,7 +2,7 @@
 import { jsx, Flex } from 'theme-ui'
 import { Icon, Text, Link, Image } from 'components/atoms'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default function AssetDownload({
 	source,

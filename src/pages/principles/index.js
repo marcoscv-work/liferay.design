@@ -3,7 +3,7 @@ import { Footer } from 'components/organisms'
 import { PrincipleCard, PrinciplesHeader } from 'pages/principles/components/_index'
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 const questionsIntentional = [
 	<span>

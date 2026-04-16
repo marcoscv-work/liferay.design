@@ -41,7 +41,10 @@ export default () => {
 
 	const Events = data.allMdx.edges
 		.filter(edgeItem => moment(edgeItem.node.frontmatter.date).toDate() > Date.now())
-		.map(({ node }) => (
+		.map(({ node }) => {
+			const office = node.frontmatter.office || {}
+
+			return (
 			<CardDefault
 				avatarImage
 				pill
@@ -50,10 +53,11 @@ export default () => {
 				imageURL={node.frontmatter.featuredImage}
 				link={node.fields.slug}
 				title={node.frontmatter.title}
-				subtitle={node.frontmatter.office.city}
-				avatarImageURL={node.frontmatter.office.countryIcon}
+				subtitle={office.city}
+				avatarImageURL={office.countryIcon}
 			/>
-		))
+			)
+		})
 	return (
 		<div>
 			{Events.length > 0 ? (

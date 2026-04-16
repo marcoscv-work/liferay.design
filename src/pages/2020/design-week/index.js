@@ -6,7 +6,7 @@ import React from 'react'
 import { SEO } from 'components/molecules'
 
 import { Card, Hero, LoadingAnimation } from 'pages/2020/design-week/components/_index'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 
 export default class DesignWeek extends React.Component {
 	render() {

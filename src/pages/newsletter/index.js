@@ -2,7 +2,7 @@ import { Flex, Heading, Text, Container } from 'components/atoms'
 import { FormNewsletter } from 'components/molecules'
 import { Footer, Navbar } from 'components/organisms'
 import React from 'react'
-import styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { Helmet } from 'react-helmet'
 import Archive from './Archive'
 
