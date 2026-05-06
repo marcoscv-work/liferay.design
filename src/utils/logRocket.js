@@ -11,6 +11,7 @@ export class LogRocket extends Component {
 			<Helmet>
 				<script
 					src="https://cdn.lr-ingest.io/LogRocket.min.js"
+					integrity="sha384-b0XbgzE6J/qtc+4HLtAb/hJlDBpi4wFgJu6KmnqBMSxJQG0VrkHjKb+DDaxpAjdN"
 					crossorigin="anonymous"
 				/>
 			</Helmet>
