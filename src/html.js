@@ -21,7 +21,7 @@ export default class HTML extends React.Component {
 					<title>{seoDescription}</title>
 
 					{this.props.headComponents}
-          <script src="https://cdn.usefathom.com/script.js" data-spa="auto" data-site="LYRINPGJ" defer></script>
+          <script src="https://cdn.usefathom.com/script.js" integrity="sha384-K7To5/+kH06F3upkX8HG8oY/qc2dtF2zk/kWhbKI4FgKlHYIogq0oftSeWXTX4xn" crossOrigin="anonymous" data-spa="auto" data-site="LYRINPGJ" defer></script>
 				</head>
 				<body {...this.props.bodyAttributes}>
 					<StrictMode>
