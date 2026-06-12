@@ -11,7 +11,6 @@
 		"gatsby": "^3.15.0",
 		"gatsby-cli": "^3.15.0",
 		"gatsby-plugin-algolia-docsearch": "^1.0.5",
-		"gatsby-plugin-brotli": "^2.1.0",
 		"gatsby-plugin-manifest": "^3.15.0",
 		"gatsby-plugin-mdx": "^2.15.0",
 		"gatsby-plugin-netlify-cms": "^5.15.0",

@@ -3,6 +3,14 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const _ = require('lodash')
 const moment = require(`moment`)
 
+// Skip production source maps: trims build time and deploy payload
+// (Netlify deploys were hitting the build time limit on cold caches)
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+	if (stage === 'build-javascript') {
+		actions.setWebpackConfig({ devtool: false })
+	}
+}
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
 	const { createNodeField } = actions
 
