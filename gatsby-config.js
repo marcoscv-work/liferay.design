@@ -57,7 +57,19 @@ module.exports = {
 			},
 		},
 		'gatsby-plugin-offline',
-		'gatsby-plugin-sass',
+		{
+			resolve: 'gatsby-plugin-sass',
+			options: {
+				// Keep Gatsby 2 behavior: default-export CSS module class maps
+				// (79 components import styles via `import styles from '*.module.scss'`)
+				cssLoaderOptions: {
+					esModule: false,
+					modules: {
+						namedExport: false,
+					},
+				},
+			},
+		},
 		'gatsby-plugin-sharp',
 		`gatsby-plugin-theme-ui`,
 		`gatsby-transformer-json`,
