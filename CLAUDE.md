@@ -4,16 +4,18 @@ Public website for Liferay Design (design.liferay.com). Content-driven Gatsby si
 
 ## Critical constraints
 
-- **Node 12.x required** (ideally 12.14.1) — will not work on modern Node
-- **Gatsby 2.32.13** + **React 16.14.0** — do not assume modern Gatsby/React patterns
-- **node-sass 4.14.1** — do not replace with modern Sass without explicit migration task
-- **Netlify** deployment, pinned to Node 12
+- **Node 14.x required** (14.21.3, see `.nvmrc`) — newer Node may break native deps and the npm-6-format lockfile
+- **Gatsby 3.15** + **React 16.14.0** — do not assume Gatsby 4/5 or React 17/18 patterns
+- **sass (dart-sass) ~1.32** — pinned to keep node-sass-era SCSS syntax compiling without warnings
+- **CSS modules use default exports** (`import styles from '*.module.scss'`) — preserved via `cssLoaderOptions` in `gatsby-plugin-sass` config; do not "modernize" to named imports piecemeal
+- **package-lock.json is lockfileVersion 1** — always install with the npm 6.x bundled with Node 14, never a modern npm
+- **Netlify** deployment, pinned to Node 14
 - Stability > modernization. Do not upgrade packages unless migration is the explicit goal
 
 ## Local development
 
 ```bash
-nvm use 12.14.1
+nvm use          # picks up 14.21.3 from .nvmrc
 npm install
 npm run dev      # starts on http://0.0.0.0:7777
 ```
