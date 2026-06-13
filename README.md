@@ -15,6 +15,7 @@ Designed in [Figma](https://figma.com), built with [Gatsby](https://gatsbyjs.org
     -   [About](#about)
     -   [👾 Getting started](#-getting-started)
         -   [If you don't have a dev environment](#if-you-dont-have-a-dev-environment)
+        -   [Tech Stack & Requirements](#tech-stack--requirements)
         -   [Quick Start](#quick-start)
     -   [⛩ Structure](#-structure)
         -   [🌳 Branches](#-branches)
@@ -48,9 +49,25 @@ Skip down to [Starting Phresh](#starting-phresh) for a step-by-step guide.
 
 <br />
 
+### Tech Stack & Requirements
+
+| Tool | Version | Notes |
+| --- | --- | --- |
+| Node | **14.x** (14.21.3) | Pinned in `.nvmrc` — run `nvm use` inside the repo |
+| npm | **6.x** (bundled with Node 14) | `package-lock.json` uses lockfile v1 — **do not install with a newer npm**, it would rewrite the lockfile into a format the build can't use |
+| Gatsby | **3.15** | Migrated from Gatsby 2 (webpack 5 under the hood) |
+| React | 16.14 | Do not apply React 17/18 patterns |
+| Sass | `sass` (dart-sass) ~1.32 | Replaced `node-sass` — no more native bindings to compile |
+
+A few conventions to keep in mind when touching code:
+
+-   **CSS modules are imported with default exports** (`import styles from './styles.module.scss'`). Gatsby 3 changed the default to named exports, but this repo restores the classic behavior through `cssLoaderOptions` in the `gatsby-plugin-sass` entry of `gatsby-config.js` — don't migrate imports file by file.
+-   **Coming from the old Node 12 setup?** Delete your old install first: `rm -rf node_modules && nvm use && npm install`.
+-   Deployment runs on Netlify with `NODE_VERSION = "14"` pinned in `netlify.toml`.
+
 ### Quick Start
 
-**Warning**: This project only works with Node v12 (we could run v14, but we need 12 to install dependencies). You can use [NVM](https://github.com/nvm-sh/nvm) to install Node v12.14.1 by `nvm install v12.14.1`, then you can follow these steps:
+**Warning**: This project requires Node v14 (see `.nvmrc`). You can use [NVM](https://github.com/nvm-sh/nvm) to install it by `nvm install v14.21.3` (or just `nvm use` inside the repo), then you can follow these steps:
 
 1. **Install Dependencies**
 
