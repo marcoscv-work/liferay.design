@@ -17,10 +17,11 @@
   alumni: true
 - id: Alex Clementi
   title: Product Designer
-  active: true
+  active: false
   icon: fa_binoculars
   startDate: 2022-11-07
   office: Concorezzo
+  alumni: true
 - id: Andrea Censi
   title: Staff Product Designer
   active: true
