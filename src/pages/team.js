@@ -64,7 +64,7 @@ export const query = graphql`
 					id
 					frontmatter {
 						author {
-							id
+							id: yamlId
 							title
 							icon
 						}

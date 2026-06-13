@@ -145,17 +145,20 @@ module.exports = {
 		},
 	].concat(dynamicPlugins),
 
+	// Gatsby 4: gatsby-transformer-yaml exposes the YAML `id` field as
+	// `yamlId` (the `id` field is now Gatsby's internal UUID), so every
+	// foreign-key mapping must target `.yamlId`
 	mapping: {
-		'MarkdownRemark.frontmatter.author': `AuthorsYaml`,
-		'Mdx.frontmatter.author': `AuthorsYaml`,
-		'AuthorsYaml.office': `OfficesYaml.id`,
-		'CountriesYaml.hq': `OfficesYaml.id`,
-		'OfficesYaml.region': `CountriesYaml.id`,
-		'MarkdownRemark.frontmatter.office': `OfficesYaml`,
-		'Mdx.frontmatter.office': `OfficesYaml`,
-		'ChangelogYaml.author': `AuthorsYaml.id`,
-		'AnnualReportsYaml.promotionsPage.designers.name': `AuthorsYaml`,
-		'ChangelogYaml.contributors': `AuthorsYaml.id`,
-		'Mdx.frontmatter.contributors': `AuthorsYaml.id`,
+		'MarkdownRemark.frontmatter.author': `AuthorsYaml.yamlId`,
+		'Mdx.frontmatter.author': `AuthorsYaml.yamlId`,
+		'AuthorsYaml.office': `OfficesYaml.yamlId`,
+		'CountriesYaml.hq': `OfficesYaml.yamlId`,
+		'OfficesYaml.region': `CountriesYaml.yamlId`,
+		'MarkdownRemark.frontmatter.office': `OfficesYaml.yamlId`,
+		'Mdx.frontmatter.office': `OfficesYaml.yamlId`,
+		'ChangelogYaml.author': `AuthorsYaml.yamlId`,
+		'AnnualReportsYaml.promotionsPage.designers.name': `AuthorsYaml.yamlId`,
+		'ChangelogYaml.contributors': `AuthorsYaml.yamlId`,
+		'Mdx.frontmatter.contributors': `AuthorsYaml.yamlId`,
 	},
 }

@@ -11,21 +11,21 @@ import { colors } from 'theme/'
 export default function ChangelogFeed({ items, ...props }) {
 	const data = useStaticQuery(graphql`
 		{
-			allChangelogYaml(sort: { order: DESC, fields: [id] }) {
+			allChangelogYaml(sort: { order: DESC, fields: [yamlId] }) {
 				totalCount
 				edges {
 					node {
-						id
+						id: yamlId
 						gitUrl
 						titleUrl
 						author {
-							id
+							id: yamlId
 						}
 						title
 						icon
 						longSummary
 						contributors {
-							id
+							id: yamlId
 						}
 						buildPreview
 					}

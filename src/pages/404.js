@@ -14,11 +14,11 @@ export default () => {
 	const data = useStaticQuery(graphql`
 		{
 			allAuthorsYaml(
-				filter: { active: { eq: true }, id: { ne: "Nate Cavanaugh" } }
+				filter: { active: { eq: true }, yamlId: { ne: "Nate Cavanaugh" } }
 			) {
 				edges {
 					node {
-						id
+						id: yamlId
 					}
 				}
 			}

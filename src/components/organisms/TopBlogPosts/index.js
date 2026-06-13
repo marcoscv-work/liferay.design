@@ -25,7 +25,7 @@ export default () => {
 							title
 							featuredImage
 							author {
-								id
+								id: yamlId
 							}
 							tags
 						}

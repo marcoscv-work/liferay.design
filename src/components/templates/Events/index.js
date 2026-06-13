@@ -116,14 +116,14 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				office {
-					id
+					id: yamlId
 					city
 					state
 					mapURL
 				}
 				date
 				author {
-					id
+					id: yamlId
 				}
 				endDateTime
 				heroImage

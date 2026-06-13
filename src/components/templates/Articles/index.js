@@ -188,7 +188,7 @@ export const pageQuery = graphql`
 			timeToRead
 			frontmatter {
 				author {
-					id
+					id: yamlId
 					links {
 						twitter
 					}

@@ -285,7 +285,7 @@ export const pageQuery = graphql`
 		mdx(fields: { slug: { eq: $slug } }) {
 			frontmatter {
 				author {
-					id
+					id: yamlId
 					startDate
 					endDate
 					title

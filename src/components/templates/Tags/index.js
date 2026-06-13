@@ -88,7 +88,7 @@ export const pageQuery = graphql`
 						title
 						featuredImage
 						author {
-							id
+							id: yamlId
 						}
 					}
 				}

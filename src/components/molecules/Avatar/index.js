@@ -9,7 +9,7 @@ export default ( {name, guest, ...props} ) => {
             allAuthorsYaml {
                 edges {
                     node {
-                        id
+                        id: yamlId
                     }
                 }
             }
