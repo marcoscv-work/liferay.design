@@ -41,7 +41,6 @@ module.exports = {
 				debug: false,
 			},
 		},
-		'gatsby-plugin-brotli',
 		'gatsby-plugin-catch-links',
 		`gatsby-plugin-netlify-cms`,
 		'gatsby-plugin-react-helmet',
