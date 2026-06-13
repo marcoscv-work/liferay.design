@@ -181,6 +181,19 @@ if (!process.env.MAILCHIMP_KEY) {
 		const { createTypes } = actions
 
 		const typeDefs = [
+			`
+				enum NewslettersSortFields {
+					send_time
+				}
+				enum NewslettersSortOrder {
+					ASC
+					DESC
+				}
+				input NewslettersSortArgs {
+					fields: NewslettersSortFields
+					order: NewslettersSortOrder
+				}
+			`,
 			schema.buildObjectType({
 				fields: {
 					edges: '[EdgesNewsletter]',
@@ -237,7 +250,7 @@ if (!process.env.MAILCHIMP_KEY) {
 					type: 'Newsletter',
 					args: {
 						filter: 'InputFilter',
-						sort: 'JSON',
+						sort: 'NewslettersSortArgs',
 					},
 					resolve() {
 						return { edges: [] }
