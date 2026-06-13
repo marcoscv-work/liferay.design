@@ -55,13 +55,14 @@ Skip down to [Starting Phresh](#starting-phresh) for a step-by-step guide.
 | --- | --- | --- |
 | Node | **14.x** (14.21.3) | Pinned in `.nvmrc` — run `nvm use` inside the repo |
 | npm | **6.x** (bundled with Node 14) | `package-lock.json` uses lockfile v1 — **do not install with a newer npm**, it would rewrite the lockfile into a format the build can't use |
-| Gatsby | **3.15** | Migrated from Gatsby 2 (webpack 5 under the hood) |
+| Gatsby | **4.25** | Migrated from Gatsby 2 → 3 → 4 (webpack 5, LMDB datastore) |
 | React | 16.14 | Do not apply React 17/18 patterns |
 | Sass | `sass` (dart-sass) ~1.32 | Replaced `node-sass` — no more native bindings to compile |
 
 A few conventions to keep in mind when touching code:
 
--   **CSS modules are imported with default exports** (`import styles from './styles.module.scss'`). Gatsby 3 changed the default to named exports, but this repo restores the classic behavior through `cssLoaderOptions` in the `gatsby-plugin-sass` entry of `gatsby-config.js` — don't migrate imports file by file.
+-   **CSS modules are imported with default exports** (`import styles from './styles.module.scss'`). Gatsby 3+ changed the default to named exports, but this repo restores the classic behavior through `cssLoaderOptions` in the `gatsby-plugin-sass` entry of `gatsby-config.js` — don't migrate imports file by file.
+-   **YAML/JSON `id` is exposed as `yamlId`/`jsonId`** (Gatsby 4 change). The `gatsby-config.js` `mapping` block and any GraphQL query reading a data file's own `id` use `yamlId` (often aliased back as `id: yamlId`). Keep this in mind for queries against `AuthorsYaml`, `OfficesYaml`, `ChangelogYaml`, etc.
 -   **Coming from the old Node 12 setup?** Delete your old install first: `rm -rf node_modules && nvm use && npm install`.
 -   Deployment runs on Netlify with `NODE_VERSION = "14"` pinned in `netlify.toml`.
 

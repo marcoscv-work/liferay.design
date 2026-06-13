@@ -5,7 +5,8 @@ Public website for Liferay Design (design.liferay.com). Content-driven Gatsby si
 ## Critical constraints
 
 - **Node 14.x required** (14.21.3, see `.nvmrc`) — newer Node may break native deps and the npm-6-format lockfile
-- **Gatsby 3.15** + **React 16.14.0** — do not assume Gatsby 4/5 or React 17/18 patterns
+- **Gatsby 4.25** + **React 16.14.0** — do not assume Gatsby 5 or React 17/18 patterns
+- **YAML/JSON data `id` is exposed as `yamlId`/`jsonId`** (Gatsby 4) — the `gatsby-config.js` `mapping` block and data-file GraphQL queries use `yamlId` (often aliased `id: yamlId`)
 - **sass (dart-sass) ~1.32** — pinned to keep node-sass-era SCSS syntax compiling without warnings
 - **CSS modules use default exports** (`import styles from '*.module.scss'`) — preserved via `cssLoaderOptions` in `gatsby-plugin-sass` config; do not "modernize" to named imports piecemeal
 - **package-lock.json is lockfileVersion 1** — always install with the npm 6.x bundled with Node 14, never a modern npm

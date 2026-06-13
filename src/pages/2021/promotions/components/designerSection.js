@@ -15,7 +15,7 @@ export default ({}) => {
 					promotionsPage {
 						designers {
 							name {
-								id
+								id: yamlId
 							}
 							title
 							summary

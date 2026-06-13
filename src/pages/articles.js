@@ -79,7 +79,7 @@ export const query = graphql`
 						title
 						featuredImage
 						author {
-							id
+							id: yamlId
 						}
 						tags
 					}

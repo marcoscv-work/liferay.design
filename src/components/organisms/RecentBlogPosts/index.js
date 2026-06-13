@@ -25,7 +25,7 @@ export default ({ teammate, currentPost, ...props }) => {
 							title
 							featuredImage
 							author {
-								id
+								id: yamlId
 							}
 						}
 						fields {
