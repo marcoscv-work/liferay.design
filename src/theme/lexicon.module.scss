@@ -1,7 +1,7 @@
 @import '~theme/variables';
 
 @mixin label {
-	background-color: $white;
+	background-color: var(--lex-bg, #{$white});
 	border-radius: 0.125rem;
 	border-style: solid;
 	border-width: 0.0625rem;
@@ -28,10 +28,30 @@
 .theme {
 	font-family: $fontFamilySystem;
 
+	// Theme tokens — light by default, overridden under
+	// html[data-lexicon-theme='dark'] (toggle in the Lexicon sidebar/navbar)
+	--lex-bg: #{$white};
+	--lex-bg-subtle: #{$main-l8};
+	--lex-bg-soft: #f7f8fa;
+	--lex-text: #{$main-l2};
+	--lex-text-muted: #{$main-l3};
+	--lex-heading: #{$main-l1};
+	--lex-border: #{$main-l5};
+	--lex-link: #{$primary};
+	--lex-hover: #{$gray-bg};
+	--lex-card: #{$white};
+	--lex-pattern: url('/images/lexicon/home/patternbg-white.svg') center / 100%
+			fixed,
+		#f7f7f9;
+
+	background-color: var(--lex-bg);
+	color: var(--lex-text);
+	transition: background-color 0.25s ease, color 0.25s ease;
+
 	// lexicon homepage
 	.vertical {
 		@include small-caps;
-		color: $main-l4;
+		color: var(--lex-text-muted, #{$main-l3});
 		font-size: 13px;
 		left: -4rem;
 		position: absolute;
@@ -59,7 +79,7 @@
 	// documentation part
 	.mainContentWrapper {
 		.description {
-			color: $main-l3;
+			color: var(--lex-text-muted, #{$main-l3});
 			font-size: 28px;
 			max-width: 700px;
 			margin-bottom: 80px;
@@ -87,7 +107,7 @@
 			@include label;
 			@include documentLabel;
 			border-color: $main-l4;
-			color: $main-l3;
+			color: var(--lex-text-muted, #{$main-l3});
 			text-transform: uppercase;
 		}
 
@@ -110,7 +130,7 @@
 			@include label;
 			@include documentLabel;
 			border-color: $main-l3;
-			color: $main;
+			color: var(--lex-text, #{$main});
 		}
 
 		p {
@@ -118,7 +138,7 @@
 			margin-bottom: $base-size * 0.7;
 
 			a {
-				color: $brand-primary;
+				color: var(--lex-link, #{$brand-primary});
 			}
 		}
 
@@ -135,7 +155,7 @@
 
 			& > tbody > tr > td,
 			& > thead > tr > th {
-				border-bottom: 1px solid $main-l5;
+				border-bottom: 1px solid var(--lex-border, #{$main-l5});
 				line-height: $base-size * 0, 75;
 				padding: $base-size / 2;
 				.lexicon-icon {
@@ -146,10 +166,10 @@
 			thead > tr > th {
 				border-top-width: 0;
 				border-bottom-width: 1px;
-				color: $text-color;
+				color: var(--lex-text, #{$text-color});
 				font-weight: 700;
 				vertical-align: bottom;
-				background-color: #f7f8fa;
+				background-color: var(--lex-bg-soft, #f7f8fa);
 			}
 
 			td > p {
@@ -160,7 +180,7 @@
 		h1,
 		h2,
 		h3 {
-			color: $main-l1;
+			color: var(--lex-heading, #{$main-l1});
 			font-weight: 800;
 			margin: $base-size 0;
 			line-height: 1.25;
@@ -206,7 +226,7 @@
 			line-height: 20px;
 			margin-top: 2rem;
 			text-transform: uppercase;
-			color: $main-l3;
+			color: var(--lex-text-muted, #{$main-l3});
 			& + p {
 				margin-top: 0.25rem;
 				font-size: 24px;
@@ -233,7 +253,7 @@
 
 		//caption styling
 		img + em {
-			color: $main-l3;
+			color: var(--lex-text-muted, #{$main-l3});
 			font-size: $fontSizeSmall;
 			text-align: center;
 			display: inherit;
@@ -241,8 +261,32 @@
 		}
 
 		li > a {
-			color: $brand-primary;
+			color: var(--lex-link, #{$brand-primary});
 		}
+	}
+}
+
+// Dark palette: Liferay neutrals from variables.scss, no new colors invented
+:global(html[data-lexicon-theme='dark']) .theme {
+	--lex-bg: #1c1c24;
+	--lex-bg-subtle: #16161e;
+	--lex-bg-soft: #272833;
+	--lex-text: #{$main-l6};
+	--lex-text-muted: #{$main-l4};
+	--lex-heading: #{$main-l8};
+	--lex-border: #3d3e4d;
+	--lex-link: #{$primary-l1};
+	--lex-hover: #2a2b38;
+	--lex-card: #272833;
+	--lex-pattern: url('/images/lexicon/home/patternbg-dark.svg') center / 100%
+			fixed,
+		#1c1c24;
+
+	// docs diagrams are drawn for white: give them a white plate in dark
+	.mainContentWrapper img {
+		background-color: #fff;
+		border-radius: 4px;
+		padding: 0.25rem;
 	}
 }
 
@@ -311,7 +355,7 @@
 }
 
 :global(.example-text) {
-	color: $main-l3;
+	color: var(--lex-text-muted, #{$main-l3});
 	font-size: 14px;
 }
 
@@ -348,7 +392,7 @@
 }
 
 :global(.tableSection) {
-	color: $main-l3;
+	color: var(--lex-text-muted, #{$main-l3});
 	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -361,7 +405,7 @@
 
 :global(.labelDraft) {
 	border-color: $main-l4;
-	color: $main-l3;
+	color: var(--lex-text-muted, #{$main-l3});
 	text-transform: uppercase;
 }
 

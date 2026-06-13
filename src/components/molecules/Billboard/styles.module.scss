@@ -31,5 +31,7 @@
 
 	a {
 		border-bottom: 4px solid $primary;
+		// follows Lexicon dark mode text; inherits as before elsewhere
+		color: var(--lex-text, inherit);
 	}
 }

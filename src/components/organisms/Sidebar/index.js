@@ -2,6 +2,7 @@
 
 import { jsx, Grid } from 'theme-ui'
 import { Link, SiteName } from 'components/atoms'
+import LexiconThemeToggle from 'components/atoms/LexiconThemeToggle'
 import { Accordion, SiteCredits, SearchInput } from 'components/molecules'
 import { map, orderBy } from 'lodash'
 import styles from './styles.module.scss'
@@ -79,8 +80,26 @@ export default function SidebarWrapper({
 			</div>
 
 			{!isMobile && (
-				<div className={styles.credits}>
+				<div
+					className={styles.credits}
+					sx={{
+						paddingRight: lexicon ? '3.25rem' : null,
+						position: 'relative',
+					}}
+				>
 					<SiteCredits />
+					{lexicon && (
+						<div
+							sx={{
+								position: 'absolute',
+								right: '0.875rem',
+								top: '50%',
+								transform: 'translateY(-50%)',
+							}}
+						>
+							<LexiconThemeToggle />
+						</div>
+					)}
 				</div>
 			)}
 		</Grid>

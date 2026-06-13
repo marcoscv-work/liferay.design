@@ -38,7 +38,13 @@ export default class Accordion extends Component {
 							width: '3rem',
 							transition: 'transform 0.4s',
 							transform: `${this.state.showChildren ? 'rotate(90deg)' : 'rotate(0deg)'}`,
-							fill: `${this.state.showChildren ? 'primary' : ''}`,
+							// raw values with var(): themeable in Lexicon
+							// dark mode, unchanged everywhere else
+							fill: `${
+								this.state.showChildren
+									? 'var(--lex-link, #0b5fff)'
+									: 'var(--lex-text, #272833)'
+							}`,
 						}}
 						className={styles.leafLink}
 						name="keyboardArrowRight"

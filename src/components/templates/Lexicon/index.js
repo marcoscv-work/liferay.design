@@ -10,6 +10,7 @@ import {
 	Link,
 	PrivateComponent,
 } from 'components/atoms'
+import LexiconThemeToggle from 'components/atoms/LexiconThemeToggle'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { AuthContainer, GlobalMdx } from 'components/molecules'
 import { Footer, PreviousNext, Sidebar } from 'components/organisms'
@@ -93,9 +94,11 @@ export default class Lexicon extends Component {
 									<Flex
 										className={documentation.mobileNavbar}
 										justify="space-between"
+										align="center"
 										padding="2rem 1rem"
 									>
 										<SiteName section="Lexicon" dark />
+										<LexiconThemeToggle />
 										{/* <AuthContainer /> */}
 									</Flex>
 								)}

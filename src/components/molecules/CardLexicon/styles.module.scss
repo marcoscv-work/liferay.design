@@ -65,7 +65,7 @@
 
 .card {
 	text-align: center;
-	background-color: $white;
+	background-color: var(--lex-card, #{$white});
 	border-radius: $fontSizeSmall;
 	box-shadow: $elevation1;
 	padding: $spacingMedium $spacingSmall $spacingSmall;
@@ -74,7 +74,7 @@
 	overflow: hidden;
 	&:hover {
 		transition: transform 0.4s, background-color 0.4s;
-		background-color: $lightestBlue;
+		background-color: var(--lex-hover, #{$lightestBlue});
 		box-shadow: $elevation2;
 		transform: translateY(-($spacingXSmall / 2));
 		p.cta {
@@ -96,19 +96,19 @@
 		margin-bottom: $spacingMedium;
 	}
 	h2.title {
-		color: $darkGrey;
+		color: var(--lex-heading, #{$darkGrey});
 		font-weight: $fontWeightBlack;
 	}
 
 	p.text {
 		font-weight: $fontWeightRegular;
-		color: $main-l4;
+		color: var(--lex-text-muted, #{$main-l3});
 		font-size: $fontSizeMedium;
 		margin: 0 0 $fontSizeXLarge;
 	}
 
 	p.cta {
-		color: lighten($main-l4, 16%);
+		color: var(--lex-text-muted, #{$main-l3});
 	}
 }
 @media screen and (max-width: $screenMedium) {

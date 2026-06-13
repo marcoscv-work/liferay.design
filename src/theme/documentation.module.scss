@@ -7,7 +7,7 @@
 	// overflow-x: hidden;	Fix in #660
 	// homepages
 	.background {
-		background: $white;
+		background: var(--lex-bg, #{$white});
 	}
 
 	.teasers {
@@ -16,7 +16,7 @@
 
 	.container {
 		max-width: 960px;
-		background-color: $white;
+		background-color: var(--lex-bg, #{$white});
 		margin: 0 auto;
 	}
 	.social-container {
@@ -49,15 +49,15 @@
 		margin: $spacingSmall $spacingXSmall;
 		justify-content: center;
 		align-items: center;
-		background: $lightestGrey;
+		background: var(--lex-hover, #{$lightestGrey});
 		border-radius: 50%;
 		&:hover {
-			background: $primary;
+			background: var(--lex-link, #{$primary});
 		}
 	}
 	// documentation part
 	.mainContentWrapper {
-		background: $white;
+		background: var(--lex-bg, #{$white});
 		min-height: 100vh;
 		.content-wrapper {
 			a {
@@ -66,7 +66,7 @@
 			}
 		}
 		img + em {
-			color: $main-l3;
+			color: var(--lex-text-muted, #{$main-l3});
 			font-size: $fontSizeSmall;
 			text-align: center;
 			display: inherit;
@@ -80,7 +80,7 @@
 				vertical-align: top;
 			}
 			tr:nth-child(even) {
-				background: $gray-bg-l1;
+				background: var(--lex-bg-soft, #{$gray-bg-l1});
 			}
 			& > tbody > tr > td,
 			& > thead > tr > th {
@@ -101,8 +101,8 @@
 			}
 			thead {
 				@include small-caps;
-				background: $main-l5;
-				color: $main-l3;
+				background: var(--lex-border, #{$main-l5});
+				color: var(--lex-text-muted, #{$main-l3});
 			}
 			th:first-child,
 			td:first-child,
@@ -126,7 +126,7 @@
 					padding: $spacingXSmall;
 				}
 				thead {
-					background: $gray-bg;
+					background: var(--lex-bg-subtle, #{$gray-bg});
 				}
 			}
 		}
@@ -135,7 +135,7 @@
 	.mobileNavbar {
 		align-items: center;
 		grid-area: nav;
-		background: #f7f8f9;
+		background: var(--lex-bg-subtle, #f7f8f9);
 		width: 100%;
 	}
 

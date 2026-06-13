@@ -2,6 +2,7 @@
 
 import { jsx, Grid, Box } from 'theme-ui'
 import { Container, Icon, Link, Text } from 'components/atoms'
+import { LexiconThemeScope } from 'components/atoms/LexiconThemeToggle'
 import { Billboard, CardLexicon, SEO } from 'components/molecules'
 import { Banner, Footer } from 'components/organisms'
 import lexicon from 'theme/lexicon.module.scss'
@@ -9,6 +10,7 @@ import documentation from 'theme/documentation.module.scss'
 
 const Lexicon = () => (
 	<div className={`${lexicon.theme} ${documentation.theme}`}>
+		<LexiconThemeScope />
 		<SEO
 			description="Lexicon is a design language that provides a common framework for building interfaces within the Liferay product ecosystem."
 			pageTitle="Liferay Lexicon | An Experience Language for Crafting Beautiful UI"
@@ -31,7 +33,6 @@ const Lexicon = () => (
 					}}
 				>
 					<Text
-						color="#c4cacb"
 						weight="700"
 						size="12px"
 						type="p"
@@ -121,7 +122,7 @@ const Lexicon = () => (
 					!
 				</Text>
 			)}
-			background="url(/images/lexicon/home/patternbg-white.svg) center / 100% fixed, #f7f7f9"
+			background="var(--lex-pattern)"
 		/>
 		<section className={lexicon.claySection}>
 			<Container>

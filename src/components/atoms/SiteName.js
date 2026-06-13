@@ -18,9 +18,13 @@ const SiteName = ({ dark, section, underlineColor }) => {
 				lineHeight: '1.6',
 				position: 'relative',
 				'> a': {
-					color: `${dark ? 'black' : 'white'}`,
+					// --lex-* tokens flip this in Lexicon dark mode; the
+					// fallbacks keep every other section exactly as before
+					color: `${dark ? 'var(--lex-heading, black)' : 'white'}`,
 					'&:hover': {
-						color: `${dark ? 'primary' : 'primaryl2'}`,
+						color: `${
+							dark ? 'var(--lex-link, #0b5fff)' : 'primaryl2'
+						}`,
 					},
 				},
 			}}

@@ -38,8 +38,17 @@ footer.markdown {
 	background: inherit;
 	max-width: 48rem;
 	margin: $spacingSmall auto $spacingLarge;
+	// themeable in Lexicon dark mode, fallbacks keep other sections as-is
+	color: var(--lex-text, #{$black});
 	svg {
-		fill: $grey;
+		fill: var(--lex-text-muted, #{$grey});
+	}
+	a {
+		color: var(--lex-link, #{$darkestGrey});
+	}
+	// footer.light targets spans directly, so inheritance alone can't win
+	span {
+		color: var(--lex-text, #{$darkGrey});
 	}
 
 	&.mobile {

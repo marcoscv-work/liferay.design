@@ -8,19 +8,19 @@
 	position: relative;
 	width: 100%;
 	svg {
-			fill: $main;
+			fill: var(--lex-text, #{$main});
 		}
 	&:hover {
-		background-color: $gray-bg;
+		background-color: var(--lex-hover, #{$gray-bg});
 	}
 
 	&:hover {
-		color: $black;
+		color: var(--lex-text, #{$black});
 	}
 
 	&.active {
 		font-weight: $fontWeightHeavy;
-		color: $primary;
+		color: var(--lex-link, #{$primary});
 	}
 }
 
@@ -78,7 +78,7 @@ svg.leaf-link {
 }
 
 .sidebar {
-	background: $neutral9 !important;
+	background: var(--lex-bg-subtle, #{$neutral9}) !important;
 	grid-area: sidebar;
 	height: 100%;
 	max-height: 100vh;
@@ -123,7 +123,7 @@ svg.leaf-link {
 		bottom: 0;
 	}
 	a {
-		color: $black;
+		color: var(--lex-text, #{$black});
 	}
 
 	.first-level-node,
@@ -145,7 +145,7 @@ svg.leaf-link {
 	}
 
 	.active > a {
-		color: $primary;
+		color: var(--lex-link, #{$primary});
 	}
 }
 

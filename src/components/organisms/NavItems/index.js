@@ -3,13 +3,18 @@
 import { jsx, NavLink, Flex, Box } from 'theme-ui'
 import { AuthContainer } from 'components/molecules'
 
-const NavItems = () => {
-	const pages = ['Lexicon', 'Articles', 'Events', 'Team', 'Handbook']
+const PAGES = ['Lexicon', 'Articles', 'Events', 'Team', 'Handbook']
 
+const NavItems = () => {
 	return (
 		<Flex align="center">
 			<Flex
+				as="ul"
 				sx={{
+					alignItems: 'center',
+					listStyle: 'none',
+					margin: 0,
+					padding: 0,
 					'@media screen and (max-width: 800px)': {
 						overflow: 'scroll',
 						position: 'fixed',
@@ -33,16 +38,17 @@ const NavItems = () => {
 					},
 				}}
 			>
-				{pages.map(item => (
-					<NavLink
-						key={item}
-						activeStyle={{
-							color: 'white',
-						}}
-						href={'/' + item.toLowerCase()}
-					>
-						{item}
-					</NavLink>
+				{PAGES.map(item => (
+					<Box as="li" key={item} sx={{ listStyle: 'none' }}>
+						<NavLink
+							activeStyle={{
+								color: 'white',
+							}}
+							href={'/' + item.toLowerCase()}
+						>
+							{item}
+						</NavLink>
+					</Box>
 				))}
 			</Flex>
 
