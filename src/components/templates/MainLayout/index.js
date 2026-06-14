@@ -20,7 +20,7 @@ export default ({ children, section }) => (
 		<LogRocket />
 		<Navbar section={section} />
 
-		<main>{children}</main>
+		<main id="main-content" tabIndex={-1}>{children}</main>
 
 		{/* <Container padding={{ p: '6rem 0 0' }}>
 			<Heading sx={{ textAlign: 'center', color: 'white' }} level={2}>

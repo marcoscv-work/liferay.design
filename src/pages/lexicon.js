@@ -13,7 +13,7 @@ const Lexicon = () => (
 			description="Lexicon is a design language that provides a common framework for building interfaces within the Liferay product ecosystem."
 			pageTitle="Liferay Lexicon | An Experience Language for Crafting Beautiful UI"
 		/>
-		<main>
+		<main id="main-content" tabIndex={-1}>
 		<Banner
 			headline="Lexicon"
 			subtitle="An Experience Language for Crafting Beautiful UI"
