@@ -1,7 +1,21 @@
 ---
 import { sxToStyle } from '@lib/sx'
-const { sx, style, columns, gap, class: className } = Astro.props
+
+// theme-ui grid variants (gatsby-plugin-theme-ui/layouts.js → grids.*) that
+// content references via <Grid variant='…'>.
+const VARIANTS: Record<string, string> = {
+	smallCards: 'grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem',
+	swatches: 'grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem',
+	twoCol: 'grid-template-columns:repeat(2,1fr);gap:2rem',
+	twoCards: 'grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:5rem 4rem',
+	threeCards: 'grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:5rem 4rem',
+	landingPage: 'grid-template-columns:1fr 1fr;gap:2rem',
+	lexiconExamples: 'grid-template-columns:48px 1fr;gap:1rem;align-items:center;color:var(--c-info);font-style:italic',
+}
+
+const { sx, style, variant, columns, gap, class: className } = Astro.props
 const parts = ['display:grid']
+if (variant && VARIANTS[variant]) parts.push(VARIANTS[variant])
 if (columns != null) {
 	const c = Array.isArray(columns) ? columns[columns.length - 1] : columns
 	parts.push(`grid-template-columns:repeat(${c},1fr)`)
@@ -9,4 +23,5 @@ if (columns != null) {
 if (gap != null) parts.push(`gap:${typeof gap === 'number' ? gap * 0.5 + 'rem' : gap}`)
 const s = [parts.join(';'), sxToStyle(sx), style].filter(Boolean).join(';')
 ---
+
 <div class={className} style={s}><slot /></div>

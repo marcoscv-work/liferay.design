@@ -120,6 +120,8 @@ body {
 	font-size: 16px;
 	font-family: var(--font-body);
 	margin: 0;
+	overflow-x: hidden;
+	max-width: 100%;
 	background-color: var(--c-background);
 	color: var(--c-text);
 	-webkit-font-smoothing: antialiased;

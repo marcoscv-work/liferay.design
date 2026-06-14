@@ -15,12 +15,12 @@ const containsActive = (node: SidebarNode): boolean =>
 	isActive(node.slug) || node.children.some(containsActive)
 ---
 
-<nav class="lx-sidebar" aria-label="Lexicon navigation">
+<nav id="lx-sidebar" class="lx-sidebar" aria-label="Lexicon navigation">
 	<div class="lx-head"><SiteName section="Lexicon" dark /></div>
 
 	<form class="lx-search" role="search" onsubmit="return false">
-		<Icon name="search" width="1rem" height="1rem" />
 		<input type="search" id="lexicon_search" placeholder="Search" aria-label="Search Lexicon" />
+		<Icon name="search" width="1rem" height="1rem" class="lx-search-icon" />
 	</form>
 
 	<ul class="lx-nav">
@@ -75,6 +75,57 @@ const containsActive = (node: SidebarNode): boolean =>
 
 	<div class="lx-credits"><SiteCredits /></div>
 </nav>
+
+<!-- Mobile menu bar: fixed bottom, toggles the sidebar (mobile only) -->
+<div class="lx-mobile-bar">
+	<a href="/lexicon" aria-label="Lexicon home"><Icon name="lexicon" width="1.6rem" height="1.6rem" color="#fff" /></a>
+	<button type="button" id="lx-menu-btn" aria-controls="lx-sidebar" aria-expanded="false">
+		<span class="lx-menu-label">Menu</span>
+	</button>
+</div>
+
+<script is:inline>
+	;(function () {
+		var btn = document.getElementById('lx-menu-btn')
+		var sb = document.getElementById('lx-sidebar')
+		if (!btn || !sb) return
+		btn.addEventListener('click', function () {
+			var open = sb.classList.toggle('open')
+			btn.setAttribute('aria-expanded', String(open))
+			var label = btn.querySelector('.lx-menu-label')
+			if (label) label.textContent = open ? 'Close' : 'Menu'
+			document.body.style.overflow = open ? 'hidden' : ''
+		})
+		// close the drawer after tapping a link
+		sb.addEventListener('click', function (e) {
+			if (e.target.closest('a') && sb.classList.contains('open')) {
+				sb.classList.remove('open')
+				btn.setAttribute('aria-expanded', 'false')
+				var label = btn.querySelector('.lx-menu-label')
+				if (label) label.textContent = 'Menu'
+				document.body.style.overflow = ''
+			}
+		})
+	})()
+</script>
+
+<!-- Algolia DocSearch (same credentials as the Gatsby gatsby-plugin-algolia-docsearch) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+<script is:inline src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script is:inline>
+	function initLexiconSearch() {
+		if (window.docsearch && document.getElementById('lexicon_search')) {
+			window.docsearch({
+				apiKey: 'e743f8519124b276f2f3325e8e126246',
+				indexName: 'liferay_design',
+				inputSelector: '#lexicon_search',
+				debug: false,
+			})
+		}
+	}
+	if (document.readyState !== 'loading') initLexiconSearch()
+	else window.addEventListener('DOMContentLoaded', initLexiconSearch)
+</script>
 
 <style>
 	.lx-sidebar {
@@ -137,11 +188,12 @@ const containsActive = (node: SidebarNode): boolean =>
 		cursor: pointer;
 		padding: 0.5rem 0.75rem;
 		border-radius: 4px;
-		font-weight: 700;
+		font-weight: 600;
 		color: var(--c-main);
 	}
 	.lx-parent.sub {
-		font-weight: 600;
+		font-weight: 400;
+		color: var(--c-main-l2);
 	}
 	.lx-parent:hover {
 		background: var(--c-gray-bg);
@@ -155,22 +207,24 @@ const containsActive = (node: SidebarNode): boolean =>
 		color: var(--c-primary);
 	}
 	.chevron {
-		width: 0.5rem;
-		height: 0.5rem;
-		border-right: 1.5px solid var(--c-main-l3);
-		border-bottom: 1.5px solid var(--c-main-l3);
+		width: 0.45rem;
+		height: 0.45rem;
+		border-right: 1.5px solid var(--c-main-l4);
+		border-bottom: 1.5px solid var(--c-main-l4);
 		transform: rotate(-45deg);
-		transition: transform 0.15s ease;
+		transition: transform 0.15s ease, border-color 0.15s ease;
 		margin-left: 0.5rem;
 		flex-shrink: 0;
 	}
+	/* open section: chevron points down and turns primary blue (matches original) */
 	details[open] > summary .chevron {
 		transform: rotate(45deg);
+		border-color: var(--c-primary);
 	}
 	.lx-sub {
 		list-style: none;
 		margin: 0;
-		padding-left: 0.5rem;
+		padding-left: 0.75rem;
 	}
 	.lx-link {
 		display: block;
@@ -180,7 +234,7 @@ const containsActive = (node: SidebarNode): boolean =>
 		font-weight: 400;
 	}
 	.lx-link.top {
-		font-weight: 700;
+		font-weight: 600;
 		color: var(--c-main);
 	}
 	.lx-link:hover {
@@ -194,5 +248,53 @@ const containsActive = (node: SidebarNode): boolean =>
 	.lx-credits {
 		padding: 1.5rem;
 		font-size: 0.75rem;
+	}
+
+	/* ---------- mobile ---------- */
+	.lx-mobile-bar {
+		display: none;
+	}
+	@media (max-width: 768px) {
+		.lx-sidebar {
+			position: fixed;
+			inset: 0;
+			width: 100%;
+			height: 100dvh;
+			max-height: 100dvh;
+			z-index: 1000;
+			transform: translateY(100%);
+			transition: transform 0.35s ease;
+			border-right: 0;
+			padding-bottom: 5rem;
+		}
+		.lx-sidebar.open {
+			transform: translateY(0);
+		}
+		.lx-mobile-bar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			position: fixed;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1001;
+			background: var(--c-black);
+			padding: 0.75rem 1.25rem;
+		}
+		.lx-mobile-bar a {
+			display: inline-flex;
+			align-items: center;
+		}
+		#lx-menu-btn {
+			background: none;
+			border: 0;
+			color: #fff;
+			font: inherit;
+			font-family: var(--font-body);
+			font-weight: 600;
+			cursor: pointer;
+			padding: 0.5rem 0.75rem;
+		}
 	}
 </style>

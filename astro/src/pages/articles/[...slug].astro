@@ -115,21 +115,27 @@ const more = (await getCollection('articles', ({ data }) => data.publish !== fal
 <style>
 	.article-page { overflow-x: hidden; background-color: var(--c-background); }
 
-	.banner { display: flex; justify-content: space-between; gap: 2rem; }
+	/* tall dark hero so the featured image can pull up into it without
+	   colliding with the byline (mirrors the old Plx parallax spacing) */
+	.banner { display: flex; justify-content: space-between; gap: 2rem; padding-bottom: 10rem; }
 	.banner h1 {
 		width: 100%;
-		font-size: 5rem;
+		font-size: clamp(2.5rem, 6vw, 5rem);
+		line-height: 1.1;
 		color: var(--c-white);
 		font-weight: var(--fw-heading);
-		text-shadow: var(--elev-text-3), var(--elev-text-0);
+		text-shadow: var(--elev-text-0);
+		margin: 0;
 	}
 	.banner .byline {
 		display: block;
-		margin-top: 2rem;
+		margin-top: 1.5rem;
 		font-size: 1rem;
+		line-height: 1.5;
 		color: var(--c-neutral6);
 		text-shadow: none;
 		font-weight: var(--fw-regular);
+		letter-spacing: normal;
 	}
 	.banner .author { color: var(--c-primary-l1); text-decoration: underline; }
 	.role h2 {
@@ -164,20 +170,21 @@ const more = (await getCollection('articles', ({ data }) => data.publish !== fal
 		z-index: 1;
 	}
 	.featured-image {
-		margin: -16rem auto 0;
-		overflow: hidden;
+		margin: -12rem auto 0;
 		max-width: 768px;
 		position: relative;
-		box-shadow: var(--elev-2);
+		z-index: 2;
+		/* soft, large drop shadow (no overflow:hidden — it would clip this) */
+		box-shadow: var(--elev-3);
+		border-radius: 2px;
 	}
 	.featured-image img {
 		object-fit: cover;
 		height: 40vh;
 		max-height: 468px;
 		width: 100%;
-		position: relative;
-		z-index: 10;
 		display: block;
+		border-radius: 2px;
 	}
 	@media screen and (max-width: 768px) {
 		.banner h1 { font-size: 1.8rem; }

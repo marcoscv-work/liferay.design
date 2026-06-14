@@ -83,6 +83,17 @@
 	color: var(--c-primary);
 	text-decoration: underline;
 }
+/* never let long words/URLs force horizontal overflow on narrow screens */
+.lexicon-theme p,
+.lexicon-theme li,
+.lexicon-theme .lexicon-description {
+	overflow-wrap: break-word;
+}
+@media screen and (max-width: 480px) {
+	.lexicon-theme .lexicon-description {
+		font-size: 20px;
+	}
+}
 
 /* ---- the page intro description + accent bar ---- */
 .lexicon-theme .lexicon-description {
@@ -119,13 +130,19 @@
 	align-items: center;
 	gap: 0.25rem;
 	font-size: 10px;
+	line-height: 1.5;
 	font-weight: 600;
+	letter-spacing: 0;
 	margin: 0 0.5rem 0 0;
 	padding: 1px 4px;
 	text-transform: uppercase;
 	white-space: nowrap;
 	position: relative;
 	top: -2.5rem;
+}
+.lexicon-theme .label svg {
+	width: 10px;
+	height: 10px;
 }
 @media screen and (max-width: 899px) {
 	.lexicon-theme .label {
