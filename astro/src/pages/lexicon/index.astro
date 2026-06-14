@@ -42,7 +42,7 @@ const socials = [
 					{
 						cards.map(c => (
 							<a class="lx-card" href={c.to}>
-								<Icon name={c.icon} width="3.5rem" height="3.5rem" class="lx-card-icon" />
+								<Icon name={c.icon} width="88px" height="88px" class="lx-card-icon" />
 								<h3>{c.title}</h3>
 								<p>{c.text}</p>
 								<span class="more">Learn More</span>
@@ -58,7 +58,7 @@ const socials = [
 
 		<section class="lx-clay">
 			<a class="lx-card dark" href="https://clayui.com">
-				<Icon name="clay" width="3.5rem" height="3.5rem" class="lx-card-icon" />
+				<Icon name="clay" width="88px" height="88px" class="lx-card-icon" />
 				<h3>Clay</h3>
 				<p>A web implementation of the Lexicon Design System.</p>
 				<span class="more">Visit Clay</span>
@@ -138,7 +138,8 @@ const socials = [
 	.lx-vertical {
 		position: absolute;
 		left: -3rem;
-		top: 6rem;
+		/* sit lower so it clears the blue hero block above the cards */
+		top: 11rem;
 		transform: rotate(-90deg);
 		transform-origin: left;
 		text-transform: uppercase;
@@ -155,7 +156,7 @@ const socials = [
 		display: block;
 		background: #fff;
 		border-radius: 0.75rem;
-		padding: 3rem 2.5rem;
+		padding: 6rem 4rem;
 		box-shadow: var(--elev-1);
 		color: var(--c-main);
 		text-align: center;
