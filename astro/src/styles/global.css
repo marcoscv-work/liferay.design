@@ -120,7 +120,9 @@ body {
 	font-size: 16px;
 	font-family: var(--font-body);
 	margin: 0;
-	overflow-x: hidden;
+	/* `clip` (not `hidden`) prevents horizontal overflow WITHOUT creating a
+	   scroll container — `overflow:hidden` on an ancestor breaks position:sticky */
+	overflow-x: clip;
 	max-width: 100%;
 	background-color: var(--c-background);
 	color: var(--c-text);
