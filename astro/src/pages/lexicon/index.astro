@@ -145,7 +145,7 @@ const socials = [
 	/* explore */
 	.lx-explore {
 		background: #fff;
-		padding: 0 2rem 5rem;
+		padding: 0 2rem 0;
 	}
 	.lx-explore-inner {
 		/* match documentation.module.scss .container */
@@ -175,6 +175,8 @@ const socials = [
 	}
 	.lx-card {
 		display: block;
+		position: relative;
+		z-index: 2;
 		background: #fff;
 		border-radius: 0.75rem;
 		padding: 6rem 4rem;
@@ -235,7 +237,12 @@ const socials = [
 	/* contribute billboard */
 	.lx-contribute {
 		background: url(/images/lexicon/home/patternbg-white.svg) center / 100% fixed, #f7f7f9;
-		padding: 16rem 0 12rem;
+		/* slide up behind the cards (which sit on top via z-index) so the cards
+		   tuck into the patterned section */
+		position: relative;
+		z-index: 1;
+		margin-top: -8rem;
+		padding: 20rem 0 12rem;
 	}
 	.lx-contribute-inner {
 		max-width: 960px;
