@@ -109,7 +109,7 @@ export default class Lexicon extends Component {
 									section="Lexicon"
 								/>
 
-								<main>
+								<main id="main-content" tabIndex={-1}>
 									<ContainerMarkdown>
 										<Flex justify="space-between" align="baseline">
 											<h1>{mdx.frontmatter.title}</h1>
