@@ -94,4 +94,41 @@ const lexicon = defineCollection({
 	}),
 })
 
-export const collections = { authors, offices, articles, events, team, lexicon }
+// Figma Components: generated design-system docs sourced from the Figma
+// "Lexicon Components" library. One JSON per component under src/data, produced
+// by the lexicon-figma-import skill (Figma MCP / REST). See .claude/skills.
+const figmaComponents = defineCollection({
+	loader: glob({ base: './src/data/figma-components', pattern: '**/*.json' }),
+	schema: z.object({
+		name: z.string(),
+		slug: z.string(),
+		order: z.number().optional(),
+		group: z.string().optional(),
+		description: z.string().optional(),
+		status: z.enum(['documented', 'stub']).default('stub'),
+		figma: z.object({
+			fileKey: z.string(),
+			fileName: z.string().optional(),
+			pageNodeId: z.string().optional(),
+			componentSetNodeId: z.string().optional(),
+		}),
+		links: z
+			.object({
+				clay: z.string().optional(),
+				guidelines: z.string().optional(),
+				doc: z.string().optional(),
+			})
+			.optional(),
+		screenshot: z.string().optional(),
+		playgroundImage: z.string().optional(),
+		properties: z
+			.array(z.object({ name: z.string(), values: z.array(z.string()) }))
+			.optional(),
+		variantCount: z.number().optional(),
+		anatomy: z.array(z.object({ part: z.string(), description: z.string().optional() })).optional(),
+		// raw flat token map straight from Figma variables (Group/name -> value)
+		tokens: z.record(z.string(), z.string()).optional(),
+	}),
+})
+
+export const collections = { authors, offices, articles, events, team, lexicon, figmaComponents }

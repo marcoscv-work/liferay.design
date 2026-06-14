@@ -47,5 +47,38 @@ export async function buildSidebarTree(): Promise<SidebarNode[]> {
 			})
 			.map(n => ({ ...n, children: sortTree(n.children) }))
 
-	return sortTree(root.children)
+	const tree = sortTree(root.children)
+
+	// Inject the generated "Figma Components" branch right after "Components"
+	// (core-components, order 200). Sits at the same top level.
+	const figma = await buildFigmaComponentsNode()
+	if (figma) tree.push(figma)
+
+	return sortTree(tree)
+}
+
+/** Top-level "Figma Components" sidebar branch built from the figmaComponents collection. */
+export async function buildFigmaComponentsNode(): Promise<SidebarNode | undefined> {
+	const comps = await getCollection('figmaComponents')
+	if (!comps.length) return undefined
+	const children: SidebarNode[] = comps
+		.map(c => ({
+			key: c.data.slug,
+			title: c.data.name,
+			slug: `/lexicon/figma-components/${c.data.slug}`,
+			order: c.data.order ?? c.data.name,
+			children: [],
+		}))
+		.sort((a, b) => {
+			if (typeof a.order === 'number' && typeof b.order === 'number') return a.order - b.order
+			return String(a.order).localeCompare(String(b.order))
+		})
+	return {
+		key: 'figma-components',
+		title: 'Figma Components',
+		slug: '/lexicon/figma-components',
+		order: 205,
+		firstLevel: true,
+		children,
+	}
 }
