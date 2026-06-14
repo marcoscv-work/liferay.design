@@ -9,28 +9,6 @@ dotenv.config({
 	path: `.env.${process.env.NODE_ENV}`,
 })
 
-const dynamicPlugins = []
-
-if (process.env.MAILCHIMP_KEY) {
-	dynamicPlugins.push({
-		resolve: 'gatsby-source-mailchimp',
-		options: {
-			campaignFields: [
-				'campaigns.archive_url',
-				'campaigns.settings.title',
-				'campaigns.settings.subject_line',
-				'campaigns.settings.preview_text',
-				'campaigns.send_time',
-				'campaigns.emails_sent',
-			],
-			contentFields: ['archive_html'],
-			nodeType: 'Newsletters',
-			key: process.env.MAILCHIMP_KEY,
-			rootURL: 'https://us7.api.mailchimp.com/3.0',
-		},
-	})
-}
-
 export default {
 	// theme-ui's `sx` prop on plain DOM elements (e.g. <h1 sx={{…}}>) is only
 	// processed by the JSX pragma. Gatsby 5 / React 18 use the automatic JSX
@@ -165,7 +143,7 @@ export default {
 			// 	allExtensions: true, // defaults to false
 			// },
 		},
-	].concat(dynamicPlugins),
+	],
 
 	// Gatsby 4: gatsby-transformer-yaml exposes the YAML `id` field as
 	// `yamlId` (the `id` field is now Gatsby's internal UUID), so every
@@ -179,7 +157,6 @@ export default {
 		'MarkdownRemark.frontmatter.office': `OfficesYaml.yamlId`,
 		'Mdx.frontmatter.office': `OfficesYaml.yamlId`,
 		'ChangelogYaml.author': `AuthorsYaml.yamlId`,
-		'AnnualReportsYaml.promotionsPage.designers.name': `AuthorsYaml.yamlId`,
 		'ChangelogYaml.contributors': `AuthorsYaml.yamlId`,
 		'Mdx.frontmatter.contributors': `AuthorsYaml.yamlId`,
 	},

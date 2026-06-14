@@ -11,7 +11,6 @@ import CardLexicon from './CardLexicon'
 import CardHidden from './CardHidden'
 import CardHiring from './CardHiring'
 import ColorField from './ColorField'
-import CardResource from './CardResource'
 import ColorSwatch from './ColorSwatch'
 import Date from './Date'
 import DoDont from './DoDont'
@@ -43,7 +42,6 @@ export {
 	ColorSwatch,
 	Date,
 	ColorField,
-	CardResource,
 	DoDont,
 	FormNewsletter,
 	FancyFooter,

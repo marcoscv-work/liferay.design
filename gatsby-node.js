@@ -2,7 +2,6 @@ const path = require(`path`)
 const fs = require(`fs`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const _ = require('lodash')
-const moment = require(`moment`)
 
 // Skip production source maps: trims build time and deploy payload
 // (Netlify deploys were hitting the build time limit on cold caches)
@@ -10,8 +9,9 @@ exports.onCreateWebpackConfig = ({ stage, actions, plugins }) => {
 	if (stage === 'build-javascript') {
 		actions.setWebpackConfig({ devtool: false })
 	}
-	// react-anchor-link-smooth-scroll ships a UMD bundle that expects a
-	// global `React`, which doesn't exist during Gatsby 5 SSR — provide it.
+	// Our components compile JSX to classic `React.createElement`, but several
+	// don't `import React` (they relied on the old global). Provide it so SSR
+	// doesn't hit "React is not defined".
 	actions.setWebpackConfig({
 		plugins: [plugins.provide({ React: 'react' })],
 	})
@@ -117,85 +117,14 @@ exports.createPages = ({ actions, graphql }) => {
 		})
 	})
 
-	const newsletters = graphql(`
-		{
-			mailchimp: allNewsletters(
-				filter: {
-					settings: { title: { regex: "/Newsletter/" } }
-					emails_sent: { gt: 20 }
-				}
-			) {
-				edges {
-					node {
-						archive_url
-						archive_html
-						settings {
-							title
-							subject_line
-							preview_text
-						}
-						emails_sent
-						send_time
-					}
-				}
-			}
-		}
-	`).then(({ data, errors }) => {
-		if (errors) {
-			console.log(
-				'Error creating newsletter pages in `createPages` call ==>',
-				errors,
-			)
-
-			return Promise.reject(errors)
-		}
-
-		const newsletters = data.mailchimp.edges
-		newsletters.forEach(({ node }) => {
-			const templateFile = path.resolve(
-				`./src/components/templates/Newsletters/index.js`,
-			)
-
-			const slug = `${moment(node.send_time).format('YYYY-MM')}`
-
-			createPage({
-				path: '/newsletter/' + slug,
-				component: templateFile,
-				context: {
-					slug: slug,
-					send_time: node.send_time,
-				},
-			})
-		})
-	})
-
-	return Promise.all([markdown, newsletters])
+	return markdown
 }
 
 function capFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-// Called after every page is created.
-// This section is used for client only gated routes like blueprints pages
-exports.onCreatePage = async ({ page, actions }) => {
-	const { createPage } = actions
-
-	var pageMap = {
-		['blueprints']: ['blueprints'],
-		['handbook']: ['handbook'],
-	}
-
-	for (key in pageMap)
-		if (page.path.match(/^\/pageMap[key]/)) {
-			page.matchPath = '/key/*'
-
-			// Update the page.
-			createPage(page)
-		}
-}
-
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = ({ actions }) => {
 	const { createTypes } = actions
 
 	// Gatsby 5 / MDX v2 dropped the built-in `timeToRead` field; re-add it so
@@ -205,64 +134,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 			timeToRead: Int
 		}`,
 	]
-
-	if (!process.env.MAILCHIMP_KEY) {
-		typeDefs.push(
-			`
-				enum NewslettersSortOrder {
-						ASC
-						DESC
-					}
-					input NewslettersSortArgs {
-						send_time: NewslettersSortOrder
-					}
-			`,
-			schema.buildObjectType({
-				fields: {
-					edges: '[EdgesNewsletter]',
-				},
-				interfaces: ['Node'],
-				name: 'Newsletter',
-			}),
-			schema.buildObjectType({
-				fields: {
-					next: 'NodeNewsletter',
-					node: 'NodeNewsletter',
-					previous: 'NodeNewsletter',
-				},
-				name: 'EdgesNewsletter',
-			}),
-			schema.buildObjectType({
-				fields: {
-					archive_html: 'String',
-					archive_url: 'String',
-					emails_sent: 'String',
-					send_time: {
-						args: { formatString: 'String' },
-						type: 'Date',
-					},
-					settings: 'NodeSettings',
-				},
-				name: 'NodeNewsletter',
-			}),
-			schema.buildObjectType({
-				fields: {
-					preview_text: 'String',
-					subject_line: 'String',
-					title: 'String',
-				},
-				name: 'NodeSettings',
-			}),
-			schema.buildInputObjectType({
-				fields: {
-					emails_sent: 'JSON',
-					send_time: 'JSON',
-					settings: 'JSON',
-				},
-				name: 'InputFilter',
-			}),
-		)
-	}
 
 	createTypes(typeDefs)
 }
@@ -289,21 +160,6 @@ exports.createResolvers = ({ createResolvers }) => {
 				},
 			},
 		},
-	}
-
-	if (!process.env.MAILCHIMP_KEY) {
-		resolvers.Query = {
-			allNewsletters: {
-				type: 'Newsletter',
-				args: {
-					filter: 'InputFilter',
-					sort: 'NewslettersSortArgs',
-				},
-				resolve() {
-					return { edges: [] }
-				},
-			},
-		}
 	}
 
 	createResolvers(resolvers)
