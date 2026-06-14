@@ -224,4 +224,10 @@ const more = (await getCollection('articles', ({ data }) => data.publish !== fal
 	}
 	.article-page .prose a { color: inherit; text-decoration: underline; }
 	.article-page .prose a:hover { color: var(--c-primary); }
+	/* heading anchors (rehype-autolink wrap) must not look like links */
+	.article-page .prose :is(h1, h2, h3, h4) a,
+	.article-page .prose a.nice-anchor {
+		color: inherit;
+		text-decoration: none;
+	}
 </style>

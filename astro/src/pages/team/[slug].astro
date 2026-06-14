@@ -64,16 +64,18 @@ const recent = (await getCollection('articles', ({ data }) => data.publish !== f
 			</Container>
 		</section>
 
-		<div class="body">
-			<div class="prose"><Content components={mdxComponents} /></div>
-			{
-				socials.length > 0 && (
-					<div class="more-socials">
-						<h3>Where else can we find you?</h3>
-						<SocialIcons socials={socials} />
-					</div>
-				)
-			}
+		<div class="body-section">
+			<div class="body">
+				<div class="prose"><Content components={mdxComponents} /></div>
+				{
+					socials.length > 0 && (
+						<div class="more-socials">
+							<h3>Where else can we find you?</h3>
+							<SocialIcons socials={socials} />
+						</div>
+					)
+				}
+			</div>
 		</div>
 
 		{
@@ -101,44 +103,31 @@ const recent = (await getCollection('articles', ({ data }) => data.publish !== f
 
 <style>
 	.team-page { background-color: var(--c-background); }
-	/* hero: portrait contained in a fixed zone, name overlapping its lower-left,
-	   bio flows cleanly below (no overlap) */
+	/* dark hero zone: portrait centered, name overlapping its lower-left */
 	.hero {
 		position: relative;
-		min-height: 78vh;
+		height: 64vh;
+		min-height: 30rem;
 		display: flex;
 		align-items: flex-end;
-		overflow: hidden;
 	}
 	.portrait {
 		position: absolute;
-		top: 0;
+		top: 5rem;
 		left: 0;
 		right: 0;
 		margin: 0 auto;
-		height: 100%;
 		width: 52%;
-		min-width: 520px;
-		max-width: 640px;
+		min-width: 460px;
+		max-width: 600px;
+		height: calc(64vh - 5rem + 6rem); /* dips ~6rem past the hero into the white body */
 		object-fit: cover;
 		object-position: top center;
-		z-index: 0;
-	}
-	/* fade the portrait into the page background at the bottom */
-	.hero::after {
-		content: '';
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		height: 55%;
-		background-image: linear-gradient(to top, rgb(19, 20, 31) 0%, rgba(19, 20, 31, 0) 100%);
-		z-index: 0;
-		pointer-events: none;
+		z-index: 2;
 	}
 	.hero-inner {
 		position: relative;
-		z-index: 1;
+		z-index: 3;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
@@ -148,26 +137,57 @@ const recent = (await getCollection('articles', ({ data }) => data.publish !== f
 	.hero h1 {
 		font-size: clamp(3rem, 6vw, 5rem);
 		color: var(--c-main-l4);
-		max-width: 10ch;
+		max-width: 12ch;
 		line-height: 1.05;
 		margin: 0;
 	}
 	.since { display: block; margin-bottom: 1rem; font-size: 1rem; color: var(--c-main-l3); text-transform: uppercase; letter-spacing: 0.1em; }
 	.name { display: block; color: var(--c-white); }
-	.title { display: block; font-size: 1.8rem; color: var(--c-main-l4); }
+	.title { display: block; font-size: 2.2rem; color: var(--c-main-l4); margin-top: 0.5rem; }
 	.hero-socials { flex-direction: column; }
-	.body { max-width: 48rem; margin: 0 auto; padding: 4rem 1rem; display: flex; flex-direction: column; }
-	.more-socials h3 { color: var(--c-white); }
+
+	/* white body the portrait dips into (the css-1g9nd0h effect) */
+	.body-section {
+		position: relative;
+		z-index: 1;
+		background: #fff;
+		padding-top: 8rem;
+	}
+	.body {
+		max-width: 68ch;
+		margin: 0 auto;
+		padding: 0 1.5rem 5rem;
+		font-family: var(--font-brand);
+		color: var(--c-main-l2);
+	}
+	.more-socials h3 { color: var(--c-main); margin-top: 2rem; }
 	@media screen and (max-width: 768px) {
 		.portrait { width: 100%; min-width: 0; max-width: none; }
-		.hero { min-height: 70vh; }
+		.hero { height: 56vh; }
 		.hero-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 	}
 </style>
 
 <style is:global>
-	.team-page .prose { color: var(--c-main-l5); }
-	.team-page .prose h3 { color: var(--c-white); margin-top: 2em; }
-	.team-page .prose p, .team-page .prose li { color: var(--c-main-l4); line-height: 1.6; font-family: var(--font-brand); }
-	.team-page .prose a { color: var(--c-primary-l1); text-decoration: underline; }
+	.team-page .body .prose { font-family: var(--font-brand); }
+	.team-page .body .prose h3 { color: var(--c-main); margin-top: 2.5em; font-weight: 700; }
+	.team-page .body .prose p,
+	.team-page .body .prose li {
+		color: var(--c-main-l2);
+		line-height: 1.6;
+		font-family: var(--font-brand);
+		font-size: 1.2rem;
+	}
+	/* body links: black, no underline (per the original) */
+	.team-page .body .prose a {
+		color: var(--c-main);
+		text-decoration: none;
+	}
+	.team-page .body .prose a:hover { color: var(--c-primary); }
+	/* heading anchors (rehype-autolink wrap) must not look like links */
+	.team-page .body .prose :is(h1, h2, h3, h4) a,
+	.team-page .body .prose a.nice-anchor {
+		color: inherit;
+		text-decoration: none;
+	}
 </style>
