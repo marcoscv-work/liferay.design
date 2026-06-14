@@ -1,6 +1,7 @@
 ---
 import SiteName from './SiteName.astro'
 import SiteCredits from './SiteCredits.astro'
+import Icon from './Icon.astro'
 import type { SidebarNode } from '@lib/lexicon'
 interface Props {
 	tree: SidebarNode[]
@@ -8,50 +9,70 @@ interface Props {
 }
 const { tree, path } = Astro.props
 
-const isActive = (slug?: string) => slug && (slug === path || slug + '/' === path || slug === path + '/')
+const norm = (s?: string) => (s ? s.replace(/\/+$/, '') : '')
+const isActive = (slug?: string) => !!slug && norm(slug) === norm(path)
 const containsActive = (node: SidebarNode): boolean =>
 	isActive(node.slug) || node.children.some(containsActive)
 ---
 
 <nav class="lx-sidebar" aria-label="Lexicon navigation">
-	<div class="lx-section"><SiteName section="Lexicon" dark /></div>
-	<div class="lx-content">
+	<div class="lx-head"><SiteName section="Lexicon" dark /></div>
+
+	<form class="lx-search" role="search" onsubmit="return false">
+		<Icon name="search" width="1rem" height="1rem" />
+		<input type="search" id="lexicon_search" placeholder="Search" aria-label="Search Lexicon" />
+	</form>
+
+	<ul class="lx-nav">
 		{
 			tree.map(node =>
 				node.children.length > 0 ? (
-					<details open={containsActive(node)} class="lx-group">
-						<summary>{node.title}</summary>
-						<div class="lx-children">
-							{node.slug && (
-								<a href={node.slug} class:list={['lx-link', { active: isActive(node.slug) }]}>
-									Overview
-								</a>
-							)}
-							{node.children.map(child =>
-								child.children.length > 0 ? (
-									<details open={containsActive(child)} class="lx-subgroup">
-										<summary>{child.title}</summary>
-										<div class="lx-children">
-											{child.slug && (
-												<a href={child.slug} class:list={['lx-link', { active: isActive(child.slug) }]}>Overview</a>
-											)}
-											{child.children.map(g => (
-												<a href={g.slug} class:list={['lx-link', { active: isActive(g.slug) }]}>{g.title}</a>
-											))}
-										</div>
-									</details>
+					<li>
+						<details open={containsActive(node)}>
+							<summary class:list={['lx-parent', { active: isActive(node.slug) }]}>
+								{node.slug ? (
+									<a href={node.slug}>{node.title}</a>
 								) : (
-									<a href={child.slug} class:list={['lx-link', { active: isActive(child.slug) }]}>{child.title}</a>
-								),
-							)}
-						</div>
-					</details>
+									<span>{node.title}</span>
+								)}
+								<span class="chevron" aria-hidden="true" />
+							</summary>
+							<ul class="lx-sub">
+								{node.children.map(child =>
+									child.children.length > 0 ? (
+										<li>
+											<details open={containsActive(child)}>
+												<summary class:list={['lx-parent sub', { active: isActive(child.slug) }]}>
+													{child.slug ? <a href={child.slug}>{child.title}</a> : <span>{child.title}</span>}
+													<span class="chevron" aria-hidden="true" />
+												</summary>
+												<ul class="lx-sub">
+													{child.children.map(g => (
+														<li>
+															<a href={g.slug} class:list={['lx-link', { active: isActive(g.slug) }]}>{g.title}</a>
+														</li>
+													))}
+												</ul>
+											</details>
+										</li>
+									) : (
+										<li>
+											<a href={child.slug} class:list={['lx-link', { active: isActive(child.slug) }]}>{child.title}</a>
+										</li>
+									),
+								)}
+							</ul>
+						</details>
+					</li>
 				) : (
-					<a href={node.slug} class:list={['lx-link', 'first-level', { active: isActive(node.slug) }]}>{node.title}</a>
+					<li>
+						<a href={node.slug} class:list={['lx-link top', { active: isActive(node.slug) }]}>{node.title}</a>
+					</li>
 				),
 			)
 		}
-	</div>
+	</ul>
+
 	<div class="lx-credits"><SiteCredits /></div>
 </nav>
 
@@ -65,33 +86,113 @@ const containsActive = (node: SidebarNode): boolean =>
 		top: 0;
 		font-family: var(--font-lexicon);
 		border-right: 1px solid var(--c-main-l6);
+		display: flex;
+		flex-direction: column;
+		font-size: 14px;
 	}
-	.lx-section { padding: 3rem 2rem 1rem; }
-	.lx-content { display: flex; flex-direction: column; padding: 1rem; }
-	.lx-link {
-		display: block;
-		border-radius: 4px;
-		font-weight: var(--fw-regular);
-		padding: 0.64rem 1rem;
-		color: var(--c-main);
-		font-size: 0.9rem;
+	.lx-head {
+		padding: 1.75rem 1.5rem 1rem;
+		font-size: 0.85rem;
 	}
-	.lx-link:hover { background: var(--c-gray-bg); color: var(--c-black); }
-	.lx-link.active { font-weight: var(--fw-heavy); color: var(--c-primary); }
-	.lx-link.first-level { font-weight: var(--fw-heavy); }
-	.lx-group > summary,
-	.lx-subgroup > summary {
-		cursor: pointer;
-		font-weight: var(--fw-heavy);
-		font-size: 0.9rem;
-		padding: 0.64rem 1rem;
+	/* search */
+	.lx-search {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0 1.25rem 0.75rem;
+		padding: 0.5rem 0.75rem;
+		background: #fff;
+		border: 1px solid var(--c-main-l6);
+		border-radius: 0.25rem;
+		color: var(--c-main-l3);
+	}
+	.lx-search input {
+		border: 0;
+		outline: none;
+		background: transparent;
+		font: inherit;
 		color: var(--c-main);
+		width: 100%;
+	}
+	/* nav */
+	.lx-nav {
+		list-style: none;
+		margin: 0;
+		padding: 0 0.75rem;
+		flex: 1;
+	}
+	.lx-nav li {
 		list-style: none;
 	}
-	.lx-group > summary::-webkit-details-marker { display: none; }
-	.lx-group > summary::before { content: '▸ '; }
-	.lx-group[open] > summary::before { content: '▾ '; }
-	.lx-children { padding-left: 0.75rem; }
-	.lx-subgroup { margin-left: 0.25rem; }
-	.lx-credits { padding: 2rem; }
+	.lx-nav details > summary {
+		list-style: none;
+	}
+	.lx-nav details > summary::-webkit-details-marker {
+		display: none;
+	}
+	.lx-parent {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+		padding: 0.5rem 0.75rem;
+		border-radius: 4px;
+		font-weight: 700;
+		color: var(--c-main);
+	}
+	.lx-parent.sub {
+		font-weight: 600;
+	}
+	.lx-parent:hover {
+		background: var(--c-gray-bg);
+	}
+	.lx-parent a {
+		color: inherit;
+		flex: 1;
+	}
+	.lx-parent.active > a,
+	.lx-parent.active > span {
+		color: var(--c-primary);
+	}
+	.chevron {
+		width: 0.5rem;
+		height: 0.5rem;
+		border-right: 1.5px solid var(--c-main-l3);
+		border-bottom: 1.5px solid var(--c-main-l3);
+		transform: rotate(-45deg);
+		transition: transform 0.15s ease;
+		margin-left: 0.5rem;
+		flex-shrink: 0;
+	}
+	details[open] > summary .chevron {
+		transform: rotate(45deg);
+	}
+	.lx-sub {
+		list-style: none;
+		margin: 0;
+		padding-left: 0.5rem;
+	}
+	.lx-link {
+		display: block;
+		padding: 0.4rem 0.75rem;
+		border-radius: 4px;
+		color: var(--c-main-l2);
+		font-weight: 400;
+	}
+	.lx-link.top {
+		font-weight: 700;
+		color: var(--c-main);
+	}
+	.lx-link:hover {
+		background: var(--c-gray-bg);
+		color: var(--c-black);
+	}
+	.lx-link.active {
+		color: var(--c-primary);
+		font-weight: 600;
+	}
+	.lx-credits {
+		padding: 1.5rem;
+		font-size: 0.75rem;
+	}
 </style>

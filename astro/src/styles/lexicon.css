@@ -179,6 +179,12 @@
 /* ---- images & captions ---- */
 .lexicon-theme img {
 	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+/* co-located example images: side-by-side pairs keep their inline width:NN% */
+.lexicon-theme p img[style*='width'] {
+	display: inline-block;
 }
 .lexicon-theme img + em {
 	color: var(--c-main-l3);
