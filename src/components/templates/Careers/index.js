@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { Flex, Icon, Text } from 'components/atoms'
 import { GlobalMdx } from 'components/molecules'
 import { Footer, Navbar } from 'components/organisms'
@@ -83,9 +82,7 @@ export default class Careers extends Component {
 				</Flex>
 				<div className={styles.mdxWrapper}>
 					<Flex direction="column" className={styles.largeContainer}>
-						<GlobalMdx>
-							{this.props.children}
-						</GlobalMdx>
+						<GlobalMdx>{this.props.children}</GlobalMdx>
 						<div className={styles.applyContainer}>
 							<Button
 								as="a"

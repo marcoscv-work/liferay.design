@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid, Flex } from 'theme-ui'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
@@ -70,27 +69,29 @@ Tags.propTypes = {
 	}),
 }
 export default Tags
-export const pageQuery = graphql`query ($tag: String) {
-  allMdx(
-    limit: 2000
-    sort: {frontmatter: {date: DESC}}
-    filter: {frontmatter: {tags: {in: [$tag]}}}
-  ) {
-    totalCount
-    edges {
-      node {
-        timeToRead
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          featuredImage
-          author {
-            id: yamlId
-          }
-        }
-      }
-    }
-  }
-}`
+export const pageQuery = graphql`
+	query($tag: String) {
+		allMdx(
+			limit: 2000
+			sort: { frontmatter: { date: DESC } }
+			filter: { frontmatter: { tags: { in: [$tag] } } }
+		) {
+			totalCount
+			edges {
+				node {
+					timeToRead
+					fields {
+						slug
+					}
+					frontmatter {
+						title
+						featuredImage
+						author {
+							id: yamlId
+						}
+					}
+				}
+			}
+		}
+	}
+`

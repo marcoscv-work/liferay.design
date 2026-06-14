@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx, Flex, Text } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Flex, Text, Box } from 'theme-ui'
 import { Link, AnimateIn } from 'components/atoms'
 import PropTypes from 'prop-types'
 
@@ -38,7 +37,8 @@ const CardHiring = ({
 						<Text sx={{ variant: 'text.caps', color: 'mainL4', fontSize: 1 }}>
 							{topRight}
 						</Text>
-						<input
+						<Box
+							as="input"
 							sx={{
 								variant: 'inputs.checkbox',
 								fontSize: 2,
@@ -54,19 +54,20 @@ const CardHiring = ({
 						{subtitle}
 					</Text>
 					{checklist ? (
-						<ul
+						<Box
+							as="ul"
 							sx={{ listStyleType: 'none', m: 0, p: 0, pl: '0 !important' }}
 						>
 							{content.map((item, index) => (
 								<AnimateIn key={index} delay={index * 0.1 + 's'}>
-									<li sx={{ my: 1 }}>
+									<Box as="li" sx={{ my: 1 }}>
 										<label>
 											<Text sx={{ display: 'inline' }}>{item}</Text>
 										</label>
-									</li>
+									</Box>
 								</AnimateIn>
 							))}
-						</ul>
+						</Box>
 					) : null}
 				</Flex>
 			</Link>

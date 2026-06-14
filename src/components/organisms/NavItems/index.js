@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, NavLink, Flex, Box } from 'theme-ui'
 import { AuthContainer } from 'components/molecules'
 

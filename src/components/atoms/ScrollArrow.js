@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Text } from 'theme-ui'
 import { Component } from 'react'
 import Plx from 'react-plx'

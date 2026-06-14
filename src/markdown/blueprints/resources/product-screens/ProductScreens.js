@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import React from 'react'
 import { jsx } from 'theme-ui'
 import { Themed } from '@theme-ui/mdx'
@@ -20,7 +19,7 @@ const ProductScreens = ({ data }) => {
 				<>
 					<H2 id={kebabCase(node.productName)}>
 						<Link
-							target='_self'
+							target="_self"
 							to={'#' + kebabCase(node.productName)}
 							sx={{ position: 'relative' }}
 							aria-label={node.productName + ' permalink'}

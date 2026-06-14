@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import { Button, Container, Flex, Heading, Link, Text } from 'components/atoms'
 import KeyArt from 'pages/2020/components/KeyArt'

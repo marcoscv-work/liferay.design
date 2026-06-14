@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import { jsx, Flex } from 'theme-ui'
 import { Icon, Text, Link, Image } from 'components/atoms'
 import PropTypes from 'prop-types'

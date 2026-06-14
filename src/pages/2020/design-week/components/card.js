@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx, Button, Flex, Text } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Button, Flex, Text, Box } from 'theme-ui'
 import { Heading, Link, AnimateIn, Icon } from 'components/atoms'
 import PropTypes from 'prop-types'
 import { Component } from 'react'
@@ -81,7 +80,9 @@ export class Card extends Component {
 						>
 							{' '}
 							Design Week{' '}
-							<span sx={{ color: 'mainL5' }}>From&nbsp;Home</span>
+							<Box as="span" sx={{ color: 'mainL5' }}>
+								From&nbsp;Home
+							</Box>
 						</Heading>
 					</AnimateIn>
 					<AnimateIn delay={delay * 1.24 + 's'}>

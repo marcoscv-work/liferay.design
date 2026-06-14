@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Flex, Text } from 'theme-ui'
 
 export default function Hotkey({ id, keys, ...props }) {

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { Image, Link, Text } from 'components/atoms'
 import { BillboardAlt } from 'components/molecules'

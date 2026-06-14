@@ -1,37 +1,41 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
 import { CardDefault } from 'components/molecules'
 import { avatarPath } from 'utils'
 
 export default () => {
-	const data = useStaticQuery(graphql`{
-  allMdx(
-    limit: 3
-    filter: {internal: { contentFilePath: { regex: "/(articles)/|/(events)/" } }, frontmatter: {publish: {eq: true}, tags: {nin: ["Talks"]}}}
-    sort: {frontmatter: {date: DESC}}
-  ) {
-    totalCount
-    edges {
-      node {
-        id
-        timeToRead
-        frontmatter {
-          title
-          featuredImage
-          author {
-            id: yamlId
-          }
-          tags
-        }
-        fields {
-          slug
-        }
-      }
-    }
-  }
-}`)
+	const data = useStaticQuery(graphql`
+		{
+			allMdx(
+				limit: 3
+				filter: {
+					internal: { contentFilePath: { regex: "/(articles)/|/(events)/" } }
+					frontmatter: { publish: { eq: true }, tags: { nin: ["Talks"] } }
+				}
+				sort: { frontmatter: { date: DESC } }
+			) {
+				totalCount
+				edges {
+					node {
+						id
+						timeToRead
+						frontmatter {
+							title
+							featuredImage
+							author {
+								id: yamlId
+							}
+							tags
+						}
+						fields {
+							slug
+						}
+					}
+				}
+			}
+		}
+	`)
 	return (
 		<Grid sx={{ variant: 'grids.threeCards' }}>
 			{data.allMdx.edges.map(({ node }, index) => (

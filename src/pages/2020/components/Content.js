@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Heading, Flex, Text } from 'theme-ui'
 
 const Content = ({ pageHeader, pretitle, title, copy, center, inverted, ...props }) => {

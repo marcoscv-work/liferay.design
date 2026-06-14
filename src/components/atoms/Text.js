@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 import { colors, fontSizes, fontWeights } from 'theme'

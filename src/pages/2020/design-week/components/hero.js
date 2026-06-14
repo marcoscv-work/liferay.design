@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box } from 'theme-ui'
 import { Heading } from 'pages/2020/design-week/components/_index'
 import React from 'react'
@@ -18,7 +17,7 @@ export default class DWHeading extends React.Component {
 
 		return (
 			<Box sx={{ gridArea: 'hero', position: 'relative' }}>
-				<div
+				<Box
 					sx={{
 						height: '100%',
 						width: '100%',
@@ -55,6 +54,7 @@ export default class DWHeading extends React.Component {
 						},
 					}}
 				/>
+
 				<Heading bgImage={bgImage} delay={delay} title={title} />
 			</Box>
 		)

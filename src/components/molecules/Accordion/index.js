@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import { Link, Text, Flex, Icon } from 'components/atoms'
 import { Component } from 'react'
@@ -39,7 +39,9 @@ export default class Accordion extends Component {
 							height: '2.4rem',
 							width: '3rem',
 							transition: 'transform 0.4s',
-							transform: `${this.state.showChildren ? 'rotate(90deg)' : 'rotate(0deg)'}`,
+							transform: `${
+								this.state.showChildren ? 'rotate(90deg)' : 'rotate(0deg)'
+							}`,
 							fill: `${this.state.showChildren ? 'primary' : ''}`,
 						}}
 						className={styles.leafLink}

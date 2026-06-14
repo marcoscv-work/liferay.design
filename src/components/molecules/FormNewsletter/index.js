@@ -1,12 +1,13 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Box } from 'theme-ui'
 import PropTypes from 'prop-types'
 import styles from './styles.module.scss'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const FormNewsletter = ({ placeholderText, submitText, ...props }) => {
 	return (
-		<form
+		<Box
+			as="form"
 			sx={{
 				display: 'flex',
 				px: 0,
@@ -31,6 +32,7 @@ const FormNewsletter = ({ placeholderText, submitText, ...props }) => {
 					placeholder={placeholderText}
 					required
 				/>
+
 				<label className={styles.label} htmlFor="email">
 					Email Address
 				</label>
@@ -50,7 +52,7 @@ const FormNewsletter = ({ placeholderText, submitText, ...props }) => {
 			</div>
 			<input type="hidden" name="bot-field" />
 			<input type="hidden" name="form-name" value="newsletter" />
-		</form>
+		</Box>
 	)
 }
 

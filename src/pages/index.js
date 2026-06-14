@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { Container } from 'components/atoms'
 import { CardDefault, BillboardAlt, SideTab } from 'components/molecules'

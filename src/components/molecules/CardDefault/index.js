@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { AnimateIn, Icon, Link } from 'components/atoms'
 import { withPrefix } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -93,7 +92,7 @@ const CardDefault = ({
 									color: 'white',
 									fontWeight: 'bold',
 									variant: 'text.caps',
-									py: 1, 
+									py: 1,
 									px: 2,
 									borderRadius: '2em',
 								}}

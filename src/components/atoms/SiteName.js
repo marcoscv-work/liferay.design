@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Box } from 'theme-ui'
 import { Link } from 'components/atoms'
 import PropTypes from 'prop-types'
 
@@ -11,7 +10,7 @@ const SiteName = ({ dark, section, underlineColor }) => {
 	}
 
 	return (
-		<div
+		<Box
 			sx={{
 				fontSize: 3,
 				paddingBottom: 0,
@@ -27,7 +26,8 @@ const SiteName = ({ dark, section, underlineColor }) => {
 		>
 			<Link to="/">Design.Liferay</Link>
 			{section && <Link to={'/' + `${lowerCaseSection}`}> / {section}</Link>}
-			<span
+			<Box
+				as="span"
 				sx={{
 					position: 'absolute',
 					width: 4,
@@ -37,7 +37,7 @@ const SiteName = ({ dark, section, underlineColor }) => {
 					mt: '1rem',
 				}}
 			/>
-		</div>
+		</Box>
 	)
 }
 

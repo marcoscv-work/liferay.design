@@ -1,27 +1,26 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Flex } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Image, Link, Text } from 'components/atoms'
 import { headshotPath, makeAuthorSlug } from 'utils'
 
-export default ( {id, guest, ...props} ) => {
+export default ({ id, guest, ...props }) => {
 	const data = useStaticQuery(graphql`
 		{
-            allAuthorsYaml {
-                edges {
-                    node {
-                        id: yamlId
-                    }
-                }
-            }
-        }
+			allAuthorsYaml {
+				edges {
+					node {
+						id: yamlId
+					}
+				}
+			}
+		}
 	`)
 
 	const author = data.allAuthorsYaml.edges
 		.filter(edges => edges.node.id === id)
 		.map(({ node }) => (
-			<Flex {...props} sx={{alignItems:'center'}} >
+			<Flex {...props} sx={{ alignItems: 'center' }}>
 				<Link to={'/team/' + makeAuthorSlug(node.id)}>
 					<div style={{ marginRight: '.5rem', width: '3rem' }}>
 						<Image circle src={headshotPath(node.id)} />
@@ -34,6 +33,5 @@ export default ( {id, guest, ...props} ) => {
 			</Flex>
 		))
 
-	return (
-        <div>{author}</div>
-	)}
+	return <div>{author}</div>
+}

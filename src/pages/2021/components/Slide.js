@@ -1,19 +1,18 @@
-/** @jsx jsx */
-
-import { jsx, Flex } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Flex, Box } from 'theme-ui'
 import { withPrefix } from 'gatsby'
 import PropTypes from 'prop-types'
 import { NiceLink, Icon } from 'components/atoms'
 
 const Slide = ({ title, image, icon, url, linkText, description, type }) => {
 	return (
-		<div
+		<Box
 			sx={{
 				height: '100%',
 			}}
 		>
 			{type === 'card' ? (
-				<div
+				<Box
 					sx={{
 						display: 'flex',
 						flexDirection: 'column',
@@ -34,39 +33,41 @@ const Slide = ({ title, image, icon, url, linkText, description, type }) => {
 							width: ['90vw', '80vw'],
 						}}
 					>
-						<div
+						<Box
 							sx={{
 								variant: 'boxes.icon',
 								flexShrink: ['0'],
 							}}
 						>
 							<Icon name={icon} />
-						</div>
-						<div
+						</Box>
+						<Box
 							sx={{
 								padding: ['2rem 0', '1rem 1.5rem'],
 							}}
 						>
-							<h2
+							<Box
+								as="h2"
 								sx={{
 									fontSize: 5,
 									textAlign: ['center', 'center', 'left'],
 								}}
 							>
 								{title}
-							</h2>
-							<p
+							</Box>
+							<Box
+								as="p"
 								sx={{
 									// textAlign: 'justify', if I ever see justified text again, so help me
 									fontSize: 3,
 								}}
 							>
 								{description}
-							</p>
+							</Box>
 							{url ? <NiceLink to={url}>{linkText}</NiceLink> : null}
-						</div>
+						</Box>
 					</Flex>
-					<div
+					<Box
 						sx={{
 							height: '0',
 							pb: '40%',
@@ -74,7 +75,8 @@ const Slide = ({ title, image, icon, url, linkText, description, type }) => {
 							width: '100%',
 						}}
 					>
-						<img
+						<Box
+							as="img"
 							sx={{
 								objectPosition: 'top',
 								height: '100%',
@@ -84,8 +86,8 @@ const Slide = ({ title, image, icon, url, linkText, description, type }) => {
 							}}
 							src={`${withPrefix(`${image}`)}`}
 						/>
-					</div>
-				</div>
+					</Box>
+				</Box>
 			) : (
 				<Flex
 					sx={{
@@ -95,7 +97,8 @@ const Slide = ({ title, image, icon, url, linkText, description, type }) => {
 						width: ['90vw', '80vw'],
 					}}
 				>
-					<img
+					<Box
+						as="img"
 						sx={{
 							borderRadius: '1rem',
 							objectPosition: 'top',
@@ -107,7 +110,7 @@ const Slide = ({ title, image, icon, url, linkText, description, type }) => {
 					/>
 				</Flex>
 			)}
-		</div>
+		</Box>
 	)
 }
 

@@ -4,7 +4,10 @@
 	"version": "1.0.0",
 	"author": "Ryan Garant <ryan.garant@liferay.com>",
 	"dependencies": {
+		"@emotion/react": "^11.13.3",
 		"@svgr/core": "^4.3.3",
+		"@theme-ui/css": "^0.17.4",
+		"@theme-ui/mdx": "^0.17.4",
 		"@theme-ui/prism": "^0.17.4",
 		"eslint-config-liferay": "^19.0.2",
 		"firebase": "^8.2.6",
@@ -43,17 +46,16 @@
 		"react-slick": "~0.25.2",
 		"react-typography": "^0.16.19",
 		"readline-sync": "^1.4.10",
+		"remark-gfm": "^3.0.1",
 		"slick-carousel": "~1.8.1",
 		"theme-ui": "^0.17.4",
 		"typescript": "^3.9.7",
-		"typography": "^0.16.19",
-		"@emotion/react": "^11.13.3",
-		"@theme-ui/mdx": "^0.17.4",
-		"@theme-ui/css": "^0.17.4"
+		"typography": "^0.16.19"
 	},
 	"devDependencies": {
 		"@mdx-js/mdx": "^2.3.0",
 		"@mdx-js/react": "^2.3.0",
+		"ajv": "^8.17.1",
 		"cheerio": "1.0.0-rc.12",
 		"eslint": "^7.32.0",
 		"eslint-plugin-prettier": "^3.4.0",
@@ -66,8 +68,7 @@
 		"glob": "^7.1.6",
 		"prettier": "~1.18.2",
 		"prismjs": "^1.30.0",
-		"sass": "~1.32.13",
-		"ajv": "^8.17.1"
+		"sass": "~1.32.13"
 	},
 	"keywords": [
 		"gatsby"

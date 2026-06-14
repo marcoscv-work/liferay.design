@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import { useState, useEffect, useRef } from 'react'
 import { jsx, Flex, Box } from 'theme-ui'
 import styles from './styles.module.scss'
@@ -60,7 +60,7 @@ const Carousel = ({ children }) => {
 						ref={slidesWrapper}
 					>
 						{children.map((children, i) => (
-							<div
+							<Box
 								onClick={
 									current === i && isActive
 										? () => setIsActive(false)
@@ -88,7 +88,7 @@ const Carousel = ({ children }) => {
 								}}
 							>
 								{children}
-							</div>
+							</Box>
 						))}
 					</Flex>
 					<Flex sx={{ marginTop: 3, width: ['100vw', 'initial'], pr: 2 }}>
@@ -115,7 +115,7 @@ const Carousel = ({ children }) => {
 								key={i}
 							>
 								<div className={styles.indicatorBackground}>
-									<div
+									<Box
 										className={styles.activeIndicator}
 										key={i}
 										ref={current === i ? indicator : null}

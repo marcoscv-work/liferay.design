@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import { Flex, Heading, Icon, Link, Text, Image, AnimateIn } from 'components/atoms'
 import PropTypes from 'prop-types'
@@ -40,9 +39,7 @@ const CardLexicon = ({
 	// the heading must follow the same alignment as the copy block, otherwise
 	// the Heading atom's default `align: left` leaves the title left-aligned
 	// inside a centered card
-	const copyAlign = isMobile
-		? textAlignmentMap.vertical
-		: textAlignmentMap[direction]
+	const copyAlign = isMobile ? textAlignmentMap.vertical : textAlignmentMap[direction]
 
 	const iconWidthMap = {
 		vertical: '100%',
@@ -107,11 +104,7 @@ const CardLexicon = ({
 								{preTitle}
 							</Heading>
 						) : null}
-						<Heading
-							align={copyAlign}
-							level={2}
-							className={styles.title}
-						>
+						<Heading align={copyAlign} level={2} className={styles.title}>
 							{title}
 						</Heading>
 						<Text type="p" size="medium" className={styles.text}>

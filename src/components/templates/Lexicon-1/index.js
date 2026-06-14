@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { ContainerMarkdown, Flex, Icon, SiteName, Text, Link } from 'components/atoms'
 import { AuthContainer, GlobalMdx } from 'components/molecules'
@@ -88,9 +87,7 @@ export default class Lexicon extends Component {
 											</p>
 										) : null}
 
-										<GlobalMdx>
-											{this.props.children}
-										</GlobalMdx>
+										<GlobalMdx>{this.props.children}</GlobalMdx>
 									</ContainerMarkdown>
 									<Footer markdown light />
 								</div>

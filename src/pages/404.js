@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Text, Flex, Image } from 'theme-ui'
 import { Themed } from '@theme-ui/mdx'
 import { MainLayout } from 'components/templates'

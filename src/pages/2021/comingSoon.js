@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Text, Flex, Box, Heading } from 'theme-ui'
 import { FormNewsletter } from 'components/molecules'
 import { Icon } from 'components/atoms'

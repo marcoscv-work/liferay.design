@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Box } from 'theme-ui'
 
 import { AnimateIn } from 'components/atoms'
 import PropTypes from 'prop-types'
@@ -15,7 +14,7 @@ export default class DWHeading extends React.Component {
 	render() {
 		const { delay } = this.props
 
-		const title = "Design Week"
+		const title = 'Design Week'
 
 		const titleArray = [...title]
 
@@ -65,7 +64,8 @@ export default class DWHeading extends React.Component {
 						}}
 						delay={index * 0.1 + +delay - 0.1 + 's'}
 					>
-						<span
+						<Box
+							as="span"
 							sx={{
 								variant: 'text.caps',
 								fontSize: '20vmin',
@@ -74,7 +74,7 @@ export default class DWHeading extends React.Component {
 							}}
 						>
 							{item}
-						</span>
+						</Box>
 					</AnimateIn>
 				))}
 			</AnimateIn>

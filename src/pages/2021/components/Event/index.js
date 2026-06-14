@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box, Flex, Grid, Text, Heading, ThemeUIProvider } from 'theme-ui'
 import { Link } from 'components/atoms'
 import PropTypes from 'prop-types'
@@ -32,6 +31,7 @@ const Event = ({ name, description, startDate, endDate, url, image }) => {
 			],
 		},
 	]
+
 	const eventImage = [
 		{
 			start: 'self',
@@ -105,13 +105,14 @@ const Event = ({ name, description, startDate, endDate, url, image }) => {
 							src={image}
 						/>
 					</Link>
-					<h4
+					<Box
+						as="h4"
 						sx={{ textAlign: ['center', 'initial'], order: [1, 2] }}
 						className={styles.pLarge}
 					>
 						{name}
 						<span>{description}</span>
-					</h4>
+					</Box>
 				</Flex>
 			</Flex>
 		</Plx>

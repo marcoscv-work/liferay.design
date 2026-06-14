@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx, Flex, } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Flex } from 'theme-ui'
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { Image } from 'components/atoms'

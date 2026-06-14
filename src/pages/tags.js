@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Flex } from 'theme-ui'
 import { Container, Link, AnimateIn } from 'components/atoms'
 import PropTypes from 'prop-types'
@@ -20,7 +19,7 @@ const TagsPage = ({
 	<MainLayout>
 		<Helmet title={title} />
 		<Container heading="Tags">
-			<Flex sx={{ flexWrap: 'wrap', mb:'20vh', }}>
+			<Flex sx={{ flexWrap: 'wrap', mb: '20vh' }}>
 				{group.map((tag, index) => (
 					<AnimateIn delay={index * 0.08 + 's'} sx={{ mr: 2, my: 2 }}>
 						<Link
@@ -56,16 +55,18 @@ TagsPage.propTypes = {
 	}),
 }
 export default TagsPage
-export const pageQuery = graphql`{
-  site {
-    siteMetadata {
-      title
-    }
-  }
-  allMdx(limit: 2000) {
-    group(field: {frontmatter: {tags: SELECT}}) {
-      fieldValue
-      totalCount
-    }
-  }
-}`
+export const pageQuery = graphql`
+	{
+		site {
+			siteMetadata {
+				title
+			}
+		}
+		allMdx(limit: 2000) {
+			group(field: { frontmatter: { tags: SELECT } }) {
+				fieldValue
+				totalCount
+			}
+		}
+	}
+`

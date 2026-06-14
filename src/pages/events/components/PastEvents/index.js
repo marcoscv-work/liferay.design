@@ -1,37 +1,41 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
 import { CardDefault } from 'components/molecules'
 import moment from 'moment'
 
 export default () => {
-	const data = useStaticQuery(graphql`{
-  allMdx(
-    filter: {internal: { contentFilePath: { regex: "/(events)/" } }, frontmatter: {draft: {eq: false}}}
-    sort: {frontmatter: {date: DESC}}
-  ) {
-    totalCount
-    edges {
-      node {
-        id
-        frontmatter {
-          tag
-          title
-          office {
-            city
-            countryIcon
-          }
-          featuredImage
-          date
-        }
-        fields {
-          slug
-        }
-      }
-    }
-  }
-}`)
+	const data = useStaticQuery(graphql`
+		{
+			allMdx(
+				filter: {
+					internal: { contentFilePath: { regex: "/(events)/" } }
+					frontmatter: { draft: { eq: false } }
+				}
+				sort: { frontmatter: { date: DESC } }
+			) {
+				totalCount
+				edges {
+					node {
+						id
+						frontmatter {
+							tag
+							title
+							office {
+								city
+								countryIcon
+							}
+							featuredImage
+							date
+						}
+						fields {
+							slug
+						}
+					}
+				}
+			}
+		}
+	`)
 
 	const Events = data.allMdx.edges
 		.filter(edgeItem => moment(edgeItem.node.frontmatter.date).toDate() < Date.now())

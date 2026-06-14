@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { ContainerMarkdown, Flex, Icon, SiteName, Text, Link } from 'components/atoms'
 import { AuthContainer, GlobalMdx } from 'components/molecules'
@@ -67,9 +66,7 @@ export default class Blueprints extends Component {
 
 								<div>
 									{mdx.frontmatter.template === 'landingPage' ? (
-										<GlobalMdx>
-											{this.props.children}
-										</GlobalMdx>
+										<GlobalMdx>{this.props.children}</GlobalMdx>
 									) : isAuthenticated() ? (
 										<>
 											<ContainerMarkdown>

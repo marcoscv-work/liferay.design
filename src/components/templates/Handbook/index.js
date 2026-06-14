@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { ContainerMarkdown, Flex, Icon, SiteName, Text, Link } from 'components/atoms'
 import { AuthContainer, GlobalMdx, SEO } from 'components/molecules'
@@ -78,9 +77,7 @@ export default class Handbook extends Component {
 									className={`${styles.contentWrapper} ${documentation.contentWrapper}`}
 								>
 									{mdx.frontmatter.template === 'landingPage' ? (
-										<GlobalMdx>
-											{this.props.children}
-										</GlobalMdx>
+										<GlobalMdx>{this.props.children}</GlobalMdx>
 									) : (
 										<>
 											{' '}

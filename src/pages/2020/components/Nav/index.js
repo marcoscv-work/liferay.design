@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx, Flex, Text } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Flex, Text, Box } from 'theme-ui'
 import { Component } from 'react'
 import { Icon, Link } from 'components/atoms'
 import Plx from 'react-plx'
@@ -42,6 +41,7 @@ const top = [
 		],
 	},
 ]
+
 const adapt = [
 	{
 		start: '#adapt',
@@ -78,6 +78,7 @@ const adapt = [
 		],
 	},
 ]
+
 const impact = [
 	{
 		start: '#impact',
@@ -114,6 +115,7 @@ const impact = [
 		],
 	},
 ]
+
 const consult = [
 	{
 		start: '#consult',
@@ -150,6 +152,7 @@ const consult = [
 		],
 	},
 ]
+
 const campaign = [
 	{
 		start: '#campaign',
@@ -254,7 +257,7 @@ export default class Nav extends Component {
 							Menu
 						</Text>
 					</Flex>
-					<div
+					<Box
 						sx={{ position: 'absolute', bottom: 5, right: 2 }}
 						className={styles.linkWrapper}
 					>
@@ -278,7 +281,7 @@ export default class Nav extends Component {
 							<Plx parallaxData={campaign} className={styles.anchorBlock} />
 							<div className={styles.anchorText}>Campaign</div>
 						</a>
-					</div>
+					</Box>
 				</Plx>
 			</nav>
 		)

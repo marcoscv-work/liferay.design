@@ -1,4 +1,11 @@
-require('dotenv').config({
+import dotenv from 'dotenv'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import remarkGfm from 'remark-gfm'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+dotenv.config({
 	path: `.env.${process.env.NODE_ENV}`,
 })
 
@@ -24,7 +31,14 @@ if (process.env.MAILCHIMP_KEY) {
 	})
 }
 
-module.exports = {
+export default {
+	// theme-ui's `sx` prop on plain DOM elements (e.g. <h1 sx={{…}}>) is only
+	// processed by the JSX pragma. Gatsby 5 / React 18 use the automatic JSX
+	// runtime, which ignores the classic `/** @jsx jsx */` pragma — so we point
+	// the automatic runtime at theme-ui globally. This restores `sx` on raw DOM
+	// elements across the site without editing every component.
+	jsxRuntime: 'automatic',
+	jsxImportSource: 'theme-ui',
 	// Gatsby 5 changed the default to 'always'; use 'ignore' (the legacy-equivalent) so existing
 	// URLs (and redirects) stay byte-for-byte identical
 	trailingSlash: 'ignore',
@@ -101,6 +115,11 @@ module.exports = {
 			resolve: 'gatsby-plugin-mdx',
 			options: {
 				extensions: ['.mdx', '.md'],
+				// MDX v2 dropped the built-in GitHub-flavored Markdown support, so
+				// tables (and strikethrough, task lists, etc.) need remark-gfm.
+				mdxOptions: {
+					remarkPlugins: [remarkGfm],
+				},
 				gatsbyRemarkPlugins: [
 					{
 						resolve: 'gatsby-remark-images',

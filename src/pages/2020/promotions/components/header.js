@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import Headshots from './headshots.js'
 import { jsx, Flex, Heading, Text } from 'theme-ui'
 import { AnimateIn } from 'components/atoms'

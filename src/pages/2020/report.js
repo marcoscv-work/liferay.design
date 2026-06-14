@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box, Flex, Grid, Text, Heading, ThemeUIProvider } from 'theme-ui'
 import { Helmet } from 'react-helmet'
 
@@ -62,6 +61,7 @@ const PlxDown2 = [
 		],
 	},
 ]
+
 const PlxDown3 = [
 	{
 		start: 'self',
@@ -94,13 +94,15 @@ const TwentyTwenty = () => {
 					},
 				})}
 			/>
-			<div className={styles.pagestyles} sx={{ backgroundColor: 'black' }}>
+
+			<Box className={styles.pagestyles} sx={{ backgroundColor: 'black' }}>
 				<SEO
 					pageTitle="Liferay Design | 2020 Annual Report"
 					description="Highlights, case studies, and more from Communication Design, Product Design, and Design Research at Liferay."
 					previewImage="/images/2020/liferay-design-og-2020.png"
 					twitterHandle="@liferaydesign"
 				/>
+
 				<Helmet>
 					<link
 						rel="preload"
@@ -109,6 +111,7 @@ const TwentyTwenty = () => {
 						type="font/woff2"
 						crossorigin=""
 					/>
+
 					<link rel="preconnect" href="https://fonts.gstatic.com" />
 					<link
 						href="https://fonts.googleapis.com/css2?family=Bebas+Neue"
@@ -163,7 +166,7 @@ const TwentyTwenty = () => {
 				</Flex>
 
 				{/* ---------- INSPIRATIONAL QUOTE ----------- */}
-				<div
+				<Box
 					sx={{
 						background: theme => `${theme.gradients.splitBackgroundGradient}`,
 					}}
@@ -202,19 +205,25 @@ const TwentyTwenty = () => {
 							pageHeader
 							zIndex="1"
 						/>
+
 						{/* <div sx={{ mt: 6 }} /> */}
 					</Flex>
-				</div>
+				</Box>
 
 				{/* ---------- MILESTONES ----------- */}
 
-				<section id="milestones" sx={{ py: [3, 5], variant: 'boxes.section' }}>
+				<Box
+					as="section"
+					id="milestones"
+					sx={{ py: [3, 5], variant: 'boxes.section' }}
+				>
 					<Flex sx={{ alignItems: 'center', flexDirection: 'column' }}>
 						<Content
 							center
 							pretitle={data.timelineSection.pretitle}
 							title={data.timelineSection.title}
 						/>
+
 						<Flex
 							sx={{
 								flexDirection: 'column',
@@ -222,7 +231,7 @@ const TwentyTwenty = () => {
 								position: 'relative',
 							}}
 						>
-							<div
+							<Box
 								sx={{
 									position: 'absolute',
 									left: ['50%', '3rem', null],
@@ -272,7 +281,7 @@ const TwentyTwenty = () => {
 										strokeDasharray="1 10"
 									/>
 								</svg>
-							</div>
+							</Box>
 							{data.timelineSection.events.map(({ event }, i) => (
 								<Event
 									key={i}
@@ -287,7 +296,7 @@ const TwentyTwenty = () => {
 							))}
 						</Flex>
 					</Flex>
-				</section>
+				</Box>
 				<Flex
 					sx={{
 						background: 'white',
@@ -311,6 +320,7 @@ const TwentyTwenty = () => {
 							copy={data.promotionsPage.summary}
 							inverted
 						/>
+
 						<PromotedDesigners />
 					</Flex>
 				</Flex>
@@ -331,6 +341,7 @@ const TwentyTwenty = () => {
 						pretitle={data.covid.pretitle}
 						title={data.covid.title}
 					/>
+
 					<Carousel>
 						{data.covid.slides.map(({ slide }, i) => (
 							<Slide
@@ -348,7 +359,11 @@ const TwentyTwenty = () => {
 				</Flex>
 
 				{/* Impact */}
-				<section id="impact" sx={{ variant: 'boxes.section', mt: [4, 5], mb: 6 }}>
+				<Box
+					as="section"
+					id="impact"
+					sx={{ variant: 'boxes.section', mt: [4, 5], mb: 6 }}
+				>
 					<Content pretitle={data.impact.pretitle} title={data.impact.title} />
 					<Box>
 						{data.impact.bigStats.map(({ stat }, i) => (
@@ -457,7 +472,7 @@ const TwentyTwenty = () => {
 							</Link>
 						))}
 					</Grid>
-				</section>
+				</Box>
 				{/* GS Summary */}
 				<Flex
 					as="section"
@@ -473,6 +488,7 @@ const TwentyTwenty = () => {
 						pretitle={data.globalServices.pretitle}
 						title={data.globalServices.title}
 					/>
+
 					<Plx parallaxData={PlxUp3}>
 						<Carousel>
 							{data.globalServices.slides.map(({ slide }) => (
@@ -491,7 +507,7 @@ const TwentyTwenty = () => {
 				</Flex>
 
 				{/* OPES */}
-				<section id="campaign" sx={{ variant: 'boxes.section' }}>
+				<Box as="section" id="campaign" sx={{ variant: 'boxes.section' }}>
 					<Content pretitle={data.opes.pretitle} title={data.opes.title} />
 					<Grid
 						sx={{
@@ -515,7 +531,7 @@ const TwentyTwenty = () => {
 							</Text>
 						))}
 					</Grid>
-				</section>
+				</Box>
 				<Carousel>
 					{data.opes.images.map(({ image }) => (
 						<Slide
@@ -531,12 +547,13 @@ const TwentyTwenty = () => {
 				</Carousel>
 
 				{/* Future */}
-				<div
+				<Box
 					sx={{
 						backgroundColor: 'white',
 					}}
 				>
-					<section
+					<Box
+						as="section"
 						sx={{
 							variant: 'boxes.section',
 							pt: [5, 6, null],
@@ -548,6 +565,7 @@ const TwentyTwenty = () => {
 							pretitle={data.future.pretitle}
 							title={data.future.title}
 						/>
+
 						<Box sx={{ width: '100%', maxWidth: '960px', margin: '0 auto' }}>
 							{data.future.list.map(({ li }, i) => (
 								<Box
@@ -589,11 +607,12 @@ const TwentyTwenty = () => {
 								</Box>
 							))}
 						</Box>
-					</section>
-				</div>
+					</Box>
+				</Box>
 
 				{/* Thank You */}
-				<section
+				<Box
+					as="section"
 					sx={{
 						position: 'relative',
 						zIndex: 0,
@@ -608,6 +627,7 @@ const TwentyTwenty = () => {
 						pretitle={data.thankYou.pretitle}
 						title={data.thankYou.title}
 					/>
+
 					<ThankYou
 						message={data.thankYou.message.part1.body}
 						nextTitle={data.thankYou.message.part2.title}
@@ -615,10 +635,12 @@ const TwentyTwenty = () => {
 						authorName={data.thankYou.author.name}
 						authorTitle={data.thankYou.author.title}
 					/>
+
 					<Juan />
-				</section>
+				</Box>
 				{/* ---------- SUBSCRIBE ----------- */}
-				<section
+				<Box
+					as="section"
 					sx={{
 						backgroundColor: 'black',
 						pt: [3, 5],
@@ -631,12 +653,13 @@ const TwentyTwenty = () => {
 						title={data.subscribe.title}
 						copy={data.subscribe.subtitle}
 					/>
+
 					<FormNewsletter submitText="Subscribe" />
-				</section>
+				</Box>
 				<div id="footer" />
 				<Footer />
 				<FancyFooter />
-			</div>
+			</Box>
 		</ThemeUIProvider>
 	)
 }

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid, Button } from 'theme-ui'
 import { Flex, Heading, Link, Container } from 'components/atoms'
 import Navbar from 'components/organisms/Navbar'
@@ -20,33 +19,29 @@ const Banner = ({
 }) => (
 	<Grid
 		sx={{
-			gridTemplateRows:'8rem 1fr',
+			gridTemplateRows: '8rem 1fr',
 			background: `${background}`,
 		}}
 		className={styles.container}
 	>
 		<Navbar {...props} underlineColor={underlineColor} white />
-		<Container style={{alignSelf:'center'}}>
+		<Container style={{ alignSelf: 'center' }}>
 			<Flex
 				direction="column"
 				align={textAlign}
-				style={{textAlign:`${textAlign}`}}
+				style={{ textAlign: `${textAlign}` }}
 				className={styles.content}
 			>
-				{preTitle ? <div className={styles.preTitle}>
-					{preTitle}
-				</div> : null}
-				<Heading sx={{color:"white"}} level={1}>
+				{preTitle ? <div className={styles.preTitle}>{preTitle}</div> : null}
+				<Heading sx={{ color: 'white' }} level={1}>
 					{headline}
 				</Heading>
-				<Heading sx={{color:"white"}} level={2}>
+				<Heading sx={{ color: 'white' }} level={2}>
 					{subtitle}
 				</Heading>
 				{cta ? (
 					<Link to={ctaLink}>
-						<Button className={styles.button}>
-							{cta}
-						</Button>
+						<Button className={styles.button}>{cta}</Button>
 					</Link>
 				) : null}
 			</Flex>

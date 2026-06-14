@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid, Box, Flex } from 'theme-ui'
 import { Container, Link, Image, ScrollProgress } from 'components/atoms'
 import { SEO, Tags, GlobalMdx } from 'components/molecules'
@@ -71,10 +70,11 @@ export default class Articles extends Component {
 					}
 					contentType="article"
 				/>
+
 				<Navbar section="Articles" className={styles.sticky} />
 				<Plx
 					parallaxData={hero}
-					sx={{ paddingBottom: '6rem', willChange: 'transform' }}
+					style={{ paddingBottom: '6rem', willChange: 'transform' }}
 				>
 					<Container>
 						<Grid sx={{ gridAutoFlow: 'column' }} className={styles.banner}>
@@ -144,7 +144,7 @@ export default class Articles extends Component {
 					</Container>
 				</Plx>
 				<div className={styles.markdownContainer}>
-					<div
+					<Box
 						sx={{
 							margin: '-16rem auto 0',
 							overflow: 'hidden',
@@ -154,18 +154,16 @@ export default class Articles extends Component {
 					>
 						<Plx
 							parallaxData={featuredImage}
-							sx={{ willChange: 'transform', transformOrigin: 'center' }}
+							style={{ willChange: 'transform', transformOrigin: 'center' }}
 						>
 							<Image
 								alt={'featured image for ' + `${post.frontmatter.title}`}
 								src={post.frontmatter.featuredImage}
 							/>
 						</Plx>
-					</div>
+					</Box>
 					<div className={styles.wrapper}>
-						<GlobalMdx>
-							{this.props.children}
-						</GlobalMdx>
+						<GlobalMdx>{this.props.children}</GlobalMdx>
 						<PreviousNext section="articles" current={post.id} />
 					</div>
 				</div>
@@ -174,6 +172,7 @@ export default class Articles extends Component {
 					teammate={`${makeAuthorSlug(post.frontmatter.author.id)}`}
 					currentPost={post.id}
 				/>
+
 				<Footer light />
 			</div>
 		)

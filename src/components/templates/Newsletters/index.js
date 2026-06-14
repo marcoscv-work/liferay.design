@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Box } from 'theme-ui'
 import { graphql } from 'gatsby'
 import React, { Component } from 'react'
 import { Link, Icon } from 'components/atoms'
@@ -34,10 +33,11 @@ export default class Newsletters extends Component {
 					<Icon margin="0 1em" name="leftArrow" />
 					All Newsletters
 				</Link>
-				<div
+				<Box
 					sx={{ marginTop: '-66px' }}
 					dangerouslySetInnerHTML={{ __html: newsletter.node.archive_html }}
 				/>
+
 				{links.previous ? (
 					<Link
 						sx={{ variant: 'links.nice' }}
@@ -65,38 +65,46 @@ export default class Newsletters extends Component {
 	}
 }
 
-export const pageQuery = graphql`query ($send_time: Date) {
-  newsletter: allNewsletters(
-    sort: {send_time: ASC}
-    filter: {settings: {title: {regex: "/Newsletter/"}}, send_time: {eq: $send_time}}
-  ) {
-    edges {
-      node {
-        archive_html
-        send_time(formatString: "YYYY-MM")
-      }
-    }
-  }
-  prevNext: allNewsletters(
-    sort: {send_time: ASC}
-    filter: {send_time: {ne: ""}, settings: {title: {regex: "/Newsletter/"}}}
-  ) {
-    edges {
-      node {
-        send_time(formatString: "YYYY-MM")
-      }
-      next {
-        send_time(formatString: "YYYY-MM")
-        settings {
-          title
-        }
-      }
-      previous {
-        send_time(formatString: "YYYY-MM")
-        settings {
-          title
-        }
-      }
-    }
-  }
-}`
+export const pageQuery = graphql`
+	query($send_time: Date) {
+		newsletter: allNewsletters(
+			sort: { send_time: ASC }
+			filter: {
+				settings: { title: { regex: "/Newsletter/" } }
+				send_time: { eq: $send_time }
+			}
+		) {
+			edges {
+				node {
+					archive_html
+					send_time(formatString: "YYYY-MM")
+				}
+			}
+		}
+		prevNext: allNewsletters(
+			sort: { send_time: ASC }
+			filter: {
+				send_time: { ne: "" }
+				settings: { title: { regex: "/Newsletter/" } }
+			}
+		) {
+			edges {
+				node {
+					send_time(formatString: "YYYY-MM")
+				}
+				next {
+					send_time(formatString: "YYYY-MM")
+					settings {
+						title
+					}
+				}
+				previous {
+					send_time(formatString: "YYYY-MM")
+					settings {
+						title
+					}
+				}
+			}
+		}
+	}
+`
