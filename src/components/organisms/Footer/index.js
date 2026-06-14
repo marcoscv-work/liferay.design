@@ -1,4 +1,4 @@
-import { Container, Flex, Heading, Text } from 'components/atoms'
+import { Container, Flex, Text } from 'components/atoms'
 import { SiteCredits, SocialIcons } from 'components/molecules'
 import React from 'react'
 import styles from './styles.module.scss'
@@ -19,7 +19,8 @@ export const Footer = ({ light, background, markdown }) => {
 					flexWrap="wrap"
 				>
 					{' '}
-					<Heading level={3}>Design.Liferay</Heading>
+					{/* empty spacer keeps the social icons right-aligned */}
+					<Text width="50%" />
 					<SocialIcons
 						sx={{
 							justifyContent: 'space-between',
