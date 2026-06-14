@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Flex, Box, Text } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Image } from 'components/atoms'
@@ -113,6 +112,7 @@ export default ({}) => {
 								}}
 								src={headshotPath(name.id)}
 							/>
+
 							<Image
 								sx={{
 									height: ['12rem', '16rem', null],
@@ -178,7 +178,8 @@ export default ({}) => {
 							Highlights
 						</Text>
 						<Text sx={{ fontSize: [3, 4, null] }}>
-							<ul
+							<Box
+								as="ul"
 								sx={{
 									columns: 2,
 									columnWidth: '24ch',
@@ -205,7 +206,7 @@ export default ({}) => {
 								{highlights.map(i => (
 									<li key={i}>{i}</li>
 								))}
-							</ul>
+							</Box>
 						</Text>
 					</Box>
 				</Flex>
@@ -213,7 +214,8 @@ export default ({}) => {
 		),
 	)
 	return (
-		<section
+		<Box
+			as="section"
 			sx={{
 				position: 'relative',
 
@@ -223,6 +225,6 @@ export default ({}) => {
 			<Background />
 			{Designers}
 			<Foreground />
-		</section>
+		</Box>
 	)
 }

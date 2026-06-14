@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { Link, SiteName } from 'components/atoms'
 import { Accordion, SiteCredits, SearchInput } from 'components/molecules'
@@ -74,9 +73,7 @@ export default function SidebarWrapper({
 			)}
 
 			<div className={styles.sidebarContentWrapper}>
-				{lexicon && (
-					<SearchInput id='lexicon_search' />
-				)}
+				{lexicon && <SearchInput id="lexicon_search" />}
 				<SidebarContent path={path} tree={tree} />
 			</div>
 

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, NavLink } from 'theme-ui'
 import { firebase } from '@firebase/app'
 import { LogoutContainer } from 'components/molecules'

@@ -1,10 +1,18 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 import styles from './styles.module.scss'
 
-const Heading = ({ additionalStyles, align, bottomBorder, className, children, level, padding, ...props }) => {
+const Heading = ({
+	additionalStyles,
+	align,
+	bottomBorder,
+	className,
+	children,
+	level,
+	padding,
+	...props
+}) => {
 	const Header = `h${level}`
 	const borderClass = bottomBorder ? styles.bottomBorder : ''
 
@@ -18,7 +26,11 @@ const Heading = ({ additionalStyles, align, bottomBorder, className, children, l
 	}
 
 	return (
-		<Header className={`${className} ${styles[Header]} ${borderClass}`} style={style} {...props} >
+		<Header
+			className={`${className} ${styles[Header]} ${borderClass}`}
+			style={style}
+			{...props}
+		>
 			{children}
 		</Header>
 	)

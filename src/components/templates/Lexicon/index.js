@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx, Grid } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Grid, Box } from 'theme-ui'
 import {
 	ContainerMarkdown,
 	Flex,
@@ -61,10 +60,12 @@ export default class Lexicon extends Component {
 							`${post.frontmatter.tags}`
 						}
 					/>
+
 					<meta
 						property="og:description"
 						content={post.frontmatter.description}
 					/>
+
 					<meta name="Description" content={seoDescription} />
 					<meta
 						property="og:title"
@@ -78,6 +79,7 @@ export default class Lexicon extends Component {
 						name="twitter:description"
 						content={post.frontmatter.description}
 					/>
+
 					<meta name="twitter:image" content={seoImage} />
 					<meta name="twitter:creator" content="@Liferay_Lexicon" />
 				</Helmet>
@@ -177,9 +179,7 @@ export default class Lexicon extends Component {
 											</p>
 										) : null}
 
-										<GlobalMdx>
-											{this.props.children}
-										</GlobalMdx>
+										<GlobalMdx>{this.props.children}</GlobalMdx>
 										{/* <PreviousNext section='lexicon' current={post.id} /> */}
 									</ContainerMarkdown>
 									<Footer markdown light />
@@ -197,7 +197,8 @@ export default class Lexicon extends Component {
 										aria-hidden="true"
 									/>
 
-									<button
+									<Box
+										as="button"
 										type="button"
 										onClick={this.toggleMobileSidebarVisibility}
 										aria-expanded={this.state.mobileSidebarVisible}
@@ -218,11 +219,15 @@ export default class Lexicon extends Component {
 										}}
 									>
 										{this.state.mobileSidebarVisible ? (
-											<Icon name="close" color="white" aria-hidden="true" />
+											<Icon
+												name="close"
+												color="white"
+												aria-hidden="true"
+											/>
 										) : (
 											<Text color="white">Menu</Text>
 										)}
-									</button>
+									</Box>
 								</Flex>
 							</Grid>
 						)

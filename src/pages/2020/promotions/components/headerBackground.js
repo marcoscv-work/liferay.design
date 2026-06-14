@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box } from 'theme-ui'
 import Plx from 'react-plx'
 

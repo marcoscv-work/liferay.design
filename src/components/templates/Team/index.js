@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Flex, Box, Image } from 'theme-ui'
 import { Icon, Container, ScrollProgress, Heading } from 'components/atoms'
 import { GlobalMdx, SEO, SocialIcons } from 'components/molecules'
@@ -116,6 +115,7 @@ export default class Team extends Component {
 					twitterHandle={links ? links.twitter : null}
 					contentType="profile"
 				/>
+
 				<Box
 					sx={{
 						position: 'absolute',
@@ -145,8 +145,8 @@ export default class Team extends Component {
 						src={withPrefix(avatarPath(teammate.id))}
 					/>
 				</Box>
-				
-				<Navbar section ={(alumni ? "Alumni" : "Team")}/>
+
+				<Navbar section={alumni ? 'Alumni' : 'Team'} />
 
 				<Container banner>
 					<Flex
@@ -157,13 +157,14 @@ export default class Team extends Component {
 							alignItems: ['flex-end', 'center', null],
 						}}
 					>
-						<div
+						<Box
 							sx={{
 								flexGrow: [1, null, 0],
 								order: [-2, 'initial', null],
 								display: ['block', null, 'none'],
 							}}
 						/>
+
 						<Flex
 							sx={{
 								zIndex: 1,
@@ -171,7 +172,8 @@ export default class Team extends Component {
 								flexDirection: 'column',
 							}}
 						>
-							<h1
+							<Box
+								as="h1"
 								sx={{
 									fontSize: [6, null, 7],
 									color: 'mainL4',
@@ -179,7 +181,8 @@ export default class Team extends Component {
 								}}
 							>
 								{alumni ? (
-									<span
+									<Box
+										as="span"
 										sx={{
 											display: 'block',
 											mt: 2,
@@ -187,11 +190,13 @@ export default class Team extends Component {
 											color: 'mainL3',
 											variant: 'text.caps',
 										}}
-									>					
-										{moment(teammate.startDate).format('YYYY')} - {moment(teammate.endDate).format('YYYY')}
-									</span>
+									>
+										{moment(teammate.startDate).format('YYYY')} -{' '}
+										{moment(teammate.endDate).format('YYYY')}
+									</Box>
 								) : (
-									<span
+									<Box
+										as="span"
 										sx={{
 											display: 'block',
 											mt: 2,
@@ -199,15 +204,20 @@ export default class Team extends Component {
 											color: 'mainL3',
 											variant: 'text.caps',
 										}}
-									>					
+									>
 										Since {moment(teammate.startDate).format('YYYY')}
-									</span>
+									</Box>
 								)}
-								<span sx={{ color: 'white' }}>{teammate.id}</span>
-								<span sx={{ display: 'block', fontSize: [4, null, 6] }}>
+								<Box as="span" sx={{ color: 'white' }}>
+									{teammate.id}
+								</Box>
+								<Box
+									as="span"
+									sx={{ display: 'block', fontSize: [4, null, 6] }}
+								>
 									{teammate.title}
-								</span>
-							</h1>
+								</Box>
+							</Box>
 						</Flex>
 						{links ? (
 							<SocialIcons
@@ -247,9 +257,7 @@ export default class Team extends Component {
 					}}
 				>
 					<Box>
-						<GlobalMdx>
-							{this.props.children}
-						</GlobalMdx>
+						<GlobalMdx>{this.props.children}</GlobalMdx>
 					</Box>
 					{links ? (
 						<Flex sx={{ width: '100%', flexDirection: 'column' }}>
@@ -273,6 +281,7 @@ export default class Team extends Component {
 					heading={'Recent posts by ' + `${firstWord(teammate.id)}`}
 					teammate={makeAuthorSlug(teammate.id)}
 				/>
+
 				<Footer light />
 			</div>
 		)

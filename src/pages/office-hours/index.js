@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid, Box, Flex, Heading, Text } from 'theme-ui'
 import { Container, NiceLink } from 'components/atoms'
 import { SEO } from 'components/molecules'
@@ -182,30 +181,38 @@ export default ({}) => {
 	)
 }
 
-export const query = graphql`{
-  allMdx(
-    filter: {internal: { contentFilePath: { regex: "/(articles)/" } }, frontmatter: {publish: {eq: true}, tags: {nin: ["Talks", "Best Practices"]}}}
-    sort: {frontmatter: {date: DESC}}
-    limit: 3
-  ) {
-    totalCount
-    edges {
-      node {
-        id
-        timeToRead
-        frontmatter {
-          title
-          featuredImage
-          author {
-            id: yamlId
-          }
-          tags
-        }
-        fields {
-          slug
-        }
-        excerpt
-      }
-    }
-  }
-}`
+export const query = graphql`
+	{
+		allMdx(
+			filter: {
+				internal: { contentFilePath: { regex: "/(articles)/" } }
+				frontmatter: {
+					publish: { eq: true }
+					tags: { nin: ["Talks", "Best Practices"] }
+				}
+			}
+			sort: { frontmatter: { date: DESC } }
+			limit: 3
+		) {
+			totalCount
+			edges {
+				node {
+					id
+					timeToRead
+					frontmatter {
+						title
+						featuredImage
+						author {
+							id: yamlId
+						}
+						tags
+					}
+					fields {
+						slug
+					}
+					excerpt
+				}
+			}
+		}
+	}
+`

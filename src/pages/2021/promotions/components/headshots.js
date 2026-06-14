@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box, Text } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Link, Image, AnimateIn } from 'components/atoms'

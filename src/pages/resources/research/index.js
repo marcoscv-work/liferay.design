@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid, Box } from 'theme-ui'
 import { Container, Link, Heading, Icon } from 'components/atoms'
 import { SEO, CardResource } from 'components/molecules'
@@ -53,22 +52,26 @@ export default ({ data }) => {
 	)
 }
 
-export const query = graphql`{
-  cards: allMdx(
-    sort: {fields: {slug: ASC}}
-    filter: {internal: { contentFilePath: { regex: "/(resources/research/)/" } }}
-  ) {
-    edges {
-      node {
-        id
-        frontmatter {
-          subtitle
-        }
-        body
-        fields {
-          slug
-        }
-      }
-    }
-  }
-}`
+export const query = graphql`
+	{
+		cards: allMdx(
+			sort: { fields: { slug: ASC } }
+			filter: {
+				internal: { contentFilePath: { regex: "/(resources/research/)/" } }
+			}
+		) {
+			edges {
+				node {
+					id
+					frontmatter {
+						subtitle
+					}
+					body
+					fields {
+						slug
+					}
+				}
+			}
+		}
+	}
+`

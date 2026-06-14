@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid, Box, Flex } from 'theme-ui'
 import React from 'react'
 

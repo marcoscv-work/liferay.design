@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx, Flex } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Flex, Box } from 'theme-ui'
 import PropTypes from 'prop-types'
 import styles from './styles.module.scss'
 import { Heading, NiceLink } from 'components/atoms'
@@ -17,7 +16,7 @@ const Container = ({
 	...props
 }) => {
 	return (
-		<div
+		<Box
 			className={styles.wrapper}
 			sx={{ background: `${background}`, ...padding, ...style }}
 		>
@@ -41,8 +40,8 @@ const Container = ({
 				</Flex>
 				{children}
 			</div>
-			{banner ? <div sx={{ background: 'white', padding: 4 }} /> : null}
-		</div>
+			{banner ? <Box sx={{ background: 'white', padding: 4 }} /> : null}
+		</Box>
 	)
 }
 

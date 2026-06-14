@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import { Link, Icon } from 'components/atoms'
 
@@ -7,15 +7,15 @@ export default ({ eventUrl, ...props }) => (
 		to={eventUrl}
 		sx={{
 			color: `text`,
-            width: 'fit-content',
+			width: 'fit-content',
 			fontSize: 2,
 			background: 'red',
 			fontWeight: `heavy`,
 			variant: 'labels.fill',
-            display: 'flex',
+			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-            cursor: 'pointer',
+			cursor: 'pointer',
 			'> svg::after': {
 				content: '""',
 				position: 'absolute',

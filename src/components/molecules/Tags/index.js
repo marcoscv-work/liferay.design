@@ -1,13 +1,12 @@
-/** @jsx jsx */
-
-import { jsx, Flex } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Flex, Box } from 'theme-ui'
 import { Link } from 'components/atoms'
 const { kebabCase } = require(`lodash`)
 
 const Tags = ({ tags }) => {
 	if (!tags) return null
 	const tagLinks = tags.map((tag, i) => {
-		const divider = i < tags.length - 1 && <span sx={{ mx: 1 }} />
+		const divider = i < tags.length - 1 && <Box as="span" sx={{ mx: 1 }} />
 		return (
 			<span key={tag}>
 				<Link

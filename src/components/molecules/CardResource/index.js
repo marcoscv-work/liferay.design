@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Flex } from 'theme-ui'
 import { Heading, AnimateIn, Icon } from 'components/atoms'
 import { Component } from 'react'

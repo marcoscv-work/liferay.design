@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid, Box } from 'theme-ui'
 import { Helmet } from 'react-helmet'
 

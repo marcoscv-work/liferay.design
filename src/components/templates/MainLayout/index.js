@@ -1,13 +1,12 @@
-/** @jsx jsx */
-
-import { jsx } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Box } from 'theme-ui'
 import { Footer, Navbar } from 'components/organisms'
 import { FormNewsletter, FancyFooter } from 'components/molecules'
 import { Link, Container, Heading, Text, Icon } from 'components/atoms'
 import LogRocket from 'utils/logRocket'
 
 export default ({ children, section }) => (
-	<div
+	<Box
 		sx={{
 			backgroundAttachment: 'fixed',
 			backgroundColor: 'background',
@@ -20,24 +19,26 @@ export default ({ children, section }) => (
 		<LogRocket />
 		<Navbar section={section} />
 
-		<main id="main-content" tabIndex={-1}>{children}</main>
+		<main id="main-content" tabIndex={-1}>
+			{children}
+		</main>
 
 		{/* <Container padding={{ p: '6rem 0 0' }}>
-			<Heading sx={{ textAlign: 'center', color: 'white' }} level={2}>
-				Sign up for our monthly newsletter!
-			</Heading>
-			<Link to="/newsletter">
-				<Text align="center" color="lightGrey" margin="base">
-					Read past issues
-					<Icon
-						sx={{ fill: 'lightGrey', margin: '.2em 0 0 1em' }}
-						name="rightArrow"
-					/>
-				</Text>
-			</Link>
-			<FormNewsletter placeholderText="Your Email Address" submitText="Subscribe" />
-		</Container> */}
+    <Heading sx={{ textAlign: 'center', color: 'white' }} level={2}>
+    	Sign up for our monthly newsletter!
+    </Heading>
+    <Link to="/newsletter">
+    	<Text align="center" color="lightGrey" margin="base">
+    		Read past issues
+    		<Icon
+    			sx={{ fill: 'lightGrey', margin: '.2em 0 0 1em' }}
+    			name="rightArrow"
+    		/>
+    	</Text>
+    </Link>
+    <FormNewsletter placeholderText="Your Email Address" submitText="Subscribe" />
+    </Container> */}
 		<Footer />
 		<FancyFooter />
-	</div>
+	</Box>
 )

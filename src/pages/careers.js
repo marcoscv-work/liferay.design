@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { Container, Heading } from 'components/atoms'
 import { CardDefault, SEO } from 'components/molecules'
@@ -59,33 +58,38 @@ export default ({ data }) => {
 	)
 }
 
-export const query = graphql`{
-  allMdx(
-    filter: {internal: { contentFilePath: { regex: "/(careers)/" } }, frontmatter: {published: {eq: true}}}
-    sort: {frontmatter: {date: ASC}}
-  ) {
-    totalCount
-    edges {
-      node {
-        id
-        frontmatter {
-          title
-          office {
-            city
-            region {
-              countries
-              countryIcon
-            }
-            country
-            countryIcon
-          }
-          featuredImage
-          remote
-        }
-        fields {
-          slug
-        }
-      }
-    }
-  }
-}`
+export const query = graphql`
+	{
+		allMdx(
+			filter: {
+				internal: { contentFilePath: { regex: "/(careers)/" } }
+				frontmatter: { published: { eq: true } }
+			}
+			sort: { frontmatter: { date: ASC } }
+		) {
+			totalCount
+			edges {
+				node {
+					id
+					frontmatter {
+						title
+						office {
+							city
+							region {
+								countries
+								countryIcon
+							}
+							country
+							countryIcon
+						}
+						featuredImage
+						remote
+					}
+					fields {
+						slug
+					}
+				}
+			}
+		}
+	}
+`

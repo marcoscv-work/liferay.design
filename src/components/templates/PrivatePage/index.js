@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box, Flex, Heading, Button } from 'theme-ui'
 import { firebase } from '@firebase/app'
 import { AuthContainer } from 'components/molecules'

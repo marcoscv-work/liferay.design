@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import Report from 'pages/2021/report.js'
 import ComingSoon from 'pages/2021/comingSoon.js'

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import { Flex, ScrollProgress } from 'components/atoms'
 import { Author, GlobalMdx, SEO, Date as NiceDate } from 'components/molecules'
@@ -98,9 +97,7 @@ export default class Events extends Component {
 								sx={{ m: ['0 0 2rem -.4rem', '0 0 2rem -3.5rem'] }}
 							/>
 						) : null}
-						<GlobalMdx>
-							{this.props.children}
-						</GlobalMdx>
+						<GlobalMdx>{this.props.children}</GlobalMdx>
 					</div>
 				</div>
 				<Footer light />

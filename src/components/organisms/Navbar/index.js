@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import { Container, SiteName, Icon, Link } from 'components/atoms'
 import { NavItems } from 'components/organisms'

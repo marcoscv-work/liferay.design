@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 
@@ -19,12 +19,10 @@ const Link = ({ children, to, activeClassName, ...props }) => {
 		)
 	}
 	return (
-		<a target='_blank' rel={'noopener noreferrer'} href={to} {...props}>
+		<a target="_blank" rel={'noopener noreferrer'} href={to} {...props}>
 			{children}
 		</a>
 	)
 }
 
 export default Link
-
-

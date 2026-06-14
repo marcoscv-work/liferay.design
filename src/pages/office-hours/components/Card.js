@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { useEffect, useState } from 'react'
 import { jsx, Box, Flex, Heading, Text } from 'theme-ui'
 import { Link, Image, Icon } from 'components/atoms'

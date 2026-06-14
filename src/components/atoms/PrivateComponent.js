@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { AuthContainer } from 'components/molecules'
 import { jsx, Box } from 'theme-ui'
 
@@ -12,7 +11,7 @@ export default function PrivateComponent({ children }) {
 				':hover > :nth-of-type(1)': { visibility: 'visible' },
 			}}
 		>
-			<Box sx={{ visibility: 'hidden', position: 'absolute', top: 4, left: 2, }}>
+			<Box sx={{ visibility: 'hidden', position: 'absolute', top: 4, left: 2 }}>
 				<AuthContainer />
 			</Box>
 			<Box sx={{ display: 'inline' }}>{children}</Box>

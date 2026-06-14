@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import { Heading, Icon } from 'components/atoms'
 import PropTypes from 'prop-types'

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box } from 'theme-ui'
 import Plx from 'react-plx'
 
@@ -17,6 +16,7 @@ const HeaderBackground = ({}) => {
 			],
 		},
 	]
+
 	return (
 		<Box
 			sx={{
@@ -25,7 +25,8 @@ const HeaderBackground = ({}) => {
 			}}
 		>
 			<Plx parallaxData={opacity}>
-				<video
+				<Box
+					as="video"
 					sx={{ width: '100vw', height: 'auto', filter: 'blur(80px)' }}
 					src="/images/2021/blob-no-blur.mp4"
 					autoplay

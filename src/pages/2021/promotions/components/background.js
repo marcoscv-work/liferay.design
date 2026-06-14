@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box } from 'theme-ui'
 import Plx from 'react-plx'
 
@@ -41,8 +40,14 @@ const Background = ({}) => {
 				style={{ opacity: 0, transform: 'translateY(10vh)' }}
 				parallaxData={opacityTransform}
 			>
-				<video
-					sx={{ width: '100vw', height: 'auto', filter: 'blur(80px) invert(100%)', transform: 'rotate(180deg)', }}
+				<Box
+					as="video"
+					sx={{
+						width: '100vw',
+						height: 'auto',
+						filter: 'blur(80px) invert(100%)',
+						transform: 'rotate(180deg)',
+					}}
 					src="/images/2021/blob-no-blur.mp4"
 					autoplay
 					muted

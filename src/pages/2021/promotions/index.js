@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx, ThemeUIProvider } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, ThemeUIProvider, Box } from 'theme-ui'
 import theme from 'gatsby-plugin-theme-ui/2021'
 import Header from './components/header.js'
 import Footer from './components/footer.js'
@@ -21,7 +20,8 @@ const Promotions = () => {
 					},
 				})}
 			/>
-			<div sx={{ fontFamily: 'modes.brand.body', color: 'mainL3' }}>
+
+			<Box sx={{ fontFamily: 'modes.brand.body', color: 'mainL3' }}>
 				<SEO
 					pageTitle="Liferay Design | 2021 Promotions"
 					description="Designers at Liferay are exceptional — a few this year earned title changes based on their hard work and in anticipation of expanded responsibility."
@@ -41,7 +41,7 @@ const Promotions = () => {
 				<Designers />
 
 				<Footer />
-			</div>
+			</Box>
 		</ThemeUIProvider>
 	)
 }

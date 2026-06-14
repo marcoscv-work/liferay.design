@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box, Grid, Text } from 'theme-ui'
 
 const ThankYou = ({ message, authorName, authorTitle, nextBody, nextTitle }) => {

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import React from 'react'
 
 export default class TwentyTwentyOne extends React.Component {

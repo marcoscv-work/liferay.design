@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Grid } from 'theme-ui'
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -8,29 +7,34 @@ import { CardDefault } from 'components/molecules'
 import { makeAuthorSlug, avatarPath } from 'utils'
 
 export default ({ teammate, currentPost, ...props }) => {
-	const data = useStaticQuery(graphql`{
-  allMdx(
-    filter: {internal: { contentFilePath: { regex: "/(articles)/" } }, frontmatter: {publish: {eq: true}}}
-    sort: {frontmatter: {date: DESC}}
-  ) {
-    edges {
-      node {
-        id
-        timeToRead
-        frontmatter {
-          title
-          featuredImage
-          author {
-            id: yamlId
-          }
-        }
-        fields {
-          slug
-        }
-      }
-    }
-  }
-}`)
+	const data = useStaticQuery(graphql`
+		{
+			allMdx(
+				filter: {
+					internal: { contentFilePath: { regex: "/(articles)/" } }
+					frontmatter: { publish: { eq: true } }
+				}
+				sort: { frontmatter: { date: DESC } }
+			) {
+				edges {
+					node {
+						id
+						timeToRead
+						frontmatter {
+							title
+							featuredImage
+							author {
+								id: yamlId
+							}
+						}
+						fields {
+							slug
+						}
+					}
+				}
+			}
+		}
+	`)
 
 	const Posts = data.allMdx.edges
 		.filter(
@@ -58,7 +62,7 @@ export default ({ teammate, currentPost, ...props }) => {
 					{...props}
 					sx={{ color: 'black' }}
 					padding="4rem 0 4rem"
-					background='white'
+					background="white"
 				>
 					<Grid sx={{ variant: 'grids.threeCards' }}>{Posts}</Grid>
 				</Container>

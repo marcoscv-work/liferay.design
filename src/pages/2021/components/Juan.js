@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Box } from 'theme-ui'
 import Plx from 'react-plx'
 
@@ -17,6 +16,7 @@ const Juan = ({}) => {
 				d="M300 797h136v136H300zM1204 977h220v220h-220z"
 				opacity=".38"
 			/>
+
 			<path fill="#395DED" d="M1384 913h40v40h-40z" opacity=".2" />
 			<path fill="#FFC90A" d="M114 1033h24v24h-24z" />
 			<path fill="#395DED" d="M138 307h24v24h-24z" opacity=".2" />
@@ -29,6 +29,7 @@ const Juan = ({}) => {
 				width="905"
 				height="610"
 			/>
+
 			<path fill="#395DED" d="M1424 953h24v24h-24z" />
 			<g fill="#C4C4C4" opacity=".1">
 				<path d="M1424 661h8v8h-8zM1480 661h8v8h-8zM1536 661h8v8h-8zM1452 661h8v8h-8zM1508 661h8v8h-8zM1564 661h8v8h-8zM1424 717h8v8h-8zM1480 717h8v8h-8zM1536 717h8v8h-8zM1452 717h8v8h-8zM1508 717h8v8h-8zM1564 717h8v8h-8zM1424 773h8v8h-8zM1480 773h8v8h-8zM1536 773h8v8h-8zM1452 773h8v8h-8zM1508 773h8v8h-8zM1564 773h8v8h-8zM1424 689h8v8h-8zM1480 689h8v8h-8zM1536 689h8v8h-8zM1452 689h8v8h-8zM1508 689h8v8h-8zM1564 689h8v8h-8zM1424 745h8v8h-8zM1480 745h8v8h-8zM1536 745h8v8h-8zM1452 745h8v8h-8zM1508 745h8v8h-8zM1564 745h8v8h-8zM1424 801h8v8h-8zM1480 801h8v8h-8zM1536 801h8v8h-8zM1452 801h8v8h-8zM1508 801h8v8h-8zM1564 801h8v8h-8z" />
@@ -38,6 +39,7 @@ const Juan = ({}) => {
 			</g>
 		</svg>
 	)
+
 	const juanAppear = [
 		{
 			start: '#message',
@@ -68,6 +70,7 @@ const Juan = ({}) => {
 			],
 		},
 	]
+
 	return (
 		<Box
 			sx={{
@@ -89,7 +92,7 @@ const Juan = ({}) => {
 			>
 				{image}
 			</Plx>
-			<div sx={{ display: ['block', 'none'], visibility: 'hidden' }}>{image}</div>
+			<Box sx={{ display: ['block', 'none'], visibility: 'hidden' }}>{image}</Box>
 		</Box>
 	)
 }

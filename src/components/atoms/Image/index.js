@@ -1,5 +1,4 @@
-/** @jsx jsx */
-
+/** @jsxImportSource theme-ui */
 import { jsx, Button } from 'theme-ui'
 import { withPrefix } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -40,12 +39,12 @@ const Image = ({
 		left: {
 			float: 'left',
 			marginLeft: '-8%',
-			clear: 'left'
+			clear: 'left',
 		},
 		right: {
 			float: 'right',
 			marginRight: '-8%',
-			clear: 'right'
+			clear: 'right',
 		},
 	}
 

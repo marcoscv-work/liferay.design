@@ -1,6 +1,5 @@
-/** @jsx jsx */
-
-import { jsx, Flex, Text } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { jsx, Flex, Text, Box } from 'theme-ui'
 import { Link } from 'components/atoms'
 import { Component } from 'react'
 
@@ -19,7 +18,7 @@ export default class FancyFooter extends Component {
 		const quote = data.promotionsPage.quote
 
 		return (
-			<div
+			<Box
 				sx={{
 					width: '100%',
 					height: '72vh',
@@ -63,7 +62,7 @@ export default class FancyFooter extends Component {
 						{quote.author}
 					</Text>
 				</Flex>
-			</div>
+			</Box>
 		)
 	}
 }
