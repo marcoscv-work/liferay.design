@@ -58,13 +58,13 @@ const containsActive = (node: SidebarNode): boolean =>
 <style>
 	.lx-sidebar {
 		background: var(--c-neutral9, #f4f6f9);
-		grid-area: sidebar;
-		height: 100%;
+		height: 100vh;
 		max-height: 100vh;
 		position: sticky;
 		overflow: auto;
 		top: 0;
 		font-family: var(--font-lexicon);
+		border-right: 1px solid var(--c-main-l6);
 	}
 	.lx-section { padding: 3rem 2rem 1rem; }
 	.lx-content { display: flex; flex-direction: column; padding: 1rem; }
