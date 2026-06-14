@@ -56,6 +56,25 @@ const socials = [
 			</div>
 		</section>
 
+		<section class="lx-contribute">
+			<div class="lx-contribute-inner">
+				<svg viewBox="0 0 168 173" class="lx-contribute-icon" aria-hidden="true">
+					<g fill="none" fill-rule="evenodd" stroke="#0B5FFF" stroke-width="8" transform="translate(4 4)">
+						<path fill="#E1EBFF" stroke-linecap="square" d="M0 128V0h160v128h-32l-40 32v-32"></path>
+						<path fill="#E1EBFF" stroke-linecap="square" stroke-linejoin="round" d="M88 128H4"></path>
+						<path fill="#FFF" d="M40 72h32v32H40z"></path>
+						<circle cx="104" cy="40" r="16" fill="#53E6C1"></circle>
+						<g stroke-linecap="square"><path d="M56 56V28M40 40l16.26-16L72 40"></path></g>
+						<g stroke-linecap="square"><path d="M104 73v27.99M86 87l18.293 18L122 87"></path></g>
+					</g>
+				</svg>
+				<div class="lx-contribute-copy">
+					<h2>Want to contribute?</h2>
+					<span>Check out some issues in <a href="https://github.com/liferay-design/design.liferay.com/labels/lexicon" target="_blank" rel="noopener noreferrer">GitHub</a>!</span>
+				</div>
+			</div>
+		</section>
+
 		<section class="lx-clay">
 			<a class="lx-card dark" href="https://clayui.com">
 				<Icon name="clay" width="88px" height="88px" class="lx-card-icon" />
@@ -211,6 +230,50 @@ const socials = [
 	}
 	.lx-socials a:hover {
 		background: var(--c-primary);
+	}
+
+	/* contribute billboard */
+	.lx-contribute {
+		background: url(/images/lexicon/home/patternbg-white.svg) center / 100% fixed, #f7f7f9;
+		padding: 5rem 2rem;
+	}
+	.lx-contribute-inner {
+		max-width: 960px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+	}
+	.lx-contribute-icon {
+		width: 120px;
+		height: auto;
+		flex-shrink: 0;
+	}
+	.lx-contribute-copy h2 {
+		color: var(--c-main);
+		text-align: left;
+		margin: 0 0 0.5rem;
+		font-family: var(--font-lexicon);
+		font-weight: 800;
+		font-size: 2rem;
+	}
+	.lx-contribute-copy span {
+		font-size: 1.8rem;
+		font-weight: 400;
+		color: var(--c-main-l2);
+	}
+	.lx-contribute-copy a {
+		color: var(--c-primary);
+		text-decoration: underline;
+	}
+	@media screen and (max-width: 768px) {
+		.lx-contribute-inner {
+			flex-direction: column;
+			text-align: center;
+		}
+		.lx-contribute-copy h2 {
+			text-align: center;
+		}
 	}
 
 	/* clay */
