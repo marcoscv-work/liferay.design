@@ -73,8 +73,8 @@ const seoImage = 'https://design.liferay.com/images/resources/lexicon-cover.png'
 	/* min-width:0 lets the grid column shrink below its content's intrinsic
 	   width (otherwise long words/images force horizontal overflow on mobile) */
 	.lexicon-main { background: #fff; min-width: 0; overflow-x: hidden; }
-	/* left-aligned content column (~760px text) like the original docs */
-	.lexicon-doc-container { max-width: 832px; padding: 2rem 4rem 5rem; margin: 0; }
+	/* centered content column within the main area */
+	.lexicon-doc-container { max-width: 832px; padding: 2rem 4rem 5rem; margin: 0 auto; }
 	@media screen and (max-width: 768px) {
 		/* sidebar is position:fixed on mobile, so the grid becomes a plain
 		   full-width block — avoids any grid column overflow */
