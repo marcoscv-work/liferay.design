@@ -64,57 +64,57 @@ Lexicon's type scale is based on an initial increase of 2px that grows to 4px in
         <tr>
             <td>10px</td>
             <td>0.625rem</td>
-            <td style="font-size: 0.625rem;">Design matters</td>
+            <td style={{ fontSize: '0.625rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>12px</td>
             <td>0.75rem</td>
-            <td style="font-size: 0.75rem;">Design matters</td>
+            <td style={{ fontSize: '0.75rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>14px</td>
             <td>0.875rem</td>
-            <td style="font-size: 0.875rem;">Design matters</td>
+            <td style={{ fontSize: '0.875rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>16px</td>
             <td>1rem</td>
-            <td style="font-size: 1rem;">Design matters</td>
+            <td style={{ fontSize: '1rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>18px</td>
             <td>1.125rem</td>
-            <td style="font-size: 1.125rem;">Design matters</td>
+            <td style={{ fontSize: '1.125rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>20px</td>
             <td>1.25rem</td>
-            <td style="font-size: 1.25rem;">Design matters</td>
+            <td style={{ fontSize: '1.25rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>24px</td>
             <td>1.5rem</td>
-            <td style="font-size: 1.5rem;">Design matters</td>
+            <td style={{ fontSize: '1.5rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>28px</td>
             <td>1.75rem</td>
-            <td style="font-size: 1.75rem;">Design matters</td>
+            <td style={{ fontSize: '1.75rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>32px</td>
             <td>2rem</td>
-            <td style="font-size: 2rem;">Design matters</td>
+            <td style={{ fontSize: '2rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>36px</td>
             <td>2.25rem</td>
-            <td style="font-size: 2.25rem;">Design matters</td>
+            <td style={{ fontSize: '2.25rem' }}>Design matters</td>
         </tr>
         <tr>
             <td>40px</td>
             <td>2.5rem</td>
-            <td style="font-size: 2.5rem;">Design matters</td>
+            <td style={{ fontSize: '2.5rem' }}>Design matters</td>
         </tr>
     </tbody>
 </table>
@@ -152,15 +152,15 @@ For efficiency and simplicity, Lexicon only incorporates three font weights for 
     <tbody>
         <tr>
             <td>Regular</td>
-            <td style="font-weight: 400">400</td>
+            <td style={{ fontWeight: '400' }}>400</td>
         </tr>
         <tr>
             <td>Semibold</td>
-            <td style="font-weight: 600">600</td>
+            <td style={{ fontWeight: '600' }}>600</td>
         </tr>
         <tr>
             <td>Bold</td>
-            <td style="font-weight: 700">700</td>
+            <td style={{ fontWeight: '700' }}>700</td>
         </tr>
     </tbody>
 </table>

@@ -65,46 +65,38 @@ export default class Newsletters extends Component {
 	}
 }
 
-export const pageQuery = graphql`
-	query($send_time: Date) {
-		newsletter: allNewsletters(
-			sort: { order: ASC, fields: send_time }
-			filter: {
-				settings: { title: { regex: "/Newsletter/" } }
-				send_time: { eq: $send_time }
-			}
-		) {
-			edges {
-				node {
-					archive_html
-					send_time(formatString: "YYYY-MM")
-				}
-			}
-		}
-		prevNext: allNewsletters(
-			sort: { order: ASC, fields: send_time }
-			filter: {
-				send_time: { ne: "" }
-				settings: { title: { regex: "/Newsletter/" } }
-			}
-		) {
-			edges {
-				node {
-					send_time(formatString: "YYYY-MM")
-				}
-				next {
-					send_time(formatString: "YYYY-MM")
-					settings {
-						title
-					}
-				}
-				previous {
-					send_time(formatString: "YYYY-MM")
-					settings {
-						title
-					}
-				}
-			}
-		}
-	}
-`
+export const pageQuery = graphql`query ($send_time: Date) {
+  newsletter: allNewsletters(
+    sort: {send_time: ASC}
+    filter: {settings: {title: {regex: "/Newsletter/"}}, send_time: {eq: $send_time}}
+  ) {
+    edges {
+      node {
+        archive_html
+        send_time(formatString: "YYYY-MM")
+      }
+    }
+  }
+  prevNext: allNewsletters(
+    sort: {send_time: ASC}
+    filter: {send_time: {ne: ""}, settings: {title: {regex: "/Newsletter/"}}}
+  ) {
+    edges {
+      node {
+        send_time(formatString: "YYYY-MM")
+      }
+      next {
+        send_time(formatString: "YYYY-MM")
+        settings {
+          title
+        }
+      }
+      previous {
+        send_time(formatString: "YYYY-MM")
+        settings {
+          title
+        }
+      }
+    }
+  }
+}`

@@ -49,7 +49,7 @@ Standard Character Marks (word trademarks):
 
 -   Liferay DXP Cloud
 
-<!-- Special form drawings (word and logo combo): -->
+{/* Special form drawings (word and logo combo): */}
 
 If you are interested in other territories [please let us know](mailto:paul.hanaoka@liferay.com).
 

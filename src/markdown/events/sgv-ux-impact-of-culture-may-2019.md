@@ -32,9 +32,9 @@ _Tour de Liferay_
 ![Liferay's Gameroom](/images/events/may-2019/gameroom.jpg)
 _Brief stop in the gameroom_
 
-<!--
+{/*
 ![Great turnout!](/images/events/may-2019/great-turnout.jpg)
-_Listening intently_ -->
+_Listening intently_ */}
 
 The main event started around 8, Grace, a UX Architect at [PatientPop](https://www.patientpop.com/) started by talking about how different cultures view of death can shape technology. We discussed how Facebook's 'memorial page' feature is seen as good by some cultures, and very negative by others.
 

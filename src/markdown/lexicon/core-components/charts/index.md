@@ -26,7 +26,7 @@ The collection of charts grows as Liferay products require new chart configurati
 -   [Pie Chart](./chart-pie)
 -   [Stacked Bar Chart](./chart-stacked-bar)
 
-<!--
+{/*
 <div class="row">
     <div class="col-lg">
         <div class="card-type-asset form-check form-check-card form-check-top-left image-card col-lg">
@@ -176,4 +176,4 @@ The collection of charts grows as Liferay products require new chart configurati
     </div>
     <div class="col-lg">
     </div>
-</div> -->
+</div> */}

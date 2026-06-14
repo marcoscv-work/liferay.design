@@ -4,19 +4,23 @@ Public website for Liferay Design (design.liferay.com). Content-driven Gatsby si
 
 ## Critical constraints
 
-- **Node 14.x required** (14.21.3, see `.nvmrc`) — newer Node may break native deps and the npm-6-format lockfile
-- **Gatsby 4.25** + **React 16.14.0** — do not assume Gatsby 5 or React 17/18 patterns
-- **YAML/JSON data `id` is exposed as `yamlId`/`jsonId`** (Gatsby 4) — the `gatsby-config.js` `mapping` block and data-file GraphQL queries use `yamlId` (often aliased `id: yamlId`)
+- **Node 18.x required** (18.20.8, see `.nvmrc`) — Gatsby 5 needs Node ≥18; older Node will not build
+- **Gatsby 5.16** + **React 18.3** + **MDX v2** — do not assume Gatsby 4 / React 16 / MDX v1 patterns
+- **MDX v2**: templates render page content with `{children}` (the `MDXRenderer`/`body` field was removed). Pages are created with `component: \`${template}?__contentFilePath=${node.internal.contentFilePath}\``. MDX is stricter CommonMark+JSX: HTML comments are invalid (`{/* */}`), stray `<` must be escaped, inline JSX can't split across lines, and `style="..."` must be an object
+- **YAML/JSON data `id` is exposed as `yamlId`/`jsonId`** (Gatsby 4+) — the `gatsby-config.js` `mapping` block and data-file GraphQL queries use `yamlId` (often aliased `id: yamlId`)
+- **GraphQL sort syntax is the Gatsby 5 shape**: `sort: { field: DESC }` (not the old `sort: { fields: [field], order: DESC }`)
+- **`timeToRead` is a custom resolver** in `gatsby-node.js` (Gatsby 5 dropped the built-in field) — powers the "X Min Read" badges
+- **theme-ui 0.17**: use `Themed` (from `@theme-ui/mdx`) not `Styled`; `ThemeUIProvider` not `ThemeProvider`; `@emotion/react` not `@emotion/core`
 - **sass (dart-sass) ~1.32** — pinned to keep node-sass-era SCSS syntax compiling without warnings
 - **CSS modules use default exports** (`import styles from '*.module.scss'`) — preserved via `cssLoaderOptions` in `gatsby-plugin-sass` config; do not "modernize" to named imports piecemeal
-- **package-lock.json is lockfileVersion 1** — always install with the npm 6.x bundled with Node 14, never a modern npm
-- **Netlify** deployment, pinned to Node 14
+- **`.npmrc` sets `legacy-peer-deps=true`** — required to resolve React 18 peer ranges across older plugins; keep it for both local installs and Netlify
+- **Netlify** deployment, pinned to Node 18 (`netlify.toml` → `NODE_VERSION = "18"`)
 - Stability > modernization. Do not upgrade packages unless migration is the explicit goal
 
 ## Local development
 
 ```bash
-nvm use          # picks up 14.21.3 from .nvmrc
+nvm use          # picks up 18.20.8 from .nvmrc
 npm install
 npm run dev      # starts on http://0.0.0.0:7777
 ```
@@ -72,6 +76,6 @@ SVGs in `static/images/icons/` → auto-generated React map via `npm run icons` 
 ### Do not
 - Upgrade Gatsby, React, Node, or node-sass as part of a small task
 - Move content from markdown into React components
-- Apply Gatsby 4/5 or React 18 patterns
+- Apply Gatsby 2/3/4 or React 16 / MDX v1 patterns (the repo is on Gatsby 5 / React 18 / MDX v2)
 - Remove odd-looking code without checking if it protects builds in no-key environments
 - Hand-edit generated icon files

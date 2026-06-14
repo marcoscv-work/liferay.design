@@ -58,37 +58,29 @@ export default ({ data }) => {
 	)
 }
 
-export const query = graphql`
-	{
-		allMdx(
-			filter: {
-				fileAbsolutePath: { regex: "/(articles)/" }
-				frontmatter: {
-					publish: { eq: true }
-					tags: { nin: ["Talks", "Best Practices"] }
-				}
-			}
-			sort: { order: DESC, fields: [frontmatter___date] }
-		) {
-			totalCount
-			edges {
-				node {
-					id
-					timeToRead
-					frontmatter {
-						title
-						featuredImage
-						author {
-							id: yamlId
-						}
-						tags
-					}
-					fields {
-						slug
-					}
-					excerpt
-				}
-			}
-		}
-	}
-`
+export const query = graphql`{
+  allMdx(
+    filter: {internal: { contentFilePath: { regex: "/(articles)/" } }, frontmatter: {publish: {eq: true}, tags: {nin: ["Talks", "Best Practices"]}}}
+    sort: {frontmatter: {date: DESC}}
+  ) {
+    totalCount
+    edges {
+      node {
+        id
+        timeToRead
+        frontmatter {
+          title
+          featuredImage
+          author {
+            id: yamlId
+          }
+          tags
+        }
+        fields {
+          slug
+        }
+        excerpt
+      }
+    }
+  }
+}`

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx, Box, Flex, Grid, Text, Heading, ThemeProvider } from 'theme-ui'
+import { jsx, Box, Flex, Grid, Text, Heading, ThemeUIProvider } from 'theme-ui'
 import { Link } from 'components/atoms'
 import PropTypes from 'prop-types'
 import Plx from 'react-plx'

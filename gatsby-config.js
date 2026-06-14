@@ -25,6 +25,9 @@ if (process.env.MAILCHIMP_KEY) {
 }
 
 module.exports = {
+	// Gatsby 5 changed the default to 'always'; use 'ignore' (the legacy-equivalent) so existing
+	// URLs (and redirects) stay byte-for-byte identical
+	trailingSlash: 'ignore',
 	siteMetadata: {
 		title: 'Design.Liferay',
 		author: 'Paul Hanaoka',

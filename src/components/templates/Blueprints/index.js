@@ -2,7 +2,6 @@
 
 import { jsx, Grid } from 'theme-ui'
 import { ContainerMarkdown, Flex, Icon, SiteName, Text, Link } from 'components/atoms'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { AuthContainer, GlobalMdx } from 'components/molecules'
 import { Footer, Sidebar } from 'components/organisms'
 import { PrivatePage } from 'components/templates'
@@ -69,7 +68,7 @@ export default class Blueprints extends Component {
 								<div>
 									{mdx.frontmatter.template === 'landingPage' ? (
 										<GlobalMdx>
-											<MDXRenderer>{mdx.body}</MDXRenderer>
+											{this.props.children}
 										</GlobalMdx>
 									) : isAuthenticated() ? (
 										<>
@@ -84,7 +83,7 @@ export default class Blueprints extends Component {
 												</Flex>
 
 												<GlobalMdx>
-													<MDXRenderer>{mdx.body}</MDXRenderer>
+													{this.props.children}
 												</GlobalMdx>
 												<Flex justify="space-between">
 													<Text style="italic">
@@ -182,7 +181,6 @@ export const pageQuery = graphql`
 				title
 				template
 			}
-			body
 			parent {
 				... on File {
 					mtime

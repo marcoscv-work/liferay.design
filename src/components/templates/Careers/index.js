@@ -2,7 +2,6 @@
 
 import { Flex, Icon, Text } from 'components/atoms'
 import { GlobalMdx } from 'components/molecules'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Footer, Navbar } from 'components/organisms'
 import { graphql } from 'gatsby'
 import React, { Component } from 'react'
@@ -85,7 +84,7 @@ export default class Careers extends Component {
 				<div className={styles.mdxWrapper}>
 					<Flex direction="column" className={styles.largeContainer}>
 						<GlobalMdx>
-							<MDXRenderer>{post.body}</MDXRenderer>
+							{this.props.children}
 						</GlobalMdx>
 						<div className={styles.applyContainer}>
 							<Button
@@ -137,7 +136,6 @@ export const pageQuery = graphql`
 				featuredImage
 				published
 			}
-			body
 		}
 	}
 `

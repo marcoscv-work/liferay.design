@@ -10,7 +10,6 @@ import {
 	Link,
 	PrivateComponent,
 } from 'components/atoms'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { AuthContainer, GlobalMdx } from 'components/molecules'
 import { Footer, PreviousNext, Sidebar } from 'components/organisms'
 import { graphql } from 'gatsby'
@@ -179,7 +178,7 @@ export default class Lexicon extends Component {
 										) : null}
 
 										<GlobalMdx>
-											<MDXRenderer>{mdx.body}</MDXRenderer>
+											{this.props.children}
 										</GlobalMdx>
 										{/* <PreviousNext section='lexicon' current={post.id} /> */}
 									</ContainerMarkdown>
@@ -274,7 +273,6 @@ export const pageQuery = graphql`
 				devStatus
 				productName
 			}
-			body
 		}
 	}
 `

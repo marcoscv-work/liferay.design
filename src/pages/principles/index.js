@@ -2,7 +2,6 @@ import { Flex, Link } from 'components/atoms'
 import { Footer } from 'components/organisms'
 import { PrincipleCard, PrinciplesHeader } from 'pages/principles/components/_index'
 import React from 'react'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import styles from './styles.module.scss'
 
 const questionsIntentional = [
@@ -71,7 +70,7 @@ const Principles = () => {
 	return (
 		<div className={styles.pagestyles}>
 			<PrinciplesHeader />
-			<AnchorLink href="#principles" className={styles.scrollDown}>
+			<a href="#principles" className={styles.scrollDown}>
 				<svg
 					className={styles.downArrow}
 					width="39"
@@ -89,7 +88,7 @@ const Principles = () => {
 						fill="#3B3945"
 					/>
 				</svg>
-			</AnchorLink>
+			</a>
 
 			<Flex
 				direction="column"

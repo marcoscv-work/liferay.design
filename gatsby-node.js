@@ -1,14 +1,20 @@
 const path = require(`path`)
+const fs = require(`fs`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const _ = require('lodash')
 const moment = require(`moment`)
 
 // Skip production source maps: trims build time and deploy payload
 // (Netlify deploys were hitting the build time limit on cold caches)
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({ stage, actions, plugins }) => {
 	if (stage === 'build-javascript') {
 		actions.setWebpackConfig({ devtool: false })
 	}
+	// react-anchor-link-smooth-scroll ships a UMD bundle that expects a
+	// global `React`, which doesn't exist during Gatsby 5 SSR — provide it.
+	actions.setWebpackConfig({
+		plugins: [plugins.provide({ React: 'react' })],
+	})
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -40,7 +46,9 @@ exports.createPages = ({ actions, graphql }) => {
 						frontmatter {
 							tags
 						}
-						body
+						internal {
+							contentFilePath
+						}
 					}
 				}
 			}
@@ -54,7 +62,9 @@ exports.createPages = ({ actions, graphql }) => {
 						frontmatter {
 							tags
 						}
-						body
+						internal {
+							contentFilePath
+						}
 					}
 				}
 			}
@@ -77,9 +87,10 @@ exports.createPages = ({ actions, graphql }) => {
 
 			createPage({
 				path: node.fields.slug,
-				component: templateFile,
+				component: `${templateFile}?__contentFilePath=${node.internal.contentFilePath}`,
 				context: {
 					slug: node.fields.slug,
+					id: node.id,
 				},
 			})
 		})
@@ -184,23 +195,27 @@ exports.onCreatePage = async ({ page, actions }) => {
 		}
 }
 
-if (!process.env.MAILCHIMP_KEY) {
-	exports.createSchemaCustomization = ({ actions, schema }) => {
-		const { createTypes } = actions
+exports.createSchemaCustomization = ({ actions, schema }) => {
+	const { createTypes } = actions
 
-		const typeDefs = [
+	// Gatsby 5 / MDX v2 dropped the built-in `timeToRead` field; re-add it so
+	// the "X Min Read" badges keep working (computed in createResolvers).
+	const typeDefs = [
+		`type Mdx implements Node {
+			timeToRead: Int
+		}`,
+	]
+
+	if (!process.env.MAILCHIMP_KEY) {
+		typeDefs.push(
 			`
-				enum NewslettersSortFields {
-					send_time
-				}
 				enum NewslettersSortOrder {
-					ASC
-					DESC
-				}
-				input NewslettersSortArgs {
-					fields: NewslettersSortFields
-					order: NewslettersSortOrder
-				}
+						ASC
+						DESC
+					}
+					input NewslettersSortArgs {
+						send_time: NewslettersSortOrder
+					}
 			`,
 			schema.buildObjectType({
 				fields: {
@@ -246,26 +261,50 @@ if (!process.env.MAILCHIMP_KEY) {
 				},
 				name: 'InputFilter',
 			}),
-		]
-
-		createTypes(typeDefs)
+		)
 	}
 
-	exports.createResolvers = ({ createResolvers }) => {
-		const resolvers = {
-			Query: {
-				allNewsletters: {
-					type: 'Newsletter',
-					args: {
-						filter: 'InputFilter',
-						sort: 'NewslettersSortArgs',
-					},
-					resolve() {
-						return { edges: [] }
-					},
+	createTypes(typeDefs)
+}
+
+exports.createResolvers = ({ createResolvers }) => {
+	const resolvers = {
+		Mdx: {
+			// Re-implements Gatsby's removed timeToRead: read the source file,
+			// drop frontmatter, count words at ~200 wpm.
+			timeToRead: {
+				type: 'Int',
+				resolve(source) {
+					try {
+						const filePath =
+							source.internal && source.internal.contentFilePath
+						if (!filePath) return 1
+						let text = fs.readFileSync(filePath, 'utf8')
+						text = text.replace(/^---[\s\S]*?---/, '')
+						const words = (text.match(/\S+/g) || []).length
+						return Math.max(1, Math.ceil(words / 200))
+					} catch (e) {
+						return 1
+					}
+				},
+			},
+		},
+	}
+
+	if (!process.env.MAILCHIMP_KEY) {
+		resolvers.Query = {
+			allNewsletters: {
+				type: 'Newsletter',
+				args: {
+					filter: 'InputFilter',
+					sort: 'NewslettersSortArgs',
+				},
+				resolve() {
+					return { edges: [] }
 				},
 			},
 		}
-		createResolvers(resolvers)
 	}
+
+	createResolvers(resolvers)
 }

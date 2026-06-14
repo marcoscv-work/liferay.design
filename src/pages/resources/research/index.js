@@ -53,24 +53,22 @@ export default ({ data }) => {
 	)
 }
 
-export const query = graphql`
-	{
-		cards: allMdx(
-			sort: { order: ASC, fields: fields___slug }
-			filter: { fileAbsolutePath: { regex: "/(resources/research/)/" } }
-		) {
-			edges {
-				node {
-					id
-					frontmatter {
-						subtitle
-					}
-					body
-					fields {
-						slug
-					}
-				}
-			}
-		}
-	}
-`
+export const query = graphql`{
+  cards: allMdx(
+    sort: {fields: {slug: ASC}}
+    filter: {internal: { contentFilePath: { regex: "/(resources/research/)/" } }}
+  ) {
+    edges {
+      node {
+        id
+        frontmatter {
+          subtitle
+        }
+        body
+        fields {
+          slug
+        }
+      }
+    }
+  }
+}`

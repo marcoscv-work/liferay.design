@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
-import { jsx, Styled, Text, Flex, Image } from 'theme-ui'
+import { jsx, Text, Flex, Image } from 'theme-ui'
+import { Themed } from '@theme-ui/mdx'
 import { MainLayout } from 'components/templates'
 import { RecentBlogPosts } from 'components/organisms'
 import { Container, Link } from 'components/atoms'
@@ -9,7 +10,7 @@ import { avatarPath, firstWord, makeAuthorSlug } from 'utils'
 import { SEO } from 'components/molecules'
 
 export default () => {
-	const H1 = Styled.h1
+	const H1 = Themed.h1
 
 	const data = useStaticQuery(graphql`
 		{

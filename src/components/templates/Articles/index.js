@@ -2,7 +2,6 @@
 
 import { jsx, Grid, Box, Flex } from 'theme-ui'
 import { Container, Link, Image, ScrollProgress } from 'components/atoms'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { SEO, Tags, GlobalMdx } from 'components/molecules'
 import { Footer, Navbar, RecentBlogPosts, PreviousNext } from 'components/organisms'
 import { graphql, withPrefix } from 'gatsby'
@@ -165,7 +164,7 @@ export default class Articles extends Component {
 					</div>
 					<div className={styles.wrapper}>
 						<GlobalMdx>
-							<MDXRenderer>{post.body}</MDXRenderer>
+							{this.props.children}
 						</GlobalMdx>
 						<PreviousNext section="articles" current={post.id} />
 					</div>
@@ -203,7 +202,6 @@ export const pageQuery = graphql`
 				}
 			}
 			excerpt
-			body
 		}
 	}
 `

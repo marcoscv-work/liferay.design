@@ -93,8 +93,8 @@ Although there are fifteen dancers on stage, the brain perceives a single triang
 
 We can observe the effect of this law of similarity in the Liferay Logo. Within the blue square, we see twelve smaller white squares (like the fifteen dancers), but by their similarity and by the law of proximity we perceive two triangular shapes on each side of the square.
 
-<p style="text-align: center">
-<img alt="Modal Liferay Portal" src="/images/articles/gestalt-principles-dance-n-design/Logo.jpg" style="width: 400px; margin: 0;" />
+<p style={{ textAlign: 'center' }}>
+<img alt="Modal Liferay Portal" src="/images/articles/gestalt-principles-dance-n-design/Logo.jpg" style={{ width: '400px', margin: '0' }} />
 </p>
 
 ### Closure Law
@@ -111,8 +111,8 @@ Upon seeing this image the brain tries to close the unfinished form. The hands o
 In these Liferay icons we see how part of the forms are unfinished. The brain does not need all the lines to be united to understand that these are scissors, this is a pushpin or a recycling bin. The brain just completes the nonexistent information to make sense of it.
 <br/>
 
-<p style="text-align: center">
-<img alt="Modal Liferay Portal" src="/images/articles/gestalt-principles-dance-n-design/Icons.jpg" style="width: 600px; margin: 0;" />
+<p style={{ textAlign: 'center' }}>
+<img alt="Modal Liferay Portal" src="/images/articles/gestalt-principles-dance-n-design/Icons.jpg" style={{ width: '600px', margin: '0' }} />
 </p>
 
 ### Law of Symmetry / Balance
@@ -142,8 +142,8 @@ In the image above we see two dancers on stage. However, the visual focus is on 
 In the modal window used in Liferay Portal we can see that the focal point is the primary button. The blue color on a white background, and next to a neutral color button, causes the user to direct their attention to the primary action button.
 <br/>
 
-<p style="text-align: center">
-<img alt="Modal Liferay Portal" src="/images/articles/gestalt-principles-dance-n-design/Modal.jpg" style="width: 600px; margin: 0;" />
+<p style={{ textAlign: 'center' }}>
+<img alt="Modal Liferay Portal" src="/images/articles/gestalt-principles-dance-n-design/Modal.jpg" style={{ width: '600px', margin: '0' }} />
 </p>
 
 ### Law of Figure-Ground
@@ -158,8 +158,8 @@ _Royal Ballet. Photography: Emma Kauldhar_
 Liferay has designed this type of informative tooltips (the image below) that stands out on the white background of the element on which it gives information. In design, in addition to making it clear to the user what the background is and what the elements are in the foreground, we must pay attention to the color contrasts.
 <br/>
 
-<p style="text-align: center">
-<img alt="" src="/images/articles/gestalt-principles-dance-n-design/Tooltip.jpg" style="width: 300px; margin: 0;" />
+<p style={{ textAlign: 'center' }}>
+<img alt="" src="/images/articles/gestalt-principles-dance-n-design/Tooltip.jpg" style={{ width: '300px', margin: '0' }} />
 </p>
 <br/>
 

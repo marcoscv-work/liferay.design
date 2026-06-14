@@ -42,21 +42,21 @@ Normally it's filled with screenshots that I take from everything.
 
 I like cosmopolitan cities like New York City and São Paulo because they are multicultural and there's always something interesting and new to do.
 
-<!---
+{/*
 ### Favorite superhero?
 
 [answer]
---->
+*/}
 
 ### Favorite hotkey?
 
 Command-W. I just can't deal with too many windows and tabs… my computer RAM also thanks me.
 
-<!---
+{/*
 ### Advice for ambitious designers?
 
 [answer]
---->
+*/}
 
 ### Last book you read?
 
@@ -66,18 +66,18 @@ Liquid Modernity by sociologist Zygmunt Bauman. I would recommend it to everyone
 
 Coffee is enough.
 
-<!---
+{/*
 ### Best interview question?
 
 [answer]
---->
+*/}
 
 ### What keeps you up at night?
 
 My cat. She likes to sleep over my head.
 
-<!---
+{/*
 ### Favorite quote?
 
 [answer]
---->
+*/}

@@ -4,7 +4,6 @@ import { jsx, Grid } from 'theme-ui'
 import { ContainerMarkdown, Flex, Icon, SiteName, Text, Link } from 'components/atoms'
 import { AuthContainer, GlobalMdx, SEO } from 'components/molecules'
 import { Footer, Sidebar } from 'components/organisms'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql } from 'gatsby'
 import { cloneDeep, get, set } from 'lodash'
 import React, { Component } from 'react'
@@ -80,7 +79,7 @@ export default class Handbook extends Component {
 								>
 									{mdx.frontmatter.template === 'landingPage' ? (
 										<GlobalMdx>
-											<MDXRenderer>{mdx.body}</MDXRenderer>
+											{this.props.children}
 										</GlobalMdx>
 									) : (
 										<>
@@ -96,7 +95,7 @@ export default class Handbook extends Component {
 												</Flex>
 
 												<GlobalMdx>
-													<MDXRenderer>{mdx.body}</MDXRenderer>
+													{this.props.children}
 												</GlobalMdx>
 												<Flex
 													align="center"
@@ -185,7 +184,7 @@ export const pageQuery = graphql`
 	query($slug: String!) {
 		allMdx(
 			filter: {
-				fileAbsolutePath: { regex: "/(handbook)/" }
+				internal: { contentFilePath: { regex: "/(handbook)/" } }
 				frontmatter: { publish: { eq: true }, template: { ne: "landingPage" } }
 			}
 		) {
@@ -209,7 +208,6 @@ export const pageQuery = graphql`
 				title
 				template
 			}
-			body
 			excerpt
 			parent {
 				... on File {

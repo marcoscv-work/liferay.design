@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx, Box, Flex, Grid, Text, Heading, ThemeProvider } from 'theme-ui'
+import { jsx, Box, Flex, Grid, Text, Heading, ThemeUIProvider } from 'theme-ui'
 import { Helmet } from 'react-helmet'
 
 import { ScrollProgress, ScrollArrow, Icon, Link } from 'components/atoms'
@@ -25,7 +25,7 @@ import {
 } from 'pages/2020/components/_index'
 import styles from './styles.module.scss'
 import data from 'markdown/annual-reports/TwentyTwenty.yaml'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 
 //   constant plx data
 
@@ -84,7 +84,7 @@ const PlxDown3 = [
 
 const TwentyTwenty = () => {
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeUIProvider theme={theme}>
 			<Global
 				styles={theme => ({
 					body: {
@@ -637,7 +637,7 @@ const TwentyTwenty = () => {
 				<Footer />
 				<FancyFooter />
 			</div>
-		</ThemeProvider>
+		</ThemeUIProvider>
 	)
 }
 

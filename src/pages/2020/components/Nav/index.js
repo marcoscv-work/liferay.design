@@ -3,7 +3,6 @@
 import { jsx, Flex, Text } from 'theme-ui'
 import { Component } from 'react'
 import { Icon, Link } from 'components/atoms'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Plx from 'react-plx'
 import styles from './styles.module.scss'
 import { colors } from 'theme/'
@@ -259,26 +258,26 @@ export default class Nav extends Component {
 						sx={{ position: 'absolute', bottom: 5, right: 2 }}
 						className={styles.linkWrapper}
 					>
-						<AnchorLink offset="80" href="#top">
+						<a href="#top">
 							<Plx parallaxData={top} className={styles.anchorBlock} />
 							<div className={styles.anchorText}>2020</div>
-						</AnchorLink>
-						<AnchorLink offset="100" href="#adapt">
+						</a>
+						<a href="#adapt">
 							<Plx parallaxData={adapt} className={styles.anchorBlock} />
 							<div className={styles.anchorText}>Adapt</div>
-						</AnchorLink>
-						<AnchorLink href="#impact">
+						</a>
+						<a href="#impact">
 							<Plx parallaxData={impact} className={styles.anchorBlock} />
 							<div className={styles.anchorText}>Impact</div>
-						</AnchorLink>
-						<AnchorLink offset="200" href="#consult">
+						</a>
+						<a href="#consult">
 							<Plx parallaxData={consult} className={styles.anchorBlock} />
 							<div className={styles.anchorText}>Consult</div>
-						</AnchorLink>
-						<AnchorLink href="#campaign">
+						</a>
+						<a href="#campaign">
 							<Plx parallaxData={campaign} className={styles.anchorBlock} />
 							<div className={styles.anchorText}>Campaign</div>
-						</AnchorLink>
+						</a>
 					</div>
 				</Plx>
 			</nav>

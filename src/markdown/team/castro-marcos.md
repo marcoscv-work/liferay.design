@@ -6,7 +6,7 @@ author: Marcos Castro
 
 I have always felt like a designer
 
-<!-- ### Why are you at Liferay? -->
+{/* ### Why are you at Liferay? */}
 
 ### Favorite tool?
 
@@ -20,15 +20,15 @@ Traveling
 
 Any Design Discipline, New projects, etc
 
-<!-- ### One thing you are getting better at? -->
+{/* ### One thing you are getting better at? */}
 
 ### One misconception about Design you try to clear up?
 
-What Accessibility is.. and the classic Art > < Design
+What Accessibility is.. and the classic Art > &lt; Design
 
-<!-- ### If you weren't designing, what would you be doing?
+{/* ### If you weren't designing, what would you be doing?
 
-### What does your desktop/home screen look like? -->
+### What does your desktop/home screen look like? */}
 
 ### Favorite place to visit?
 
@@ -38,7 +38,7 @@ Asia
 
 Captain America
 
-<!-- ### Favorite hotkey?
+{/* ### Favorite hotkey?
 
 ### Advice for ambitious designers?
 
@@ -50,4 +50,4 @@ Captain America
 
 ### What keeps you up at night?
 
-### Favorite quote? -->
+### Favorite quote? */}

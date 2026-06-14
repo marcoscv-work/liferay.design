@@ -8,34 +8,29 @@ import { CardDefault } from 'components/molecules'
 import { makeAuthorSlug, avatarPath } from 'utils'
 
 export default ({ teammate, currentPost, ...props }) => {
-	const data = useStaticQuery(graphql`
-		{
-			allMdx(
-				filter: {
-					fileAbsolutePath: { regex: "/(articles)/" }
-					frontmatter: { publish: { eq: true } }
-				}
-				sort: { order: DESC, fields: [frontmatter___date] }
-			) {
-				edges {
-					node {
-						id
-						timeToRead
-						frontmatter {
-							title
-							featuredImage
-							author {
-								id: yamlId
-							}
-						}
-						fields {
-							slug
-						}
-					}
-				}
-			}
-		}
-	`)
+	const data = useStaticQuery(graphql`{
+  allMdx(
+    filter: {internal: { contentFilePath: { regex: "/(articles)/" } }, frontmatter: {publish: {eq: true}}}
+    sort: {frontmatter: {date: DESC}}
+  ) {
+    edges {
+      node {
+        id
+        timeToRead
+        frontmatter {
+          title
+          featuredImage
+          author {
+            id: yamlId
+          }
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
+}`)
 
 	const Posts = data.allMdx.edges
 		.filter(

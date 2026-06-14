@@ -1,4 +1,4 @@
-import components from 'gatsby-plugin-theme-ui/components'
+import components from './componentVariants'
 import layouts from 'gatsby-plugin-theme-ui/layouts'
 import prism from '@theme-ui/prism/presets/theme-ui'
 

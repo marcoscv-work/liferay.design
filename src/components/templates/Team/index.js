@@ -3,7 +3,6 @@
 import { jsx, Flex, Box, Image } from 'theme-ui'
 import { Icon, Container, ScrollProgress, Heading } from 'components/atoms'
 import { GlobalMdx, SEO, SocialIcons } from 'components/molecules'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Footer, Navbar, RecentBlogPosts } from 'components/organisms'
 import { graphql, withPrefix } from 'gatsby'
 import { cloneDeep, get, set } from 'lodash'
@@ -249,7 +248,7 @@ export default class Team extends Component {
 				>
 					<Box>
 						<GlobalMdx>
-							<MDXRenderer>{post.body}</MDXRenderer>
+							{this.props.children}
 						</GlobalMdx>
 					</Box>
 					{links ? (
@@ -304,7 +303,6 @@ export const pageQuery = graphql`
 					alumni
 				}
 			}
-			body
 			excerpt
 		}
 	}
