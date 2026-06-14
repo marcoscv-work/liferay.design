@@ -134,8 +134,9 @@ const containsActive = (node: SidebarNode): boolean =>
 		height: 100%;
 		max-height: 100vh;
 		position: sticky;
-		overflow: auto;
 		top: 0;
+		/* visible so the search dropdown can escape; the nav scrolls on its own */
+		overflow: visible;
 		font-family: var(--font-lexicon);
 		border-right: 1px solid var(--c-main-l6);
 		display: flex;
@@ -143,8 +144,10 @@ const containsActive = (node: SidebarNode): boolean =>
 		font-size: 14px;
 	}
 	.lx-head {
-		padding: 2.25rem 1.5rem 1.5rem;
+		padding: 2.25rem 1.5rem 0;
+		margin-bottom: 2rem;
 		font-size: 0.85rem;
+		flex-shrink: 0;
 	}
 	/* search */
 	.lx-search {
@@ -157,6 +160,16 @@ const containsActive = (node: SidebarNode): boolean =>
 		border: 1px solid var(--c-main-l6);
 		border-radius: 0.25rem;
 		color: var(--c-main-l3);
+		flex-shrink: 0;
+		position: relative;
+		z-index: 20;
+	}
+	/* DocSearch wraps the input in <span.algolia-autocomplete> (inline-block by
+	   default) — force it full width so the input fills the box */
+	.lx-search :global(.algolia-autocomplete) {
+		flex: 1;
+		display: block !important;
+		width: 100%;
 	}
 	.lx-search input {
 		border: 0;
@@ -166,12 +179,30 @@ const containsActive = (node: SidebarNode): boolean =>
 		color: var(--c-main);
 		width: 100%;
 	}
-	/* nav */
+	/* the autocomplete dropdown: drop below the box, full sidebar width, on top */
+	.lx-search :global(.ds-dropdown-menu) {
+		position: absolute;
+		top: calc(100% + 0.5rem) !important;
+		left: 0 !important;
+		min-width: 100% !important;
+		max-width: calc(100vw - 2.5rem);
+		z-index: 50;
+		box-shadow: var(--elev-2);
+		border-radius: 0.25rem;
+	}
+	.lx-search :global(.ds-dropdown-menu [class^='ds-dataset-']) {
+		border-radius: 0.25rem;
+		max-height: 60vh;
+		overflow-y: auto;
+	}
+	/* nav (the only scrolling region) */
 	.lx-nav {
 		list-style: none;
 		margin: 0;
 		padding: 0 0.75rem;
-		flex: 1;
+		flex: 1 1 auto;
+		min-height: 0;
+		overflow-y: auto;
 	}
 	.lx-nav li {
 		list-style: none;
@@ -249,6 +280,7 @@ const containsActive = (node: SidebarNode): boolean =>
 	.lx-credits {
 		padding: 1.5rem;
 		font-size: 0.75rem;
+		flex-shrink: 0;
 	}
 
 	/* ---------- mobile ---------- */
