@@ -214,6 +214,26 @@ const containsActive = (node: SidebarNode): boolean =>
 		max-height: 60vh;
 		overflow-y: auto;
 	}
+	/* stack each result vertically (category row on top, content row below)
+	   instead of the default two-column layout — fits the narrow sidebar */
+	.lx-search :global(.algolia-docsearch-suggestion--subcategory-column),
+	.lx-search :global(.algolia-docsearch-suggestion--content) {
+		float: none !important;
+		width: 100% !important;
+		display: block !important;
+		text-align: left !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+	.lx-search :global(.algolia-docsearch-suggestion--subcategory-column) {
+		opacity: 0.7;
+		font-size: 0.75rem;
+		margin-bottom: 0.15rem;
+	}
+	/* remove the vertical divider the two-column layout drew */
+	.lx-search :global(.algolia-docsearch-suggestion--subcategory-column::before) {
+		display: none !important;
+	}
 	/* nav (the only scrolling region) */
 	.lx-nav {
 		list-style: none;
