@@ -43,7 +43,7 @@ const recent = (await getCollection('articles', ({ data }) => data.publish !== f
 		<Navbar section={alumni ? 'Alumni' : 'Team'} />
 
 		<section class="hero">
-			<img class="portrait" src={avatarPath(name)} alt={name} />
+			<div class="portrait"><img src={avatarPath(name)} alt={name} /></div>
 			<Container>
 				<div class="hero-inner">
 					<h1>
@@ -57,7 +57,9 @@ const recent = (await getCollection('articles', ({ data }) => data.publish !== f
 						socials.length > 0 ? (
 							<SocialIcons socials={socials} class="hero-socials" />
 						) : (
-							teammate?.icon && <Icon name={teammate.icon} size="2rem" color="var(--c-main-l2)" />
+							teammate?.icon && (
+								<Icon name={teammate.icon} size="2rem" color="var(--c-main-l2)" class="hero-icon" />
+							)
 						)
 					}
 				</div>
@@ -121,9 +123,43 @@ const recent = (await getCollection('articles', ({ data }) => data.publish !== f
 		min-width: 460px;
 		max-width: 600px;
 		height: calc(64vh - 5rem + 6rem); /* dips ~6rem past the hero into the white body */
+		z-index: 2;
+	}
+	.portrait img {
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
 		object-position: top center;
-		z-index: 2;
+		display: block;
+	}
+	/* fade the lower 60% of the photo into the dark page background */
+	.portrait::after {
+		content: '';
+		position: absolute;
+		height: 60%;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		background-image: linear-gradient(
+			to top,
+			rgb(19, 20, 31) 0%,
+			rgba(19, 20, 31, 0.99) 8.1%,
+			rgba(19, 20, 31, 0.953) 15.5%,
+			rgba(19, 20, 31, 0.894) 22.5%,
+			rgba(19, 20, 31, 0.824) 29%,
+			rgba(19, 20, 31, 0.74) 35.3%,
+			rgba(19, 20, 31, 0.647) 41.2%,
+			rgba(19, 20, 31, 0.55) 47.1%,
+			rgba(19, 20, 31, 0.45) 52.9%,
+			rgba(19, 20, 31, 0.353) 58.8%,
+			rgba(19, 20, 31, 0.26) 64.7%,
+			rgba(19, 20, 31, 0.176) 71%,
+			rgba(19, 20, 31, 0.106) 77.5%,
+			rgba(19, 20, 31, 0.047) 84.5%,
+			rgba(19, 20, 31, 0.01) 91.9%,
+			rgba(19, 20, 31, 0) 100%
+		);
+		pointer-events: none;
 	}
 	.hero-inner {
 		position: relative;
@@ -144,7 +180,9 @@ const recent = (await getCollection('articles', ({ data }) => data.publish !== f
 	.since { display: block; margin-bottom: 1rem; font-size: 1rem; color: var(--c-main-l3); text-transform: uppercase; letter-spacing: 0.1em; }
 	.name { display: block; color: var(--c-white); }
 	.title { display: block; font-size: 3rem; color: var(--c-main-l4); margin-top: 0.5rem; }
-	.hero-socials { flex-direction: column; }
+	/* socials / fallback icon: right side, vertically centered (original) */
+	.hero-socials { flex-direction: column; align-self: center; }
+	.hero-icon { align-self: center; color: var(--c-main-l2); }
 
 	/* white body the portrait dips into (the css-1g9nd0h effect) */
 	.body-section {
