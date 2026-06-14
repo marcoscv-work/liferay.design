@@ -19,14 +19,7 @@ export const Footer = ({ light, background, markdown }) => {
 					flexWrap="wrap"
 				>
 					{' '}
-					{markdown ? (
-						<Text width="50%">
-							Something to improve?{' '}
-							<a href="/handbook/about/contribute">Report an issue</a>!
-						</Text>
-					) : (
-						<Heading level={3}>Design.Liferay</Heading>
-					)}
+					<Heading level={3}>Design.Liferay</Heading>
 					<SocialIcons
 						sx={{
 							justifyContent: 'space-between',

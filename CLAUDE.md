@@ -30,12 +30,23 @@ npm run dev      # starts on http://0.0.0.0:7777
 
 ## Project structure
 
-- `src/markdown/` — 98% of site content (articles, handbook, blueprints, lexicon, careers, events, team)
+- `src/markdown/` — site content, scoped to the live sections (articles, lexicon, events, team)
 - `src/markdown/*.yaml` — data files (Authors, Changelog, Countries, Offices)
 - `src/components/` — atomic design: atoms, molecules, organisms, templates
-- `src/pages/` — page entry points and yearly sections (2018-2021)
+- `src/pages/` — page entry points (home, articles, team, alumni, lexicon, events, tags, changelog)
 - `src/utils/` — helpers (generateEnv, generateIcons, typography, logRocket)
 - `static/` — public assets (images, icons, files, videos, admin)
+- `deprecated/` — outdated sections kept out of the build (markdown, pages, templates,
+  components). Gatsby only sources `./src`, so nothing here generates pages. Sections
+  parked here: handbook, blueprints, resources, careers, newsletter, the yearly
+  reports (2018–2021), office-hours, design-week, and the old lexicon-1. Restore by
+  moving a folder back under `src/`.
+
+## Live vs deprecated scope
+
+The site builds only the core sections: **Home, Articles, Events, Team, Alumni, Lexicon**
+(plus Tags and Changelog). Everything else lives under `deprecated/`. When adding content
+or fixing a page, confirm it belongs to a live section first.
 
 ## How content becomes pages
 
