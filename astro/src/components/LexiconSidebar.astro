@@ -113,6 +113,13 @@ const containsActive = (node: SidebarNode): boolean =>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 <script is:inline src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script is:inline>
+	// The legacy Algolia index stores absolute URLs on the OLD domain
+	// (liferay.design). Strip the host so results are relative paths that work
+	// on localhost and on the current domain (design.liferay.com).
+	function lexiconRelUrl(url) {
+		if (!url) return url
+		return url.replace(/^https?:\/\/(www\.)?(liferay\.design|design\.liferay\.com)/i, '')
+	}
 	function initLexiconSearch() {
 		if (window.docsearch && document.getElementById('lexicon_search')) {
 			window.docsearch({
@@ -120,6 +127,16 @@ const containsActive = (node: SidebarNode): boolean =>
 				indexName: 'liferay_design',
 				inputSelector: '#lexicon_search',
 				debug: false,
+				transformData: function (hits) {
+					hits.forEach(function (hit) {
+						hit.url = lexiconRelUrl(hit.url)
+					})
+					return hits
+				},
+				handleSelected: function (input, event, suggestion) {
+					var url = lexiconRelUrl(suggestion.url)
+					if (url) window.location.assign(url)
+				},
 			})
 		}
 	}
