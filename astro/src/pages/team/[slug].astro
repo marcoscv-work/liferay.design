@@ -1,0 +1,151 @@
+---
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Navbar from '@components/Navbar.astro'
+import Footer from '@components/Footer.astro'
+import Container from '@components/Container.astro'
+import SocialIcons from '@components/SocialIcons.astro'
+import Icon from '@components/Icon.astro'
+import CardDefault from '@components/CardDefault.astro'
+import { mdxComponents } from '@components/mdx'
+import { authorsMap } from '@lib/content'
+import { avatarPath, buildSocials, cleanId, firstWord, makeAuthorSlug, minRead } from '@lib/helpers'
+
+export async function getStaticPaths() {
+	const team = await getCollection('team')
+	return team.map(entry => ({ params: { slug: makeAuthorSlug(entry.data.author) }, props: { entry } }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+const authors = await authorsMap()
+const teammate = authors.get(entry.data.author)
+const name = teammate?.id ?? entry.data.author
+const socials = buildSocials(teammate?.links ?? undefined, teammate?.icon ?? undefined)
+const alumni = teammate?.alumni === true
+const startYear = teammate?.startDate ? teammate.startDate.getFullYear() : undefined
+const endYear = teammate?.endDate ? teammate.endDate.getFullYear() : undefined
+
+const recent = (await getCollection('articles', ({ data }) => data.publish !== false))
+	.filter(e => e.data.author === name)
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 3)
+---
+
+<BaseLayout
+	pageTitle={`${name} | Designing at Liferay since ${startYear ?? ''}`}
+	description={`${name} — designer at Liferay`}
+	previewImage={avatarPath(name)}
+	keywords="designer, profile"
+	contentType="profile"
+>
+	<div class="team-page">
+		<div class="portrait"><img src={avatarPath(name)} alt={name} /></div>
+
+		<Navbar section={alumni ? 'Alumni' : 'Team'} />
+
+		<Container>
+			<div class="hero">
+				<h1>
+					<span class="since">
+						{alumni && endYear ? `${startYear} - ${endYear}` : `Since ${startYear ?? ''}`}
+					</span>
+					<span class="name">{name}</span>
+					<span class="title">{teammate?.title}</span>
+				</h1>
+				{
+					socials.length > 0 ? (
+						<SocialIcons socials={socials} class="hero-socials" />
+					) : (
+						teammate?.icon && <Icon name={teammate.icon} size="2rem" color="var(--c-main-l2)" />
+					)
+				}
+			</div>
+		</Container>
+
+		<div class="body">
+			<div class="prose"><Content components={mdxComponents} /></div>
+			{
+				socials.length > 0 && (
+					<div class="more-socials">
+						<h3>Where else can we find you?</h3>
+						<SocialIcons socials={socials} />
+					</div>
+				)
+			}
+		</div>
+
+		{
+			recent.length > 0 && (
+				<Container heading={`Recent posts by ${firstWord(name)}`}>
+					<div class="grid-three">
+						{recent.map(post => (
+							<CardDefault
+								avatarImage
+								imageURL={post.data.featuredImage}
+								link={`/articles/${cleanId(post.id)}`}
+								title={post.data.title}
+								subtitle={`${minRead(post.body)} Min Read`}
+								avatarImageURL={avatarPath(post.data.author)}
+							/>
+						))}
+					</div>
+				</Container>
+			)
+		}
+
+		<Footer light />
+	</div>
+</BaseLayout>
+
+<style>
+	.team-page { position: relative; background-color: var(--c-background); }
+	.portrait {
+		position: absolute;
+		top: 16%;
+		left: 0;
+		right: 0;
+		width: 52%;
+		margin: 0 auto;
+		max-height: 768px;
+		max-width: 640px;
+		min-width: 540px;
+		height: 75vh;
+	}
+	.portrait::after {
+		content: '';
+		position: absolute;
+		height: 60%;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		background-image: linear-gradient(to top, rgb(19, 20, 31) 0%, rgba(19, 20, 31, 0) 100%);
+	}
+	.portrait img { width: 100%; height: 100%; object-fit: cover; }
+	.hero {
+		display: flex;
+		min-height: 60vh;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+	}
+	.hero h1 { font-size: 3rem; color: var(--c-main-l4); max-width: 10ch; }
+	.since { display: block; margin-top: 1rem; font-size: 1rem; color: var(--c-main-l3); text-transform: uppercase; letter-spacing: 0.1em; }
+	.name { display: block; color: var(--c-white); }
+	.title { display: block; font-size: 1.8rem; }
+	.hero-socials { flex-direction: column; }
+	.body { max-width: 48rem; margin: 0 auto; padding: 3rem 1rem; display: flex; flex-direction: column; }
+	.more-socials h3 { color: var(--c-white); }
+	@media screen and (max-width: 768px) {
+		.portrait { width: 100%; min-width: 0; top: 0; }
+		.hero { flex-direction: column; align-items: flex-start; height: 70vh; }
+	}
+</style>
+
+<style is:global>
+	.team-page .prose { color: var(--c-main-l5); }
+	.team-page .prose h3 { color: var(--c-white); margin-top: 2em; }
+	.team-page .prose p, .team-page .prose li { color: var(--c-main-l4); line-height: 1.6; font-family: var(--font-brand); }
+	.team-page .prose a { color: var(--c-primary-l1); text-decoration: underline; }
+</style>

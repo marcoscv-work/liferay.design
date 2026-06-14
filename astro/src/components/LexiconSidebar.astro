@@ -1,0 +1,97 @@
+---
+import SiteName from './SiteName.astro'
+import SiteCredits from './SiteCredits.astro'
+import type { SidebarNode } from '@lib/lexicon'
+interface Props {
+	tree: SidebarNode[]
+	path: string
+}
+const { tree, path } = Astro.props
+
+const isActive = (slug?: string) => slug && (slug === path || slug + '/' === path || slug === path + '/')
+const containsActive = (node: SidebarNode): boolean =>
+	isActive(node.slug) || node.children.some(containsActive)
+---
+
+<nav class="lx-sidebar" aria-label="Lexicon navigation">
+	<div class="lx-section"><SiteName section="Lexicon" dark /></div>
+	<div class="lx-content">
+		{
+			tree.map(node =>
+				node.children.length > 0 ? (
+					<details open={containsActive(node)} class="lx-group">
+						<summary>{node.title}</summary>
+						<div class="lx-children">
+							{node.slug && (
+								<a href={node.slug} class:list={['lx-link', { active: isActive(node.slug) }]}>
+									Overview
+								</a>
+							)}
+							{node.children.map(child =>
+								child.children.length > 0 ? (
+									<details open={containsActive(child)} class="lx-subgroup">
+										<summary>{child.title}</summary>
+										<div class="lx-children">
+											{child.slug && (
+												<a href={child.slug} class:list={['lx-link', { active: isActive(child.slug) }]}>Overview</a>
+											)}
+											{child.children.map(g => (
+												<a href={g.slug} class:list={['lx-link', { active: isActive(g.slug) }]}>{g.title}</a>
+											))}
+										</div>
+									</details>
+								) : (
+									<a href={child.slug} class:list={['lx-link', { active: isActive(child.slug) }]}>{child.title}</a>
+								),
+							)}
+						</div>
+					</details>
+				) : (
+					<a href={node.slug} class:list={['lx-link', 'first-level', { active: isActive(node.slug) }]}>{node.title}</a>
+				),
+			)
+		}
+	</div>
+	<div class="lx-credits"><SiteCredits /></div>
+</nav>
+
+<style>
+	.lx-sidebar {
+		background: var(--c-neutral9, #f4f6f9);
+		grid-area: sidebar;
+		height: 100%;
+		max-height: 100vh;
+		position: sticky;
+		overflow: auto;
+		top: 0;
+		font-family: var(--font-lexicon);
+	}
+	.lx-section { padding: 3rem 2rem 1rem; }
+	.lx-content { display: flex; flex-direction: column; padding: 1rem; }
+	.lx-link {
+		display: block;
+		border-radius: 4px;
+		font-weight: var(--fw-regular);
+		padding: 0.64rem 1rem;
+		color: var(--c-main);
+		font-size: 0.9rem;
+	}
+	.lx-link:hover { background: var(--c-gray-bg); color: var(--c-black); }
+	.lx-link.active { font-weight: var(--fw-heavy); color: var(--c-primary); }
+	.lx-link.first-level { font-weight: var(--fw-heavy); }
+	.lx-group > summary,
+	.lx-subgroup > summary {
+		cursor: pointer;
+		font-weight: var(--fw-heavy);
+		font-size: 0.9rem;
+		padding: 0.64rem 1rem;
+		color: var(--c-main);
+		list-style: none;
+	}
+	.lx-group > summary::-webkit-details-marker { display: none; }
+	.lx-group > summary::before { content: '▸ '; }
+	.lx-group[open] > summary::before { content: '▾ '; }
+	.lx-children { padding-left: 0.75rem; }
+	.lx-subgroup { margin-left: 0.25rem; }
+	.lx-credits { padding: 2rem; }
+</style>

@@ -1,0 +1,7 @@
+---
+const { color, name } = Astro.props
+---
+<div style="display:inline-flex;flex-direction:column;align-items:center;margin:.5rem">
+	<span style={`display:block;width:4rem;height:4rem;border-radius:.4rem;background:${color};border:1px solid var(--c-main-l6)`}></span>
+	{name && <small>{name}</small>}
+</div>

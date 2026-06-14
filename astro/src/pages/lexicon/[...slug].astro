@@ -1,0 +1,101 @@
+---
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import LexiconSidebar from '@components/LexiconSidebar.astro'
+import Footer from '@components/Footer.astro'
+import Icon from '@components/Icon.astro'
+import { mdxComponents } from '@components/mdx'
+import { buildSidebarTree } from '@lib/lexicon'
+import { cleanId } from '@lib/helpers'
+
+export async function getStaticPaths() {
+	const entries = await getCollection('lexicon', ({ data }) => data.draft !== true)
+	return entries.map(entry => ({ params: { slug: cleanId(entry.id) }, props: { entry } }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+const fm = entry.data
+const tree = await buildSidebarTree()
+const path = `/lexicon/${cleanId(entry.id)}`
+const seoImage = 'https://design.liferay.com/images/resources/lexicon-cover.png'
+---
+
+<BaseLayout
+	pageTitle={`${fm.title} on Lexicon by Design.Liferay`}
+	description={fm.description}
+	previewImage="/images/resources/lexicon-cover.png"
+	contentType="article"
+	bodyClass="lexicon-doc"
+>
+	<Fragment slot="head">
+		<meta property="og:image" content={seoImage} />
+		<meta property="og:title" content={`${fm.title} — Lexicon by Design.Liferay`} />
+		<meta name="twitter:site" content="@Liferay_Lexicon" />
+		<meta name="twitter:creator" content="@Liferay_Lexicon" />
+	</Fragment>
+
+	<div class="lexicon-grid">
+		<LexiconSidebar tree={tree} path={path} />
+		<main id="main-content" tabindex="-1" class="lexicon-main">
+			<div class="lexicon-doc-container">
+				<h1>{fm.title}</h1>
+
+				{fm.figmaLink && <a class="label info-full" href={fm.figmaLink}>View in Figma</a>}
+				{fm.titleLabelLink && <a class="label info" href={fm.titleLabelLink}>View in Clay</a>}
+				{
+					fm.docLink && (
+						<a class="label info" href="#">
+							<Icon name="lock" width="1em" height="1em" /> Documentation
+						</a>
+					)
+				}
+				{fm.productName && <span class="label neutral">{fm.productName}</span>}
+				{fm.devStatus && <span class="label draft">{fm.devStatus}</span>}
+
+				{fm.description && <p class="lexicon-description">{fm.description}</p>}
+
+				<div class="prose"><Content components={mdxComponents} /></div>
+			</div>
+			<Footer markdown light />
+		</main>
+	</div>
+</BaseLayout>
+
+<style>
+	.lexicon-grid {
+		display: grid;
+		grid-template-columns: 20rem 1fr;
+		min-height: 100vh;
+		background: #fff;
+	}
+	.lexicon-main { background: #fff; color: var(--c-main); font-family: var(--font-lexicon); }
+	.lexicon-doc-container { max-width: 960px; padding: 3rem; margin: 0 auto; }
+	.lexicon-doc-container h1 { color: var(--c-main); font-family: var(--font-lexicon); }
+	.lexicon-description { font-size: 1.2rem; color: var(--c-main-l3); }
+	.label {
+		display: inline-block;
+		padding: 0.25rem 0.75rem;
+		border-radius: 0.2rem;
+		font-size: 0.8rem;
+		margin: 0 0.4rem 0.4rem 0;
+	}
+	.label.info { background: var(--c-primary-l3); color: var(--c-primary); }
+	.label.info-full { background: var(--c-primary); color: #fff; }
+	.label.neutral { background: var(--c-main-l8); color: var(--c-main-l2); }
+	.label.draft { background: #fff4ec; color: var(--c-warning); }
+	@media screen and (max-width: 768px) {
+		.lexicon-grid { grid-template-columns: 1fr; }
+	}
+</style>
+
+<style is:global>
+	body.lexicon-doc { background: #fff; }
+	.lexicon-main .prose { color: var(--c-main-l1); line-height: 1.6; }
+	.lexicon-main .prose h2, .lexicon-main .prose h3 { color: var(--c-main); margin-top: 2em; }
+	.lexicon-main .prose p, .lexicon-main .prose li { color: var(--c-main-l2); margin-bottom: 1rem; }
+	.lexicon-main .prose a { color: var(--c-primary); text-decoration: underline; }
+	.lexicon-main .prose img { max-width: 100%; }
+	.lexicon-main .prose table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
+	.lexicon-main .prose th, .lexicon-main .prose td { border: 1px solid var(--c-main-l6); padding: 0.5rem 0.75rem; text-align: left; }
+</style>
