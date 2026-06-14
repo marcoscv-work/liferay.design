@@ -9,30 +9,28 @@ import { Date } from 'components/molecules'
 import { colors } from 'theme/'
 
 export default function ChangelogFeed({ items, ...props }) {
-	const data = useStaticQuery(graphql`
-		{
-			allChangelogYaml(sort: { order: DESC, fields: [yamlId] }) {
-				totalCount
-				edges {
-					node {
-						id: yamlId
-						gitUrl
-						titleUrl
-						author {
-							id: yamlId
-						}
-						title
-						icon
-						longSummary
-						contributors {
-							id: yamlId
-						}
-						buildPreview
-					}
-				}
-			}
-		}
-	`)
+	const data = useStaticQuery(graphql`{
+  allChangelogYaml(sort: {yamlId: DESC}) {
+    totalCount
+    edges {
+      node {
+        id: yamlId
+        gitUrl
+        titleUrl
+        author {
+          id: yamlId
+        }
+        title
+        icon
+        longSummary
+        contributors {
+          id: yamlId
+        }
+        buildPreview
+      }
+    }
+  }
+}`)
 
 	const imagePath = '/images/headshots/'
 

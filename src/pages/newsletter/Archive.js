@@ -7,28 +7,23 @@ import { Date } from 'components/molecules'
 import { colors } from 'theme/'
 
 export default ({}) => {
-	const data = useStaticQuery(graphql`
-		{
-			allNewsletters(
-				filter: {
-					send_time: { ne: "" }
-					settings: { title: { regex: "/Newsletter/" } }
-				}
-				sort: { order: DESC, fields: send_time }
-			) {
-				edges {
-					node {
-						settings {
-							title
-							subject_line
-							preview_text
-						}
-						send_time
-					}
-				}
-			}
-		}
-	`)
+	const data = useStaticQuery(graphql`{
+  allNewsletters(
+    filter: {send_time: {ne: ""}, settings: {title: {regex: "/Newsletter/"}}}
+    sort: {send_time: DESC}
+  ) {
+    edges {
+      node {
+        settings {
+          title
+          subject_line
+          preview_text
+        }
+        send_time
+      }
+    }
+  }
+}`)
 
 	const Newsletters = data.allNewsletters.edges.map(({ node }) => (
 		<Link to={`${'/newsletter/' + moment(node.send_time).format('YYYY-MM')}`}>

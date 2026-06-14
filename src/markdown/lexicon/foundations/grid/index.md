@@ -93,7 +93,7 @@ The table below shows the layout system values for the different breakpoints:
 
 | Breakpoint  | Device Size                           | Container Width |
 | ----------- | ------------------------------------- | --------------- |
-| < 576px     | Extra small devices (Portrait phones) | Auto            |
+| &lt; 576px     | Extra small devices (Portrait phones) | Auto            |
 | &ge; 576px  | Small devices (Landscape phones)      | Auto            |
 | &ge; 768px  | Medium devices (Tablets)              | Auto            |
 | &ge; 992px  | Large devices (Desktops)              | Auto            |

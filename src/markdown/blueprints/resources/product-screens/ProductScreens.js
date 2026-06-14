@@ -1,15 +1,16 @@
 /** @jsx jsx */
 
 import React from 'react'
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
+import { Themed } from '@theme-ui/mdx'
 import styles from '../styles.module.scss'
 import { AssetsAccordion, AssetDownload } from 'components/molecules'
 import { Link } from 'components/atoms'
 
 const { kebabCase } = require(`lodash`)
 
-const H2 = Styled.h2
-const H3 = Styled.h3
+const H2 = Themed.h2
+const H3 = Themed.h3
 
 const ProductScreens = ({ data }) => {
 	console.log(data, 'data')

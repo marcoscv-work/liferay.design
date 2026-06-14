@@ -6,7 +6,7 @@ featuredImage: '/images/articles/about-bridges.jpeg'
 publish: true
 ---
 
-<!-- # About Bridges, Software, and Failures. -->
+{/* # About Bridges, Software, and Failures. */}
 
 _A long time ago, I was discussing with an old friend/colleague about how to document and manage the experience that we got in a previous Project for the European Commission. The main reason for the discussion was to avoid falling into the same mistakes again. My friend recommended to me a “must-read”, a paper from a well know VP of Research in Google, Alfred Spector._
 

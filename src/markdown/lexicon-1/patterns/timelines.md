@@ -43,6 +43,6 @@ Being in the center the panel can appear in alternate positions starting on the 
 
 #### Right XS Timeline only
 
-On window resize to mobile viewport (<768), the timeline icon are always aligned to the left. In case you want to place on the right, it is also possible with this example.
+On window resize to mobile viewport (&lt;768), the timeline icon are always aligned to the left. In case you want to place on the right, it is also possible with this example.
 
 ![timeline right aligned extra small ](/images/lexicon-1/timelineCenterRightXSOnly.png)

@@ -28,12 +28,12 @@ Four Words: Integrated Lead-Generation Campaigns
 -   Develop concepts and mock-ups for integrated marketing campaigns, landing pages, websites, conference booths and printed collateral
 -   Bonus points if you've worked on an 'Integrated Lead-Generation Campaign' before
 
-<!-- TODO: write graphic design first year recap
+{/* TODO: write graphic design first year recap
 ### What will your first year look like?
 
 -   3-4 shipped projects, with as many high-fidelity projects ready for development
 -   Contributed robust patterns to our Figma component library
--   Increased the level of quality that our whole team is able to produce -->
+-   Increased the level of quality that our whole team is able to produce */}
 
 ### Important bullet points we’re looking for:
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Icon, Link } from 'components/atoms'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Plx from 'react-plx'
 import styles from './styles.module.scss'
 import { colors, spacing } from 'theme/'
@@ -224,7 +223,7 @@ export default class Nav extends Component {
 						<span>Menu</span>
 					</button>
 					<div className={styles.linkWrapper} >
-						<AnchorLink offset="80" href="#top">
+						<a href="#top">
 							<Plx
 								parallaxData={top}
 								className={styles.anchorBlock}
@@ -232,8 +231,8 @@ export default class Nav extends Component {
 							<div className={styles.anchorText}>
 								2019
 							</div>
-						</AnchorLink>
-						<AnchorLink offset="100" href="#department">
+						</a>
+						<a href="#department">
 							<Plx
 								parallaxData={team}
 								className={styles.anchorBlock}
@@ -241,8 +240,8 @@ export default class Nav extends Component {
 							<div className={styles.anchorText}>
 								Design
 							</div>
-						</AnchorLink>
-						<AnchorLink href="#initiatives">
+						</a>
+						<a href="#initiatives">
 							<Plx
 								parallaxData={initiatives}
 								className={styles.anchorBlock}
@@ -250,8 +249,8 @@ export default class Nav extends Component {
 							<div className={styles.anchorText}>
 								Initiatives
 							</div>
-						</AnchorLink>
-						<AnchorLink offset="200" href="#projects">
+						</a>
+						<a href="#projects">
 							<Plx
 								parallaxData={projects}
 								className={styles.anchorBlock}
@@ -259,8 +258,8 @@ export default class Nav extends Component {
 							<div className={styles.anchorText}>
 								Projects
 							</div>
-						</AnchorLink>
-						<AnchorLink href="#ops">
+						</a>
+						<a href="#ops">
 							<Plx
 								parallaxData={ops}
 								className={styles.anchorBlock}
@@ -268,7 +267,7 @@ export default class Nav extends Component {
 							<div className={styles.anchorText}>
 								Ops
 							</div>
-						</AnchorLink>
+						</a>
 					</div>
 				</Plx>
 			</div>

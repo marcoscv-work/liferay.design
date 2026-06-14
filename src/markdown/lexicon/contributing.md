@@ -35,4 +35,4 @@ import { Image } from 'components/atoms'
 
 The Image component is very powerful and has potential for almost endless extensibility.
 
-<!-- TODO — Document the Image component https://github.com/liferay-design/design.liferay.com/issues/557 -->
+{/* TODO — Document the Image component https://github.com/liferay-design/design.liferay.com/issues/557 */}

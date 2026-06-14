@@ -16,7 +16,7 @@ After Effects
 
 ### Best lifehack?
 
-Youtube tutorials makes my life easier all the time <3 
+Youtube tutorials makes my life easier all the time &lt;3 
 
 ### Where do you find #inspiration?
 
@@ -40,7 +40,7 @@ I try to make it look clean all the time. I have to clean it now.
 
 ### Favorite place to visit?
 
-Amsterdam <3
+Amsterdam &lt;3
 
 ### Favorite superhero?
 

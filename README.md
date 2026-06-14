@@ -53,22 +53,27 @@ Skip down to [Starting Phresh](#starting-phresh) for a step-by-step guide.
 
 | Tool | Version | Notes |
 | --- | --- | --- |
-| Node | **14.x** (14.21.3) | Pinned in `.nvmrc` — run `nvm use` inside the repo |
-| npm | **6.x** (bundled with Node 14) | `package-lock.json` uses lockfile v1 — **do not install with a newer npm**, it would rewrite the lockfile into a format the build can't use |
-| Gatsby | **4.25** | Migrated from Gatsby 2 → 3 → 4 (webpack 5, LMDB datastore) |
-| React | 16.14 | Do not apply React 17/18 patterns |
+| Node | **18.x** (18.20.8) | Pinned in `.nvmrc` — run `nvm use` inside the repo. Gatsby 5 needs Node ≥18 |
+| npm | **10.x** (bundled with Node 18) | `package-lock.json` is lockfileVersion 3; `.npmrc` sets `legacy-peer-deps=true` for React 18 peer ranges |
+| Gatsby | **5.16** | Migrated from Gatsby 2 → 3 → 4 → 5 (webpack 5, LMDB datastore, MDX v2) |
+| React | 18.3 | Do not apply React 16 patterns |
+| MDX | **v2** | Page content renders via `{children}`; stricter CommonMark+JSX (see notes below) |
 | Sass | `sass` (dart-sass) ~1.32 | Replaced `node-sass` — no more native bindings to compile |
 
 A few conventions to keep in mind when touching code:
 
 -   **CSS modules are imported with default exports** (`import styles from './styles.module.scss'`). Gatsby 3+ changed the default to named exports, but this repo restores the classic behavior through `cssLoaderOptions` in the `gatsby-plugin-sass` entry of `gatsby-config.js` — don't migrate imports file by file.
+-   **MDX v2**: templates render the page body with `{children}` (the old `MDXRenderer` + `body` field were removed in Gatsby 5). Pages are created with `component: \`${template}?__contentFilePath=${node.internal.contentFilePath}\``. The parser is stricter — HTML comments are invalid (use `{/* */}`), a literal `<` must be escaped (`&lt;`), inline JSX elements can't break across lines, and `style="..."` must be an object (`style={{ ... }}`).
+-   **GraphQL sort** uses the Gatsby 5 shape: `sort: { date: DESC }`, not `sort: { fields: [date], order: DESC }`.
+-   **`timeToRead`** is a custom field resolver in `gatsby-node.js` (Gatsby 5 removed the built-in) — it reads the source file and counts words at ~200 wpm to power the "X Min Read" badges.
+-   **theme-ui 0.17**: use `Themed` (from `@theme-ui/mdx`) instead of the removed `Styled`, `ThemeUIProvider` instead of `ThemeProvider`, and `@emotion/react` instead of `@emotion/core`.
 -   **YAML/JSON `id` is exposed as `yamlId`/`jsonId`** (Gatsby 4 change). The `gatsby-config.js` `mapping` block and any GraphQL query reading a data file's own `id` use `yamlId` (often aliased back as `id: yamlId`). Keep this in mind for queries against `AuthorsYaml`, `OfficesYaml`, `ChangelogYaml`, etc.
--   **Coming from the old Node 12 setup?** Delete your old install first: `rm -rf node_modules && nvm use && npm install`.
--   Deployment runs on Netlify with `NODE_VERSION = "14"` pinned in `netlify.toml`.
+-   **Coming from an older Node setup?** Delete your old install first: `rm -rf node_modules && nvm use && npm install`.
+-   Deployment runs on Netlify with `NODE_VERSION = "18"` pinned in `netlify.toml`.
 
 ### Quick Start
 
-**Warning**: This project requires Node v14 (see `.nvmrc`). You can use [NVM](https://github.com/nvm-sh/nvm) to install it by `nvm install v14.21.3` (or just `nvm use` inside the repo), then you can follow these steps:
+**Warning**: This project requires Node v18 (see `.nvmrc`). You can use [NVM](https://github.com/nvm-sh/nvm) to install it by `nvm install v18.20.8` (or just `nvm use` inside the repo), then you can follow these steps:
 
 1. **Install Dependencies**
 

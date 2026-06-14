@@ -30,7 +30,7 @@ Use a 16px box for icons of 16px.
 
 Liferay has its own icon library created for the purposes of the projects that use Lexicon.
 
-<!--
+{/*
 <ul class="lexicon-icon-list list-unstyled">
 {foreach $icon in $page.icons}
 	<li>
@@ -40,7 +40,7 @@ Liferay has its own icon library created for the purposes of the projects that u
 		<span>{$icon}</span>
 	</li>
 {/foreach}
-</ul> -->
+</ul> */}
 
 Please, follow this [guide](https://gist.github.com/natecavanaugh/b9546c4215e5d5ef88a1b9d6ae2041a3#lexicon-icon-design-guidelines) to create icons for Lexicon.
 
@@ -50,7 +50,7 @@ People tend to have pretty strong opinions on whether flags should be used as a 
 
 While we understand this reasoning, we've found that when a user is not familiar with the currently displayed language, flags somewhat eliminate the use of other mechanisms, such as the name of the language (since the current language could be in an entirely different character set). Given this, there is often at least some familiarity with the identity of a country that speaks a shared language.
 
-<!--
+{/*
 <ul class="lexicon-icon-list list-unstyled">
 {foreach $flag in $page.flags}
 	<li>
@@ -60,7 +60,7 @@ While we understand this reasoning, we've found that when a user is not familiar
 		<span>{$page.flagData[$flag]} ({$flag})</span>
 	</li>
 {/foreach}
-</ul> -->
+</ul> */}
 
 #### Other icon libraries
 

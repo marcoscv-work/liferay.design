@@ -1,6 +1,3 @@
 [build.environment]
  PYTHON_VERSION = "3.10"
- NODE_VERSION = "14"
- # Gatsby 3 has no SSR/DSG engine: stop Netlify's auto-injected Gatsby
- # plugin from generating an __ssr function that breaks the deploy stage
- NETLIFY_SKIP_GATSBY_FUNCTIONS = "true"
+ NODE_VERSION = "18"

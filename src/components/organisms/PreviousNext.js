@@ -1,44 +1,43 @@
 /** @jsx jsx */
 
-import { jsx, Styled, Flex, Box, Text } from 'theme-ui'
+import { jsx, Flex, Box, Text } from 'theme-ui'
+import { Themed } from '@theme-ui/mdx'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Link } from 'components/atoms'
 import { slugToSection } from 'utils'
 
 export default function PreviousNext({ current, section, ...props }) {
-	const H3 = Styled.h3
+	const H3 = Themed.h3
 
-	const data = useStaticQuery(graphql`
-		{
-			allMdx(
-				sort: { order: ASC, fields: frontmatter___date }
-				filter: { frontmatter: { publish: { eq: true } } }
-			) {
-				totalCount
-				edges {
-					previous {
-						fields {
-							slug
-						}
-						frontmatter {
-							title
-						}
-					}
-					node {
-						id
-					}
-					next {
-						fields {
-							slug
-						}
-						frontmatter {
-							title
-						}
-					}
-				}
-			}
-		}
-	`)
+	const data = useStaticQuery(graphql`{
+  allMdx(
+    sort: {frontmatter: {date: ASC}}
+    filter: {frontmatter: {publish: {eq: true}}}
+  ) {
+    totalCount
+    edges {
+      previous {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+        }
+      }
+      node {
+        id
+      }
+      next {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+}`)
 
 	const Posts = data.allMdx.edges.filter(edges => edges.node.id === current)
 

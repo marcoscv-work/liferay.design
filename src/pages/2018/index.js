@@ -7,7 +7,6 @@ import {
 	VanityMetric,
 } from 'pages/2018/components/_index'
 import React from 'react'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { Helmet } from 'react-helmet'
 import Plx from 'react-plx'
 import styles from './styles.module.scss'
@@ -351,7 +350,7 @@ const TwentyEighteen = () => {
 			</Flex>
 			{/* anchor links */}
 			<Plx className={styles.anchorLinks} parallaxData={anchorLinks}>
-				<AnchorLink href="#header">
+				<a href="#header">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -359,8 +358,8 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Top
 					</Plx>
-				</AnchorLink>
-				<AnchorLink offset="100" href="#team">
+				</a>
+				<a href="#team">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -368,8 +367,8 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Team
 					</Plx>
-				</AnchorLink>
-				<AnchorLink href="#products-launched">
+				</a>
+				<a href="#products-launched">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -377,8 +376,8 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Products Launched
 					</Plx>
-				</AnchorLink>
-				<AnchorLink offset="200" href="#rebrand">
+				</a>
+				<a href="#rebrand">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -386,8 +385,8 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Brand
 					</Plx>
-				</AnchorLink>
-				<AnchorLink href="#designers-hired">
+				</a>
+				<a href="#designers-hired">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -395,8 +394,8 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Big Moments
 					</Plx>
-				</AnchorLink>
-				<AnchorLink href="#dribbble">
+				</a>
+				<a href="#dribbble">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -404,8 +403,8 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Dribbble Campaign
 					</Plx>
-				</AnchorLink>
-				<AnchorLink href="#vanity-metrics">
+				</a>
+				<a href="#vanity-metrics">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -413,8 +412,8 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Vanity Metrics
 					</Plx>
-				</AnchorLink>
-				<AnchorLink offset="200" href="#lexicon">
+				</a>
+				<a href="#lexicon">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -422,8 +421,8 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Lexicon
 					</Plx>
-				</AnchorLink>
-				<AnchorLink href="#thankyou">
+				</a>
+				<a href="#thankyou">
 					<Plx
 						className={styles.anchorBlock}
 						parallaxData={anchorLinksBlocks}
@@ -431,7 +430,7 @@ const TwentyEighteen = () => {
 					<Plx className={styles.anchorText} parallaxData={anchorLinksText}>
 						Thank You
 					</Plx>
-				</AnchorLink>
+				</a>
 			</Plx>
 
 			{/* header */}

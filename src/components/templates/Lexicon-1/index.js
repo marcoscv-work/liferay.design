@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
 import { jsx, Grid } from 'theme-ui'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { ContainerMarkdown, Flex, Icon, SiteName, Text, Link } from 'components/atoms'
 import { AuthContainer, GlobalMdx } from 'components/molecules'
 import { Footer, Sidebar } from 'components/organisms'
@@ -90,7 +89,7 @@ export default class Lexicon extends Component {
 										) : null}
 
 										<GlobalMdx>
-											<MDXRenderer>{mdx.body}</MDXRenderer>
+											{this.props.children}
 										</GlobalMdx>
 									</ContainerMarkdown>
 									<Footer markdown light />
@@ -153,7 +152,6 @@ export const pageQuery = graphql`
 				description
 				titleLabelLink
 			}
-			body
 		}
 	}
 `

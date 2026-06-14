@@ -22,7 +22,7 @@ Issue types also help you search and sort the work your team takes on, track the
 	dropShadow
 />
 
-<!-- TODO — Update this image 👆 @leolohmann -->
+{/* TODO — Update this image 👆 @leolohmann */}
 
 Jira offers default issue types to suit the needs of different projects and teams. It is also possible to customize the issue types to match any method, process, or project management style, as for example Kanban or Scrum.
 
@@ -130,7 +130,7 @@ While using the standard workflow to simply move an issue from OPEN to IN PROGRE
 If there is a piece of work that needs to be APPROVED then it may need additional statuses to reflect the actual dynamics like AWAITING APPROVAL, REVIEW IN PROGRESS, and REVIEW COMPLETE.
 
 The diversity of design teams is another reason to create a new or customized workflow. A team could benefit from having their own work process stages and requirements customized in Jira.
-<!-- Not sure this section is necessary yet
+{/* Not sure this section is necessary yet
 
 ### How to Create a New Workflow?
 
@@ -143,7 +143,7 @@ From the menu:
 4. Name the new workflow
 5. Start mapping it!
 
-_The workflow designer tool allows you to edit the layout of workflow, the progress path of statuses, and transitions._ -->
+_The workflow designer tool allows you to edit the layout of workflow, the progress path of statuses, and transitions._ */}
 
 ### Entities related to a workflow:
 

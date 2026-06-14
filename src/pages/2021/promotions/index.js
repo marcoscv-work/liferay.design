@@ -1,17 +1,17 @@
 /** @jsx jsx */
 
-import { jsx, ThemeProvider } from 'theme-ui'
+import { jsx, ThemeUIProvider } from 'theme-ui'
 import theme from 'gatsby-plugin-theme-ui/2021'
 import Header from './components/header.js'
 import Footer from './components/footer.js'
 import Designers from './components/designerSection.js'
 import { Link, Icon, ScrollArrow } from 'components/atoms'
 import { SEO } from 'components/molecules'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 
 const Promotions = () => {
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeUIProvider theme={theme}>
 			<Global
 				styles={theme => ({
 					body: {
@@ -42,7 +42,7 @@ const Promotions = () => {
 
 				<Footer />
 			</div>
-		</ThemeProvider>
+		</ThemeUIProvider>
 	)
 }
 

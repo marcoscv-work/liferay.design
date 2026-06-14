@@ -49,32 +49,27 @@ export default ({ data }) => {
 	)
 }
 
-export const query = graphql`
-	{
-		allMdx(
-			filter: {
-				fileAbsolutePath: { regex: "/(/team/)/" }
-				frontmatter: { author: { active: { eq: true } } }
-			}
-			sort: { order: ASC, fields: [fields___slug] }
-		) {
-			totalCount
-			edges {
-				node {
-					id
-					frontmatter {
-						author {
-							id: yamlId
-							title
-							icon
-						}
-					}
-					fields {
-						slug
-					}
-					excerpt
-				}
-			}
-		}
-	}
-`
+export const query = graphql`{
+  allMdx(
+    filter: {internal: { contentFilePath: { regex: "/(/team/)/" } }, frontmatter: {author: {active: {eq: true}}}}
+    sort: {fields: {slug: ASC}}
+  ) {
+    totalCount
+    edges {
+      node {
+        id
+        frontmatter {
+          author {
+            id: yamlId
+            title
+            icon
+          }
+        }
+        fields {
+          slug
+        }
+        excerpt
+      }
+    }
+  }
+}`

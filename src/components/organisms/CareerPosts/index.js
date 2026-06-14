@@ -5,41 +5,36 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { CardDefault } from 'components/molecules'
 
 export default ({ limit, ...props }) => {
-	const data = useStaticQuery(graphql`
-	{
-		allMdx(
-			filter: {
-				fileAbsolutePath: { regex: "/(careers)/" }
-				frontmatter: { published: { eq: true } }
-			}
-			sort: { fields: frontmatter___date, order: ASC }
-		) {
-			totalCount
-			edges {
-				node {
-					id
-					frontmatter {
-						title
-						office {
-							city
-							region {
-								countries
-								countryIcon
-							}
-							country
-							countryIcon
-						}
-						featuredImage
-						remote
-					}
-					fields {
-						slug
-					}
-				}
-			}
-		}
-	}
-	`)
+	const data = useStaticQuery(graphql`{
+  allMdx(
+    filter: {internal: { contentFilePath: { regex: "/(careers)/" } }, frontmatter: {published: {eq: true}}}
+    sort: {frontmatter: {date: ASC}}
+  ) {
+    totalCount
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          office {
+            city
+            region {
+              countries
+              countryIcon
+            }
+            country
+            countryIcon
+          }
+          featuredImage
+          remote
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
+}`)
 	return (
 		<Grid {...props}>
 			{data.allMdx.edges.slice(0, limit).map(({ node }, index) => (
