@@ -145,13 +145,15 @@ const containsActive = (node: SidebarNode): boolean =>
 </script>
 
 <style>
+	/* sticky like the original Lexicon sidebar: stays in view while the page
+	   scrolls, capped to the viewport height */
 	.lx-sidebar {
 		background: var(--c-neutral9, #f4f6f9);
-		/* fill the full page height (grid cell), capped to the viewport + sticky */
-		height: 100%;
-		max-height: 100vh;
+		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
+		height: 100%;
+		max-height: 100vh;
 		/* visible so the search dropdown can escape; the nav scrolls on its own */
 		overflow: visible;
 		font-family: var(--font-lexicon);
