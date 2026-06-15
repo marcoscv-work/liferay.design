@@ -51,7 +51,7 @@ const downloadHref = `/lexicon/figma-foundations/${c.slug}.json`
 				<div class="fc-labels">
 					<a class="label info-full" href={figmaUrl} target="_blank" rel="noopener">View in Figma</a>
 					<a class="label download" href={downloadHref} download={`lexicon-${c.slug}-tokens.json`}>↓ Download tokens (JSON)</a>
-					<span class="label neutral">{tokenCount} tokens</span>
+					<span class="fc-count">{tokenCount} tokens</span>
 				</div>
 
 				{c.description && <p class="lexicon-description">{c.description}</p>}
@@ -115,13 +115,15 @@ const downloadHref = `/lexicon/figma-foundations/${c.slug}.json`
 	.lexicon-doc-container { max-width: 960px; padding: 2rem 4rem 5rem; margin: 0 auto; }
 	.fc-back { display: inline-block; margin-bottom: 1rem; color: var(--c-main-l3); font-size: 0.85rem; text-decoration: none; }
 	.fc-back:hover { color: var(--c-primary); }
-	.fc h1 { margin: 0 0 0.85rem; }
-	.fc-labels { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0 0 1.75rem; }
-	.label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.55rem; border-radius: 0.25rem; text-decoration: none; }
-	.label.info-full { background: var(--c-primary, #0b5fff); color: #fff; }
-	.label.neutral { background: var(--c-main-l6); color: var(--c-main-l2); }
-	.label.download { background: var(--c-main-l6); color: var(--c-main); border: 1px solid var(--c-main-l5, #cdced9); }
+	.fc h1 { margin: 0; padding: 0; line-height: 1.2; }
+	.fc-labels { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.85rem 0 1.75rem; }
+	/* the global .label uses position:relative; top:-2.5rem to tuck under a title — undo it here */
+	.fc-labels .label { position: static; top: auto; margin: 0; }
+	/* Download = secondary button: white bg (from global .label) + neutral border */
+	.label.download { border-color: var(--c-main-l4, #cdced9); color: var(--c-main); }
 	.label.download:hover { border-color: var(--c-primary, #0b5fff); color: var(--c-primary, #0b5fff); }
+	/* token count = plain metadata, not interactive */
+	.fc-count { color: var(--c-main-l3); font-size: 0.8rem; }
 	.fc-color-group { margin-top: 1.5rem; }
 	.fc-color-group h3 { margin: 0 0 0.6rem; font-family: var(--font-lexicon); font-size: 0.95rem; color: var(--c-main); }
 	.fc-section { margin-top: 1.5rem; }
