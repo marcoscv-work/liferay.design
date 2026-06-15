@@ -78,7 +78,31 @@ async function download(url, dest) {
 async function main() {
 	const token = await getToken()
 	if (!token) {
-		console.error('No FIGMA_ACCESS_TOKEN found (astro/.env or env). Aborting.')
+		console.error(
+			[
+				'',
+				'✖ No Figma token found.',
+				'',
+				'  This importer needs a Figma personal access token to read the',
+				'  "Lexicon Components" library.',
+				'',
+				'  1. Create one: https://www.figma.com/developers/api#access-tokens',
+				'     (Figma → Settings → Security → Personal access tokens)',
+				'  2. Read access is enough for images/variants/descriptions.',
+				'     (Design tokens/variables need a Figma Enterprise plan + the',
+				'      file_variables:read scope; otherwise fill them via the Figma',
+				'      desktop MCP get_variable_defs.)',
+				'  3. Make it available, either:',
+				'       echo \'FIGMA_ACCESS_TOKEN="figd_..."\' >> astro/.env   # gitignored',
+				'     or for your shell:',
+				'       export FIGMA_ACCESS_TOKEN="figd_..."',
+				'',
+				'  Then re-run:  node scripts/figma-export.mjs [slug ...]',
+				'',
+				`  (looked for ${TOKEN_NAMES.join(', ')} in the environment and astro/.env)`,
+				'',
+			].join('\n'),
+		)
 		process.exit(1)
 	}
 	await mkdir(IMG_DIR, { recursive: true })
