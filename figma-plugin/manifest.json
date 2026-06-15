@@ -1,0 +1,12 @@
+{
+	"name": "Lexicon Docs Sync (PoC)",
+	"id": "lexicon-docs-sync-poc",
+	"api": "1.0.0",
+	"main": "code.js",
+	"ui": "ui.html",
+	"editorType": ["figma"],
+	"networkAccess": {
+		"allowedDomains": ["none"],
+		"reasoning": "PoC only extracts data and shows it in the UI; no network calls yet."
+	}
+}

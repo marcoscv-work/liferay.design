@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			html, body { background: #ffffff; color: #1c1c24; }
+			:root { font-family: Inter, "SF Pro Text", -apple-system, sans-serif; font-size: 12px; color: #1c1c24; color-scheme: light; }
+			body { margin: 0; padding: 16px; }
+			h1 { font-size: 14px; margin: 0 0 2px; }
+			p.sub { margin: 0 0 14px; color: #6b6c7e; }
+			button { font: inherit; font-weight: 600; border: 0; border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+			button.primary { background: #0b5fff; color: #fff; }
+			button.primary:hover { background: #004ad7; }
+			button.ghost { background: #f1f2f5; color: #1c1c24; }
+			button.ghost:hover { background: #e2e4ea; }
+			.meta { margin: 14px 0 8px; color: #6b6c7e; }
+			.meta b { color: #1c1c24; }
+			.cards { display: grid; gap: 6px; margin-bottom: 12px; }
+			.card { border: 1px solid #e7e7ed; border-radius: 6px; padding: 8px 10px; }
+			.card .n { font-weight: 600; }
+			.card .d { color: #6b6c7e; }
+			.swrow { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+			.chip { background: #f1f2f5; border-radius: 4px; padding: 1px 6px; font-size: 11px; color: #393a4a; }
+			.dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; border: 1px solid rgba(0,0,0,0.1); vertical-align: -1px; margin-right: 4px; }
+			pre { background: #1c1c24; color: #e7e7ed; padding: 12px; border-radius: 6px; overflow: auto; max-height: 220px; font-size: 11px; line-height: 1.5; }
+			.row { display: flex; gap: 8px; align-items: center; }
+			.err { color: #da1414; margin-top: 10px; }
+			.empty { color: #9191a1; }
+		</style>
+	</head>
+	<body>
+		<h1>Lexicon Docs Sync <span style="color:#9191a1">(PoC)</span></h1>
+		<p class="sub">Reads variables &amp; component variants from this file — no token needed.</p>
+		<div class="row">
+			<button class="primary" id="extract">Extract from this file</button>
+			<button class="ghost" id="copy" style="display:none">Copy JSON</button>
+		</div>
+		<div id="out"></div>
+
+		<script>
+			const $ = id => document.getElementById(id)
+			let lastJson = ''
+
+			$('extract').onclick = () => parent.postMessage({ pluginMessage: { type: 'extract' } }, '*')
+			function copyText(text) {
+				// navigator.clipboard is usually blocked in the Figma plugin iframe,
+				// so fall back to a hidden textarea + execCommand.
+				const ta = document.createElement('textarea')
+				ta.value = text
+				ta.style.position = 'fixed'
+				ta.style.opacity = '0'
+				document.body.appendChild(ta)
+				ta.focus()
+				ta.select()
+				let ok = false
+				try {
+					ok = document.execCommand('copy')
+				} catch (e) {}
+				document.body.removeChild(ta)
+				if (!ok && navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {})
+			}
+			$('copy').onclick = () => {
+				copyText(lastJson)
+				$('copy').textContent = 'Copied ✓'
+				setTimeout(() => ($('copy').textContent = 'Copy JSON'), 1200)
+			}
+
+			onmessage = event => {
+				const msg = event.data.pluginMessage
+				if (!msg) return
+				if (msg.type === 'error') {
+					$('out').innerHTML = '<p class="err">' + msg.message + '</p>'
+					return
+				}
+				if (msg.type !== 'result') return
+
+				const t = msg.tokens
+				const groups = Object.entries(t.groups)
+				let html =
+					'<p class="meta"><b>' + msg.fileName + '</b> · page “' + msg.page + '”</p>'
+
+				// tokens summary
+				html += '<p class="meta"><b>' + t.count + '</b> variables across <b>' + groups.length + '</b> groups</p>'
+				if (groups.length) {
+					html += '<div class="cards">'
+					for (const [g, items] of groups) {
+						html += '<div class="card"><div class="n">' + g + ' <span class="d">· ' + items.length + '</span></div><div class="swrow">'
+						for (const it of items.slice(0, 12)) {
+							const isColor = /^#/.test(it.value)
+							html += '<span class="chip">' + (isColor ? '<span class="dot" style="background:' + it.value + '"></span>' : '') + it.name.split('/').slice(-1)[0] + '</span>'
+						}
+						if (items.length > 12) html += '<span class="chip">+' + (items.length - 12) + '</span>'
+						html += '</div></div>'
+					}
+					html += '</div>'
+				}
+
+				// component sets
+				html += '<p class="meta"><b>' + msg.componentSets.length + '</b> component sets on this page</p>'
+				if (msg.componentSets.length) {
+					html += '<div class="cards">'
+					for (const s of msg.componentSets) {
+						html += '<div class="card"><div class="n">' + s.name + ' <span class="d">· ' + s.variantCount + ' variants</span></div><div class="swrow">'
+						for (const p of s.properties) html += '<span class="chip">' + p.name + ' (' + p.values.length + ')</span>'
+						html += '</div></div>'
+					}
+					html += '</div>'
+				} else {
+					html += '<p class="empty">None — open a component page to see its variants.</p>'
+				}
+
+				// raw JSON (the data the docs would consume)
+				lastJson = JSON.stringify({ fileName: msg.fileName, page: msg.page, tokens: t.tokens, componentSets: msg.componentSets }, null, 2)
+				html += '<p class="meta">Generated JSON</p><pre>' + lastJson.replace(/</g, '&lt;') + '</pre>'
+
+				$('out').innerHTML = html
+				$('copy').style.display = ''
+			}
+		</script>
+	</body>
+</html>
