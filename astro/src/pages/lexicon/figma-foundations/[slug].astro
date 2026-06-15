@@ -115,7 +115,8 @@ const downloadHref = `/lexicon/figma-foundations/${c.slug}.json`
 	.lexicon-doc-container { max-width: 960px; padding: 2rem 4rem 5rem; margin: 0 auto; }
 	.fc-back { display: inline-block; margin-bottom: 1rem; color: var(--c-main-l3); font-size: 0.85rem; text-decoration: none; }
 	.fc-back:hover { color: var(--c-primary); }
-	.fc-labels { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0 1.5rem; }
+	.fc h1 { margin: 0 0 0.85rem; }
+	.fc-labels { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0 0 1.75rem; }
 	.label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.55rem; border-radius: 0.25rem; text-decoration: none; }
 	.label.info-full { background: var(--c-primary, #0b5fff); color: #fff; }
 	.label.neutral { background: var(--c-main-l6); color: var(--c-main-l2); }
@@ -126,11 +127,11 @@ const downloadHref = `/lexicon/figma-foundations/${c.slug}.json`
 	.fc-section { margin-top: 1.5rem; }
 	.fc-meta { color: var(--c-main-l3); font-size: 0.9rem; }
 
-	.fc-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.5rem; }
-	.fc-swatch { display: flex; align-items: center; gap: 0.6rem; padding: 0.4rem; border: 1px solid var(--c-main-l6); border-radius: 0.4rem; }
+	.fc-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 0.5rem; }
+	.fc-swatch { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.5rem; border: 1px solid var(--c-main-l6); border-radius: 0.4rem; }
 	.fc-chip-color { width: 1.6rem; height: 1.6rem; border-radius: 0.3rem; border: 1px solid rgba(0,0,0,0.1); flex: none; }
-	.fc-swatch code { font-size: 0.75rem; color: var(--c-main-l2); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-	.fc-swatch .fc-val { font-size: 0.7rem; color: var(--c-main-l3); text-transform: uppercase; }
+	.fc-swatch code { font-size: 0.75rem; color: var(--c-main-l2); flex: 1; min-width: 0; line-height: 1.35; white-space: normal; overflow-wrap: anywhere; }
+	.fc-swatch .fc-val { font-size: 0.7rem; color: var(--c-main-l3); text-transform: uppercase; flex: none; white-space: nowrap; }
 
 	.fc-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.5rem; }
 	.fc-table th, .fc-table td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--c-main-l6); vertical-align: middle; }
