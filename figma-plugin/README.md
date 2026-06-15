@@ -1,53 +1,68 @@
-# Lexicon Docs Sync — Figma plugin (proof of concept)
+# Lexicon Docs Sync — Figma plugin
 
-A proof of concept for letting **non-technical users refresh the Lexicon docs
-straight from Figma**, instead of running the Node import scripts from a
-terminal.
+Lets a designer push the Lexicon **tokens** from Figma to the docs site **as a
+pull request**, with no terminal, no git and no token handling.
 
-## Why a plugin
+```
+Designer in Figma → "Sync Foundations → open PR"
+   → plugin reads the variables (native API, no REST token)
+   → UI POSTs the generated JSON to the figma-sync Netlify function
+   → function commits the files on a branch and opens a PR   (GitHub token stays server-side)
+   → Netlify builds → merge → live
+```
 
-A plugin runs inside Figma with the designer's session, so it reads the data
-the docs need **natively** — and crucially, it can read **design variables
-without a REST token or an Enterprise plan**, which is exactly what forces the
-current token extraction through the desktop MCP. It also reads component-set
-variants and can export images.
+The plugin reads design variables with the Figma API directly, so it needs **no
+REST token and no Enterprise plan** (which is what blocks the headless scripts).
 
-This PoC does the **extract + preview** half: it shows the JSON it would
-produce. It does **not** yet write to the repo — that next step is a GitHub App
-/ serverless endpoint that turns this JSON into a pull request, after which
-Netlify rebuilds.
+## Pieces
 
-## What it extracts
-
-- **Tokens** — every local variable as `"Group/name": value` (colors → hex,
-  numbers → value), grouped for display. Run it in the **Lexicon Foundations**
-  file to see the full token set.
-- **Component variants** — every component set on the current page with its
-  variant axes and count, parsed from the `Prop=Value` names. Run it on a
-  **Lexicon Components** page to see them.
-- A **Copy JSON** button with the combined result (the same shape the docs data
-  files use).
-
-## Try it
-
-1. Open the **Figma desktop app** and the Lexicon Foundations (or Components) file.
-2. Menu → **Plugins → Development → Import plugin from manifest…**
-3. Pick `figma-plugin/manifest.json` from this repo.
-4. Run **Plugins → Development → Lexicon Docs Sync (PoC)**.
-5. Click **Extract from this file** → review the grouped summary + JSON, **Copy JSON**.
-
-## Files
-
-| File | Role |
+| Where | What |
 |---|---|
-| `manifest.json` | plugin metadata (no network access in the PoC) |
-| `code.js` | sandbox code — reads variables / component sets via the Figma API |
-| `ui.html` | the panel UI — runs Extract, renders the preview + Copy JSON |
+| `figma-plugin/` | the plugin: `manifest.json`, `code.js` (reads variables, builds the files), `ui.html` (settings + Sync button + PR link) |
+| `netlify/functions/figma-sync.js` | the endpoint: validates a secret, commits the files, opens a PR. No deps (uses `fetch` + the GitHub API). |
 
-## Next step (not in this PoC)
+## One-time setup (technical, done once)
 
-Add `networkAccess.allowedDomains` + a "Sync to docs" button that POSTs the JSON
-to a small **GitHub App / serverless** endpoint, which commits the generated
-`src/data/figma-components/*.json`, `src/data/figma-foundations/*.json` and the
-exported images on a branch and opens a **PR** (so changes are reviewed before
-they hit the public site). The export images would use `node.exportAsync()`.
+**1. Netlify environment variables** (Site settings → Environment variables):
+
+| Var | Value |
+|---|---|
+| `GITHUB_TOKEN` | a token with `repo` scope (contents + pull requests) on `liferay-design/liferay.design` — ideally a **GitHub App** installation token or a fine-grained PAT |
+| `SYNC_SECRET` | any random string; the plugin must send the same value |
+| `GITHUB_BASE` | base branch for the PR. **Set to `migration-to-astro`** until the Astro migration is merged (that's where the docs data lives); then `master`. Defaults to `master`. |
+| `GITHUB_REPO` | optional, defaults to `liferay-design/liferay.design` |
+
+The function deploys with the site at:
+`https://<your-netlify-site>/.netlify/functions/figma-sync`
+(on a deploy preview it's `https://<deploy-preview-url>/.netlify/functions/figma-sync`).
+
+**2. Plugin connection** (each designer, once): open the plugin → **Connection**
+→ paste the endpoint URL + the `SYNC_SECRET` → **Save connection** (stored in
+Figma's `clientStorage`, never committed).
+
+## Use it
+
+1. Figma desktop → open the **Lexicon Foundations** file.
+2. **Plugins → Development → Import plugin from manifest…** → `figma-plugin/manifest.json` (first time only).
+3. Run the plugin → **↑ Sync Foundations → open PR**.
+4. Follow the **review it ↗** link to the PR. Merge it → Netlify deploys.
+
+(**Preview** shows what it will extract without sending anything.)
+
+## Security
+
+- The GitHub token lives only in Netlify env vars — never in the plugin.
+- The function rejects requests without the right `SYNC_SECRET`, and only writes
+  paths under `astro/src/data/figma-foundations/`, `astro/src/data/figma-components/`
+  and `static/images/lexicon/figma/`.
+- It always opens a **PR** (never pushes to the base branch), so changes are
+  reviewed before they reach the public site.
+
+## Scope & next step
+
+- **Done:** Foundations tokens (colors, typography, spacing, border-radius,
+  opacity, shadow) — produces the 6 `figma-foundations/*.json` files.
+- **Next:** Figma Components — same flow plus component-set variants and **image
+  export** (`node.exportAsync` → committed as base64; the function already
+  accepts `contentBase64`). The function is generic, so this is mostly plugin
+  work.

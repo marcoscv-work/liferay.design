@@ -6,7 +6,7 @@
 	"ui": "ui.html",
 	"editorType": ["figma"],
 	"networkAccess": {
-		"allowedDomains": ["none"],
-		"reasoning": "PoC only extracts data and shows it in the UI; no network calls yet."
+		"allowedDomains": ["https://*.netlify.app", "https://design.liferay.com"],
+		"reasoning": "Sends the generated docs JSON to the figma-sync Netlify function, which opens a PR."
 	}
 }
