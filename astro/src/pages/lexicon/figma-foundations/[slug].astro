@@ -20,6 +20,18 @@ const figmaUrl = figmaNodeUrl(c.figma)
 const tokens = categoriseTokens(c.tokens)
 const tokenCount = c.tokens ? Object.keys(c.tokens).length : 0
 const flat = [...tokens.spacing, ...tokens.radius, ...tokens.opacity, ...tokens.shadow]
+
+// Group color swatches by their token path: "Color/Primary/primary-l1" → "Primary",
+// "Color/Charts/Blue/blue-d4" → "Charts / Blue". Preserves token order.
+const colorGroups: { group: string; tokens: typeof tokens.colors }[] = []
+for (const t of tokens.colors) {
+	const parts = t.name.split('/')
+	const group = parts.slice(1, -1).join(' / ') || 'Other'
+	let bucket = colorGroups.find(g => g.group === group)
+	if (!bucket) colorGroups.push((bucket = { group, tokens: [] }))
+	bucket.tokens.push(t)
+}
+const downloadHref = `/lexicon/figma-foundations/${c.slug}.json`
 ---
 
 <BaseLayout
@@ -38,23 +50,27 @@ const flat = [...tokens.spacing, ...tokens.radius, ...tokens.opacity, ...tokens.
 
 				<div class="fc-labels">
 					<a class="label info-full" href={figmaUrl} target="_blank" rel="noopener">View in Figma</a>
+					<a class="label download" href={downloadHref} download={`lexicon-${c.slug}-tokens.json`}>↓ Download tokens (JSON)</a>
 					<span class="label neutral">{tokenCount} tokens</span>
 				</div>
 
 				{c.description && <p class="lexicon-description">{c.description}</p>}
 
 				<section class="fc-section">
-					{tokens.colors.length > 0 && (
-						<div class="fc-swatches">
-							{tokens.colors.map(t => (
-								<div class="fc-swatch">
-									<span class="fc-chip-color" style={`background:${t.value}`} />
-									<code>{t.name}</code>
-									<span class="fc-val">{t.value}</span>
-								</div>
-							))}
+					{colorGroups.map(g => (
+						<div class="fc-color-group">
+							<h3>{g.group}</h3>
+							<div class="fc-swatches">
+								{g.tokens.map(t => (
+									<div class="fc-swatch">
+										<span class="fc-chip-color" style={`background:${t.value}`} />
+										<code>{t.name}</code>
+										<span class="fc-val">{t.value}</span>
+									</div>
+								))}
+							</div>
 						</div>
-					)}
+					))}
 
 					{tokens.typography.length > 0 && (
 						<table class="fc-table">
@@ -103,6 +119,10 @@ const flat = [...tokens.spacing, ...tokens.radius, ...tokens.opacity, ...tokens.
 	.label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.55rem; border-radius: 0.25rem; text-decoration: none; }
 	.label.info-full { background: var(--c-primary, #0b5fff); color: #fff; }
 	.label.neutral { background: var(--c-main-l6); color: var(--c-main-l2); }
+	.label.download { background: var(--c-main-l6); color: var(--c-main); border: 1px solid var(--c-main-l5, #cdced9); }
+	.label.download:hover { border-color: var(--c-primary, #0b5fff); color: var(--c-primary, #0b5fff); }
+	.fc-color-group { margin-top: 1.5rem; }
+	.fc-color-group h3 { margin: 0 0 0.6rem; font-family: var(--font-lexicon); font-size: 0.95rem; color: var(--c-main); }
 	.fc-section { margin-top: 1.5rem; }
 	.fc-meta { color: var(--c-main-l3); font-size: 0.9rem; }
 
