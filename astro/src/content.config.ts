@@ -131,4 +131,24 @@ const figmaComponents = defineCollection({
 	}),
 })
 
-export const collections = { authors, offices, articles, events, team, lexicon, figmaComponents }
+// Foundations: design tokens from the Figma "Lexicon Foundations" file, one
+// JSON per token group (colors, typography, spacing, …). Produced by
+// scripts/foundations-seed.mjs. See .claude/skills/lexicon-figma-import.
+const figmaFoundations = defineCollection({
+	loader: glob({ base: './src/data/figma-foundations', pattern: '**/*.json' }),
+	schema: z.object({
+		name: z.string(),
+		slug: z.string(),
+		order: z.number().optional(),
+		description: z.string().optional(),
+		figma: z.object({
+			fileKey: z.string(),
+			fileName: z.string().optional(),
+			pageNodeId: z.string().optional(),
+		}),
+		// raw flat token map straight from Figma variables (Group/name -> value)
+		tokens: z.record(z.string(), z.string()).optional(),
+	}),
+})
+
+export const collections = { authors, offices, articles, events, team, lexicon, figmaComponents, figmaFoundations }

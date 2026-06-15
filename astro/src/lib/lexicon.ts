@@ -49,12 +49,41 @@ export async function buildSidebarTree(): Promise<SidebarNode[]> {
 
 	const tree = sortTree(root.children)
 
-	// Inject the generated "Figma Components" branch right after "Components"
-	// (core-components, order 200). Sits at the same top level.
+	// Inject the generated "Foundations" + "Figma Components" branches at the
+	// same top level (orders 200 / 205, beside "Components").
+	const foundations = await buildFoundationsNode()
+	if (foundations) tree.push(foundations)
+
 	const figma = await buildFigmaComponentsNode()
 	if (figma) tree.push(figma)
 
 	return sortTree(tree)
+}
+
+/** Top-level "Foundations" sidebar branch built from the foundations collection. */
+export async function buildFoundationsNode(): Promise<SidebarNode | undefined> {
+	const items = await getCollection('figmaFoundations')
+	if (!items.length) return undefined
+	const children: SidebarNode[] = items
+		.map(c => ({
+			key: c.data.slug,
+			title: c.data.name,
+			slug: `/lexicon/figma-foundations/${c.data.slug}`,
+			order: c.data.order ?? c.data.name,
+			children: [],
+		}))
+		.sort((a, b) => {
+			if (typeof a.order === 'number' && typeof b.order === 'number') return a.order - b.order
+			return String(a.order).localeCompare(String(b.order))
+		})
+	return {
+		key: 'figma-foundations',
+		title: 'Figma Foundations',
+		slug: '/lexicon/figma-foundations',
+		order: 198,
+		firstLevel: true,
+		children,
+	}
 }
 
 /** Top-level "Figma Components" sidebar branch built from the figmaComponents collection. */
