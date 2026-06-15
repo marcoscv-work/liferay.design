@@ -1,8 +1,6 @@
-# This branch (migration-to-astro) builds the Astro app in `astro/`, not the
-# root Gatsby site. `base` points Netlify at the subdir for install + build;
-# the full repo is still checked out, so Astro can read ../src/markdown and
-# ../static (publicDir). On master, netlify.toml still builds Gatsby — so this
-# only changes THIS branch's deploy previews until the PR is merged.
+# The site is the Astro app in `astro/`. `base` points Netlify there for the
+# install + build; the full repo is still checked out, so Astro reads
+# ../src/markdown and ../static (publicDir). Output is astro/dist.
 [build]
   base = "astro"
   command = "npm install && npm run build"
